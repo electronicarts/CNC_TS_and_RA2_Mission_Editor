@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0" xmlns:asm3="urn:schemas-microsoft-com:asm.v3" xmlns:ws="http://schemas.microsoft.com/SMI/2019/WindowsSettings">
+  <asm3:application>
+    <asm3:windowsSettings> 
+      <ws:activeCodePage>UTF-8</ws:activeCodePage>
+    </asm3:windowsSettings>
+  </asm3:application>
+</assembly>

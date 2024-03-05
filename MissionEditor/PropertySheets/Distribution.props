@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+  </PropertyGroup>
+  <PropertyGroup>
+    <DistributionFolder>$(MSBuildThisFileDirectory)\..\..\dist\$(DistributionName)</DistributionFolder>
+	<OutDir>$(DistributionFolder)\</OutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <!--<XccVcpkgLic Include="$(XccVcpkgDirTriplet)\share\boost-config\copyright"><Dest>boost\license.txt</Dest></XccVcpkgLic>-->
+    <XccVcpkgLic Include="$(XccVcpkgDirTriplet)\share\*\copyright">
+      <Dest>%(RecursiveDir)\COPYING</Dest>
+    </XccVcpkgLic>
+    <XccVcpkgBin Include="$(XccVcpkgDir)\bin\bz2*.dll" />
+    <XccVcpkgBin Include="$(XccVcpkgDir)\bin\lzo2.dll" />
+    <XccVcpkgBin Include="$(XccVcpkgDir)\bin\zlib*1.dll" />
+    <InstallData Include="$(MSBuildThisFileDirectory)\..\data\shared\**\*" />
+    <InstallData Include="$(MSBuildThisFileDirectory)\..\..\LICENSE.md" />
+    <LicDir Include="$(XccDir)\COPYING" DestDir="xcc" />
+  </ItemGroup>
+  <Target Name="CopyLicenseFiles" AfterTargets="Build" BeforeTargets="BuildAndZipDistribution">
+    <Copy SourceFiles="@(XccVcpkgLic)" DestinationFiles="$(OutDir)\3rdParty\licenses\%(Dest)" />
+  </Target>
+  <Target Name="CopyLicenseFilesToDir" AfterTargets="Build" BeforeTargets="BuildAndZipDistribution">
+    <Copy SourceFiles="@(XccVcpkgLicDir)" DestinationFolder="$(OutDir)\3rdParty\licenses\%(DestDir)" />
+    <Copy SourceFiles="@(LicDir)" DestinationFolder="$(OutDir)\3rdParty\licenses\%(DestDir)" />
+  </Target>
+  <Target Name="CopyDllFiles" AfterTargets="Build" BeforeTargets="BuildAndZipDistribution">
+    <Copy SourceFiles="@(XccVcpkgBin)" DestinationFolder="$(OutDir)" />
+  </Target>
+  <Target Name="CopyDataFiles" AfterTargets="Build" BeforeTargets="BuildAndZipDistribution">
+    <Copy SourceFiles="@(InstallData)" DestinationFolder="$(OutDir)\%(RecursiveDir)" />
+  </Target>
+  <Target Name="CleanDistribution" BeforeTargets="Clean">
+    <RemoveDir Directories="$(DistributionFolder)" />
+  </Target>
+  <Target Name="BuildAndZipDistribution" AfterTargets="Build" Condition="'$(DistributeMissionEditor)'=='true'">
+        <ZipDirectory
+            Overwrite="True"
+            SourceDirectory="$(DistributionFolder)"
+            DestinationFile="$(DistributionFolder)\..\$(DistributionName).zip" />
+    </Target>
+</Project>

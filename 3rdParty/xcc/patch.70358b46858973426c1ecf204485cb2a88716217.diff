@@ -1,0 +1,769 @@
+diff --git a/Library/StdAfx.h b/Library/StdAfx.h
+index f688f65..ce37391 100644
+--- a/Library/StdAfx.h
++++ b/Library/StdAfx.h
+@@ -35,7 +35,9 @@
+ #include <vector>
+ #include <xcc/data_ref.h>
+ #include <xcc/find_ptr.h>
++#ifndef XCC_MINIMAL_BUILD
+ #include <xcc/string_view.h>
++#endif
+ 
+ using namespace std;
+ using boost::iequals;
+diff --git a/Library/XCC Library.vcxproj b/Library/XCC Library.vcxproj
+index 0481daf..857d3f8 100644
+--- a/Library/XCC Library.vcxproj	
++++ b/Library/XCC Library.vcxproj	
+@@ -1,10 +1,18 @@
+ ﻿<?xml version="1.0" encoding="utf-8"?>
+ <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+   <ItemGroup Label="ProjectConfigurations">
++    <ProjectConfiguration Include="DebugMinimal|Win32">
++      <Configuration>DebugMinimal</Configuration>
++      <Platform>Win32</Platform>
++    </ProjectConfiguration>
+     <ProjectConfiguration Include="Debug|Win32">
+       <Configuration>Debug</Configuration>
+       <Platform>Win32</Platform>
+     </ProjectConfiguration>
++    <ProjectConfiguration Include="ReleaseMinimal|Win32">
++      <Configuration>ReleaseMinimal</Configuration>
++      <Platform>Win32</Platform>
++    </ProjectConfiguration>
+     <ProjectConfiguration Include="Release|Win32">
+       <Configuration>Release</Configuration>
+       <Platform>Win32</Platform>
+@@ -18,18 +26,59 @@
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
++    <OutDir>$(SolutionDir)\build\output\$(Configuration)-$(Platform)\lib\</OutDir>
++    <IntDir>$(SolutionDir)\build\intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+-    <UseOfMfc>Static</UseOfMfc>
++    <UseOfMfc>Dynamic</UseOfMfc>
++    <CharacterSet>MultiByte</CharacterSet>
++    <WholeProgramOptimization>true</WholeProgramOptimization>
++    <PlatformToolset>v143</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMinimal|Win32'" Label="Configuration">
++    <OutDir>$(SolutionDir)\build\output\$(Configuration)-$(Platform)\lib\</OutDir>
++    <IntDir>$(SolutionDir)\build\intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
++    <ConfigurationType>StaticLibrary</ConfigurationType>
++    <UseOfMfc>Dynamic</UseOfMfc>
+     <CharacterSet>MultiByte</CharacterSet>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
++    <OutDir>$(SolutionDir)\build\output\$(Configuration)-$(Platform)\lib\</OutDir>
++    <IntDir>$(SolutionDir)\build\intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
++    <ConfigurationType>StaticLibrary</ConfigurationType>
++    <UseOfMfc>Dynamic</UseOfMfc>
++    <CharacterSet>MultiByte</CharacterSet>
++    <PlatformToolset>v143</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMinimal|Win32'" Label="Configuration">
++    <OutDir>$(SolutionDir)\build\output\$(Configuration)-$(Platform)\lib\</OutDir>
++    <IntDir>$(SolutionDir)\build\intermediate\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseOfMfc>Dynamic</UseOfMfc>
+     <CharacterSet>MultiByte</CharacterSet>
+     <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="XCC">
++    <XCC_MINIMAL_BUILD>
++    </XCC_MINIMAL_BUILD>
++    <NO_FT_SUPPORT>
++    </NO_FT_SUPPORT>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)'=='ReleaseMinimal'" Label="XCC">
++    <XCC_MINIMAL_BUILD>XCC_MINIMAL_BUILD</XCC_MINIMAL_BUILD>
++    <NO_FT_SUPPORT>NO_FT_SUPPORT</NO_FT_SUPPORT>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="XCC">
++    <XCC_MINIMAL_BUILD>
++    </XCC_MINIMAL_BUILD>
++    <NO_FT_SUPPORT>
++    </NO_FT_SUPPORT>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)'=='DebugMinimal'" Label="XCC">
++    <XCC_MINIMAL_BUILD>XCC_MINIMAL_BUILD</XCC_MINIMAL_BUILD>
++    <NO_FT_SUPPORT>NO_FT_SUPPORT</NO_FT_SUPPORT>
++  </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+   <ImportGroup Label="ExtensionSettings">
+   </ImportGroup>
+@@ -37,10 +86,18 @@
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+     <Import Project="..\XCC.props" />
+   </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMinimal|Win32'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++    <Import Project="..\XCC.props" />
++  </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+     <Import Project="..\XCC.props" />
+   </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugMinimal|Win32'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++    <Import Project="..\XCC.props" />
++  </ImportGroup>
+   <PropertyGroup Label="UserMacros" />
+   <PropertyGroup>
+     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+@@ -51,7 +108,22 @@
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <ClCompile>
+       <Optimization>Disabled</Optimization>
+-      <PreprocessorDefinitions>_DEBUG;WIN32;_LIB;JPEG_SUPPORT;OGG_SUPPORT;PNG_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <PreprocessorDefinitions>_DEBUG;WIN32;_LIB;$(XCC_MINIMAL_BUILD);$(NO_FT_SUPPORT);%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
++      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
++      <PrecompiledHeader>Use</PrecompiledHeader>
++      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
++      <LanguageStandard>stdcpplatest</LanguageStandard>
++    </ClCompile>
++    <ResourceCompile>
++      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <Culture>0x0413</Culture>
++    </ResourceCompile>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugMinimal|Win32'">
++    <ClCompile>
++      <Optimization>Disabled</Optimization>
++      <PreprocessorDefinitions>_DEBUG;WIN32;_LIB;$(XCC_MINIMAL_BUILD);$(NO_FT_SUPPORT);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+       <PrecompiledHeader>Use</PrecompiledHeader>
+@@ -65,7 +137,7 @@
+   </ItemDefinitionGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+     <ClCompile>
+-      <PreprocessorDefinitions>NDEBUG;WIN32;_LIB;JPEG_SUPPORT;OGG_SUPPORT;PNG_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <PreprocessorDefinitions>NDEBUG;WIN32;_LIB;$(XCC_MINIMAL_BUILD);$(NO_FT_SUPPORT);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+       <StringPooling>true</StringPooling>
+       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+       <FunctionLevelLinking>true</FunctionLevelLinking>
+@@ -78,204 +150,293 @@
+       <Culture>0x0413</Culture>
+     </ResourceCompile>
+   </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMinimal|Win32'">
++    <ClCompile>
++      <PreprocessorDefinitions>NDEBUG;WIN32;_LIB;$(XCC_MINIMAL_BUILD);$(NO_FT_SUPPORT);%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <StringPooling>true</StringPooling>
++      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
++      <FunctionLevelLinking>true</FunctionLevelLinking>
++      <PrecompiledHeader>Use</PrecompiledHeader>
++      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
++      <LanguageStandard>stdcpplatest</LanguageStandard>
++    </ClCompile>
++    <ResourceCompile>
++      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <Culture>0x0413</Culture>
++    </ResourceCompile>
++  </ItemDefinitionGroup>
+   <ItemGroup>
+     <ClCompile Include="..\misc\aud_decode.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\aud_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\aud_file_write.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\audio_idx_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\avi_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\big_edit.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\big_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\big_file_write.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\blowfish.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\bmp_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\cc_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">false</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\cc_structures.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">false</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\cps_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\csf_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\ddpf_conversion.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\dds_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\file32.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\fname.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\fs_ini_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\hva_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\id_log.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\ima_adpcm_wav_decode.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\ima_adpcm_wav_encode.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\image_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\image_tools.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\ini_reader.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
++    </ClCompile>
++    <ClCompile Include="..\misc\jpeg_file.cpp">
++      <ExcludedFromBuild Condition="'$(JPEG_SUPPORT)'==''">true</ExcludedFromBuild>
+     </ClCompile>
+-    <ClCompile Include="..\misc\jpeg_file.cpp" />
+     <ClCompile Include="..\misc\map_ra_ini_reader.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\map_td_ini_reader.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\map_ts_encoder.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\map_ts_ini_reader.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\mix_cache.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\mix_decode.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\mix_edit.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\mix_file.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\mix_file_write.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\mix_rg_edit.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\mix_rg_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\mix_rg_file_write.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\mix_sfl.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\mp3_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\mp3_frame_header.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\multi_line.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\neat_ini_reader.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\neat_key_list.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\ogg_file.cpp">
++      <ExcludedFromBuild Condition="'$(OGG_SUPPORT)'==''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\pak_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\pal_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\palet.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\pcx_decode.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\pcx_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\pcx_file_write.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\pkt_ts_ini_reader.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+-    <ClCompile Include="..\misc\png_file.cpp" />
+-    <ClCompile Include="..\misc\reg_key.cpp">
++    <ClCompile Include="..\misc\png_file.cpp">
++      <ExcludedFromBuild Condition="'$(PNG_SUPPORT)'==''">true</ExcludedFromBuild>
+     </ClCompile>
++    <ClCompile Include="..\misc\reg_key.cpp" />
+     <ClCompile Include="..\misc\riff_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\rules_ts_ini_reader.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\shp_decode.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\shp_dune2_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\shp_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\shp_images.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\shp_ts_file.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\shp_ts_file_write.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\sound_ts_ini_reader.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\st_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="StdAfx.cpp">
+       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
++      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugMinimal|Win32'">Create</PrecompiledHeader>
+       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
++      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseMinimal|Win32'">Create</PrecompiledHeader>
+     </ClCompile>
+     <ClCompile Include="..\misc\string_conversion.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\tga_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\theme_ts_ini_reader.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\timer.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\tmp_ra.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\tmp_ts_file.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\video_decoder.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\virtual_audio.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+-    <ClCompile Include="..\misc\virtual_binary.cpp">
+-    </ClCompile>
++    <ClCompile Include="..\misc\virtual_binary.cpp" />
+     <ClCompile Include="..\misc\virtual_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+-    <ClCompile Include="..\misc\virtual_image.cpp">
+-    </ClCompile>
++    <ClCompile Include="..\misc\virtual_image.cpp" />
+     <ClCompile Include="..\misc\virtual_tfile.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\voc_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\vqa_decode.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\vqa_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\vxl_file.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\wav_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\wav_header.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\win_handle.cpp">
+     </ClCompile>
+     <ClCompile Include="..\misc\wsa_dune2_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\wsa_file.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\xcc_apps.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+-    <ClCompile Include="..\misc\xcc_dirs.cpp">
+-    </ClCompile>
++    <ClCompile Include="..\misc\xcc_dirs.cpp" />
+     <ClCompile Include="..\misc\xcc_draw.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+-    <ClCompile Include="..\misc\xcc_lmd_file_write.cpp">
+-    </ClCompile>
++    <ClCompile Include="..\misc\xcc_lmd_file_write.cpp" />
+     <ClCompile Include="..\misc\xcc_log.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\xcc_mixs.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+-    <ClCompile Include="..\misc\xcc_registry.cpp">
+-    </ClCompile>
++    <ClCompile Include="..\misc\xcc_registry.cpp" />
+     <ClCompile Include="..\misc\xif_key.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\xif_key_r.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\xif_value.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\xse.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+     <ClCompile Include="..\misc\XSTE.cpp">
++      <ExcludedFromBuild Condition="'$(XCC_MINIMAL_BUILD)'!=''">true</ExcludedFromBuild>
+     </ClCompile>
+   </ItemGroup>
+   <ItemGroup>
+@@ -301,7 +462,6 @@
+     <ClInclude Include="..\misc\dd_window.h" />
+     <ClInclude Include="..\misc\ddpf_conversion.h" />
+     <ClInclude Include="..\misc\dds_file.h" />
+-    <ClInclude Include="..\misc\ETSLayout.h" />
+     <ClInclude Include="..\misc\extract_object.h" />
+     <ClInclude Include="..\misc\file32.h" />
+     <ClInclude Include="..\misc\fname.h" />
+@@ -413,4 +573,13 @@
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+   <ImportGroup Label="ExtensionTargets">
+   </ImportGroup>
++  <PropertyGroup>
++    <IntegratedVCPKG_ROOT>$(VcpkgRoot)</IntegratedVCPKG_ROOT>
++  </PropertyGroup>
++  <Import Project="$(VCINSTALLDIR)vcpkg\scripts\buildsystems\msbuild\vcpkg.props" Condition="'$(IntegratedVCPKG_ROOT)'=='' And Exists('$(VCINSTALLDIR)vcpkg\scripts\buildsystems\msbuild\vcpkg.props')" />
++  <Import Project="$(VCINSTALLDIR)vcpkg\scripts\buildsystems\msbuild\vcpkg.targets" Condition="'$(IntegratedVCPKG_ROOT)'=='' And Exists('$(VCINSTALLDIR)vcpkg\scripts\buildsystems\msbuild\vcpkg.targets')" />
++  <Target Name="CheckVCPKG" BeforeTargets="BeforeClCompile">
++    <Error Text="You have neither installed VCPKG in your Visual C++ installation nor do you have VCPKG integrated into MSBuild. Please update your Visual Studio 2022 installation and after updating add the VCPKG single component. More details are available in the Readme.md file." Condition="'$(VcpkgRoot)' == ''" />
++    <Warning Text="'$(VcpkgRoot)\.vcpkg-root' does not exist. Either VcpkgRoot is set to a invalid location or you may have to repair your VCPKG installation (e.g. using the Visual Studio installer)" Condition="!Exists('$(VcpkgRoot)\.vcpkg-root')" />
++  </Target>
+ </Project>
+\ No newline at end of file
+diff --git a/XCC.props b/XCC.props
+index f813cc4..5970828 100644
+--- a/XCC.props
++++ b/XCC.props
+@@ -15,4 +15,5 @@
+       <AdditionalDependencies>dsound.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+     </Link>
+   </ItemDefinitionGroup>
++  
+ </Project>
+diff --git a/misc/cc_file.cpp b/misc/cc_file.cpp
+index 13e4976..d9e9e11 100644
+--- a/misc/cc_file.cpp
++++ b/misc/cc_file.cpp
+@@ -19,6 +19,7 @@
+ #include "stdafx.h"
+ #include "cc_file.h"
+ 
++#ifndef XCC_MINIMAL_BUILD
+ #include "aud_file.h"
+ #include "avi_file.h"
+ #include "big_file.h"
+@@ -70,6 +71,11 @@
+ #include "xcc_file.h"
+ #include "xcc_lmd_file.h"
+ #include "xif_file.h"
++#else
++#include "mix_file.h"
++#include "xcc_dirs.h"
++#endif
++
+ 
+ const char* ft_name[] =
+ {
+diff --git a/misc/image_file.h b/misc/image_file.h
+index e107843..b9e9fb5 100644
+--- a/misc/image_file.h
++++ b/misc/image_file.h
+@@ -30,12 +30,14 @@ class Cimage_file : public Cvideo_file<T>
+ public:
+ 	virtual void decode(void*) const = 0;
+ 	
++#ifndef XCC_MINIMAL_BUILD
+ 	virtual Cvirtual_image vimage() const
+ 	{
+ 		Cvirtual_binary image;
+ 		decode(image.write_start(this->cb_image()));
+ 		return Cvirtual_image(image, this->cx(), this->cy(), this->cb_pixel(), this->palet());
+ 	}
++#endif
+ 	
+ 	int cf() const override
+ 	{
+@@ -43,6 +45,8 @@ public:
+ 	}
+ };
+ 
++#ifndef XCC_MINIMAL_BUILD
+ int image_file_write(Cvirtual_file&, t_file_type, const byte* image, const t_palet_entry*, int cx, int cy);
+ Cvirtual_file image_file_write(t_file_type, const byte* image, const t_palet_entry*, int cx, int cy);
+ int image_file_write(const string& name, t_file_type, const byte* image, const t_palet_entry*, int cx, int cy);
++#endif
+diff --git a/misc/mix_file.cpp b/misc/mix_file.cpp
+index 8354059..874ff31 100644
+--- a/misc/mix_file.cpp
++++ b/misc/mix_file.cpp
+@@ -19,14 +19,20 @@
+ #include <stdafx.h>
+ #include "mix_file.h"
+ 
++#ifndef NO_FT_SUPPORT
+ #include "big_file.h"
++#endif
+ #include "blowfish.h"
+ #include "crc.h"
+ #include "id_log.h"
++#ifndef NO_FT_SUPPORT
+ #include "mix_cache.h"
++#endif
+ #include "mix_decode.h"
++#ifndef NO_FT_SUPPORT
+ #include "mix_rg_file.h"
+ #include "pak_file.h"
++#endif
+ #include "string_conversion.h"
+ #include "xcc_lmd_file.h"
+ 
+diff --git a/misc/shp_ts_file.cpp b/misc/shp_ts_file.cpp
+index 4950213..db60a92 100644
+--- a/misc/shp_ts_file.cpp
++++ b/misc/shp_ts_file.cpp
+@@ -22,7 +22,9 @@
+ #include "image_file.h"
+ #include "shp_decode.h"
+ #include "string_conversion.h"
++#ifndef XCC_MINIMAL_BUILD
+ #include "xcc_log.h"
++#endif
+ 
+ class Cshp_ts_decoder : public Cvideo_decoder
+ {
+@@ -141,6 +143,7 @@ int get_ofs(int x, int y, int cx, int cy)
+ 	return x + cx * y;
+ }
+ 
++#ifndef XCC_MINIMAL_BUILD
+ int Cshp_ts_file::extract_as_pcx(const Cfname& name, t_file_type ft, const t_palet _palet, bool combine_shadows) const
+ {
+ 	t_palet palet;
+@@ -378,6 +381,7 @@ void shp_split_shadows(Cvirtual_image& image)
+ 	image.load(d, cx, cy << 1, image.cb_pixel(), image.palet());
+ 	delete[] d;
+ }
++#endif
+ 
+ /*
+ void shp_xor_decode_frames(Cvirtual_image& image, int c_frames)
+diff --git a/misc/shp_ts_file.h b/misc/shp_ts_file.h
+index b38a053..76261cd 100644
+--- a/misc/shp_ts_file.h
++++ b/misc/shp_ts_file.h
+@@ -28,8 +28,10 @@ class Cshp_ts_file : public Cvideo_file<t_shp_ts_header>
+ {
+ public:
+ 	Cvideo_decoder* decoder(const t_palet_entry*);
++#ifndef XCC_MINIMAL_BUILD
+ 	int extract_as_pcx(const Cfname& name, t_file_type ft, const t_palet palet, bool combine_shadows = false) const;
+ 	Cvirtual_image extract_as_pcx_single(const t_palet _palet, bool combine_shadows = false) const;
++#endif
+ 	bool is_valid() const;
+ 
+ 	int cb_pixel() const
+@@ -106,7 +108,10 @@ public:
+ int shp_decode4_size(const byte* s);
+ Cvirtual_binary shp_decode4(const byte* s, int cb_d);
+ int shp_encode4(const Cshp_ts_file& f, byte* d);
++
++#ifndef XCC_MINIMAL_BUILD
+ void shp_split_frames(Cvirtual_image& image, int cblocks_x, int cblocks_y);
+ void shp_split_shadows(Cvirtual_image& image);
+ void shp_xor_decode_frames(Cvirtual_image& image, int c_frames);
+ void shp_xor_encode_frames(Cvirtual_image& image, int c_frames);
++#endif
+diff --git a/misc/virtual_image.cpp b/misc/virtual_image.cpp
+index 5dfc3e2..456ea2d 100644
+--- a/misc/virtual_image.cpp
++++ b/misc/virtual_image.cpp
+@@ -21,6 +21,8 @@
+ #include <windows.h>
+ #include <gdiplus.h>
+ #include <shlwapi.h>
++
++#ifndef XCC_MINIMAL_BUILD
+ #include "dds_file.h"
+ #include "image_file.h"
+ #include "jpeg_file.h"
+@@ -28,6 +30,7 @@
+ #include "pcx_file_write.h"
+ #include "png_file.h"
+ #include "tga_file.h"
++#endif
+ #include "virtual_image.h"
+ 
+ using namespace Gdiplus;
+@@ -80,6 +83,8 @@ void Cvirtual_image::load(const void* image, int cx, int cy, int cb_pixel, const
+ 	palet(p, inflate);
+ }
+ 
++#ifndef XCC_MINIMAL_BUILD
++
+ int Cvirtual_image::load(const Cvirtual_binary& s)
+ {
+ 	Cdds_file dds_f;
+@@ -323,3 +328,5 @@ void Cvirtual_image::increase_palet_depth()
+ 		d[i].b = (s[i].b & 63) * 255 / 63;
+ 	}
+ }
++
++#endif
+diff --git a/misc/virtual_image.h b/misc/virtual_image.h
+index 2396af8..0a2a2d6 100644
+--- a/misc/virtual_image.h
++++ b/misc/virtual_image.h
+@@ -121,3 +121,4 @@ private:
+ 	int m_cy = 0;
+ 	int mcb_pixel = 0;
+ };
++
+diff --git a/misc/vxl_file.cpp b/misc/vxl_file.cpp
+index 3132cdf..a629aa1 100644
+--- a/misc/vxl_file.cpp
++++ b/misc/vxl_file.cpp
+@@ -21,9 +21,11 @@
+ 
+ #include "file32.h"
+ #include "image_file.h"
++#ifndef XCC_MINIMAL_BUILD
+ #include "multi_line.h"
+ #include "pcx_decode.h"
+ #include "pcx_file_write.h"
++#endif
+ #include "string_conversion.h"
+ 
+ bool Cvxl_file::is_valid() const
+@@ -51,6 +53,7 @@ bool Cvxl_file::is_valid() const
+ 	return true;
+ }
+ 
++#ifndef XCC_MINIMAL_BUILD
+ int Cvxl_file::extract_as_pcx(const Cfname& name, t_file_type ft, const t_palet _palet) const
+ {
+ 	t_palet palet;
+@@ -98,6 +101,7 @@ int Cvxl_file::extract_as_pcx(const Cfname& name, t_file_type ft, const t_palet
+ 	}
+ 	return 0;
+ }
++#endif
+ 
+ ostream& Cvxl_file::extract_as_text(ostream& os) const
+ {
+@@ -162,6 +166,7 @@ enum
+ 	vi_z_max
+ };
+ 
++#ifndef XCC_MINIMAL_BUILD
+ int Cvxl_file::extract_as_xif(const string& name) const
+ {
+ 	Cxif_key k;
+@@ -458,6 +463,8 @@ Cvirtual_binary vxl_file_write(Cvirtual_tfile s)
+ 	return vxl_file_write(colors.data(), normals.data(), cx, cy, cz);
+ }
+ 
++#endif
++
+ struct t_vxl4_header
+ {
+ 	unsigned __int32 c_sections;
+diff --git a/misc/vxl_file.h b/misc/vxl_file.h
+index 395f5ac..5dd1857 100644
+--- a/misc/vxl_file.h
++++ b/misc/vxl_file.h
+@@ -22,14 +22,20 @@
+ #include "cc_structures.h"
+ #include "fname.h"
+ #include "virtual_tfile.h"
++#ifndef XCC_MINIMAL_BUILD
+ #include "xif_key.h"
++#endif
+ 
+ class Cvxl_file : public Ccc_file_sh<t_vxl_header>
+ {
+ public:
++#ifndef XCC_MINIMAL_BUILD
+ 	int extract_as_pcx(const Cfname& name, t_file_type ft, const t_palet _palet) const;
++#endif
+ 	ostream& extract_as_text(ostream& os) const;
++#ifndef XCC_MINIMAL_BUILD
+ 	int extract_as_xif(const string& name) const;
++#endif
+ 	bool is_valid() const;
+ 	
+ 	int get_c_section_headers() const
+@@ -93,6 +99,8 @@ public:
+ int vxl_decode4_size(const byte* s);
+ Cvirtual_binary vxl_decode4(const byte* s, int cb_d);
+ int vxl_encode4(const Cvxl_file& f, byte* d);
++#ifndef XCC_MINIMAL_BUILD
+ Cvirtual_binary vxl_file_write(const Cxif_key& s);
+ Cvirtual_binary vxl_file_write(const byte* s, const byte* s_normals, int cx, int cy, int cz);
+ Cvirtual_binary vxl_file_write(Cvirtual_tfile s);
++#endif
+diff --git a/vcpkg.json b/vcpkg.json
+index e0669e6..92d46dd 100644
+--- a/vcpkg.json
++++ b/vcpkg.json
+@@ -5,9 +5,8 @@
+     "boost-algorithm",
+     "boost-crc",
+     "bzip2",
+-    "libjpeg-turbo",
+-    "libpng",
+-    "libvorbis",
+-    "lzo"
+-  ]
++    "lzo",
++    "zlib"
++  ],
++  "builtin-baseline": "45c8b198b7647b6a68235353a00839082c910914"
+ }

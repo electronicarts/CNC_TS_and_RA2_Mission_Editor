@@ -1,0 +1,20 @@
+// FinalAlert2:YR Script file
+// Name: Create Morning Lighting
+// Written By: Matthias Wagner
+// Last Change: August 27, 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+SetSafeMode("FALSE","Necessary for setting lighting values");
+
+SetIniKey("Lighting","Level","0.028000");
+SetIniKey("Lighting","IonLevel","0.028000");
+
+SetIniKey("Lighting","Ambient","1.000000");
+SetIniKey("Lighting","Red","1.080000");
+SetIniKey("Lighting","Green","0.940000");
+SetIniKey("Lighting","Blue","0.680000");
+
+SetIniKey("Lighting","IonAmbient","0.650000");
+SetIniKey("Lighting","IonRed","0.695000");
+SetIniKey("Lighting","IonGreen","0.445000");
+SetIniKey("Lighting","IonBlue","0.775000");

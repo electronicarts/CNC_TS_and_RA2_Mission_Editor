@@ -1,0 +1,61 @@
+// FinalAlert2:YR Script file
+// Name: Change Unit Facing
+// Written By: Matthias Wagner
+// Last Change: August 21, 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+
+AllowDelete("Necessary for changing infantry");
+AllowAdd("Necessary for changing infantry");
+Is("%DeleteAllowed%","=","0","%NoDelete%");
+Print("Deletion must be allowed for this script to run!","%NoDelete%");
+Cancel("%NoDelete%");
+Is("%AddAllowed%","=","0","%NoAdd%");
+Print("Adding must be allowed for this script to run!","%NoAdd%");
+Cancel("%NoAdd%");
+
+Ask("%specified%","Do you want to limit random aircraft facing to a specific house?","Limit Random Aircraft facing to house");
+
+SetVariable("%House%","");
+UInputGetHouse("%House%","House:","%specified%");
+
+SetAutoUpdate("FALSE"); // no screen flickering...
+
+Is("%AircraftCount%","=","0","%Abort%");
+Cancel("%Abort%");
+
+SetVariable("%TCounter%","%AircraftCount%");
+
+
+// LOOP BEGIN
+:Loop:
+SetVariable("%pos%","%TCounter%");
+Substract("%pos%","1");
+
+GetAircraft("%data%","%pos%");
+
+SetVariable("%Differ%","0");
+GetParam("%param%", "%data%", "0", "%specified%");
+Is("%param%","!=","%House%","%Differ%","%specified%");
+
+Substract("%TCounter%","1", "%Differ%");
+And("%cancelloop%","%Differ%", "%TCounter%");
+JumpTo("Loop", "%cancelloop%");
+
+// if we are here, and Differ is set to TRUE, TCounter must be 0, so cancel script.
+Cancel("%Differ%");
+
+DeleteAircraft("%pos%");
+GetRandom("%Facing%");
+
+// convert random (0-32767) to 8 directions
+Divide("%Facing%","4096");
+
+// convert 8 directions to degrees
+Multi("%Facing%","32");
+
+SetParam("%data%","5","%Facing%");
+
+AddAircraft("%data%");
+Substract("%TCounter%", "1", "%TCounter%"); // only substract if >=0, else infinite loop!
+JumpTo("Loop","%TCounter%");

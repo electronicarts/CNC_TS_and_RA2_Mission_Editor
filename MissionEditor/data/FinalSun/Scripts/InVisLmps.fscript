@@ -1,0 +1,23 @@
+// FinalSun Script file
+// Name: Special Lamps
+// Written By: Bill Brislin aka RVMECH
+// Last Change:Feb,12,2002
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+
+AskContinue("This script will make the INREDLMP. INGRNLMP,and the INBLULMP less bright and shorter in range.  Ready...hope this works?");
+AllowAdd("Because it makes your life easier when someone else does all the dirty work");
+
+
+SetSafeMode("FALSE","This will make the INREDLMP. INGRNLMP,and the INBLULMP less bright and shorter in range...here we go");
+
+SetIniKey("INREDLMP","LightIntensity","0.005");
+SetIniKey("INREDLMP","LightVisibility","550");
+SetIniKey("INGRNLMP","LightIntensity","0.005");
+
+SetIniKey("INGRNLMP","LightVisibility","550");
+SetIniKey("INBLULMP",LightVisibility","550");;
+SetIniKey("INBLULMP","LightIntensity","0.005");
+Message("The INREDLMP, INGRNLMP, and INBLULMP have been modified","Success");
+
+

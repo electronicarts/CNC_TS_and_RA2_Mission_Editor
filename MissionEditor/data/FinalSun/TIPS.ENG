@@ -1,0 +1,9 @@
+These tips should help you to create cool Tiberian Sun and Firestorm maps.
+If you do not want AutoShore to be applied when placing tiles, you can disable AutoShore (and AutoLat) in the Options menu.
+You should really try the new cliff painting tools. They both are in the toolbar. Select them, click on the map, hold down the mouse button, and move the mouse into the cliff direction.
+After you have activated the tile/terrain placing mode, you can use the arrow keys to scroll through the different tilesets and tiles.
+Use the show/hide functions to make certain fields or terrain types invisible. Using this, map editing in certain parts of the map becomes much easier.
+Have you already tried out the "New map assistant" (File->New)? It creates all the stuff you need for a singleplayer and multiplayer map.
+Create completely new maps with FinalSun 2.0!
+Pay attention to the status bar at the bottom of the window. It often contains useful information.
+Consider that the brush size works for "paint terrain", "flatten terrain" (important!) and for "raise/lower" terrain.

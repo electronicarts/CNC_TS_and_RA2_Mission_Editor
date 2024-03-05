@@ -1,0 +1,3614 @@
+// Microsoft Visual C++ generated resource script.
+//
+#pragma code_page(65001)
+
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Deutsch (Deutschland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(65001)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\FinalSun.rc2""  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen\r\n"
+    "#include ""afxres.rc""         // Standardkomponenten\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Deutsch (Deutschland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Englisch (USA) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDC_EDITOR_ARROW$(TS_MODE) CURSOR                  "res\\ts_arrow.cur"
+
+#else
+IDC_EDITOR_ARROW        CURSOR                  "res\\ts_arrow.cur"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDC_EDITOR_ARROW$(RA2_MODE) CURSOR                  "res\\ra2_arrow.cur"
+
+#else
+IDC_EDITOR_ARROW        CURSOR                  "res\\ra2_arrow.cur"
+
+#endif
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDB_FLAG$(TS_MODE)      BITMAP                  "res\\wp_ts.bmp"
+
+#else
+IDB_FLAG                BITMAP                  "res\\wp_ts.bmp"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDB_CELLTAG$(TS_MODE)   BITMAP                  "res\\celltag_ts.bmp"
+
+#else
+IDB_CELLTAG             BITMAP                  "res\\celltag_ts.bmp"
+
+#endif
+#endif
+IDB_LIGHTBULB           BITMAP                  "res\\litebulb.bmp"
+
+IDB_MV_ICONS            BITMAP                  "res\\bmp00005.bmp"
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDB_SCROLLCURSOR$(TS_MODE) BITMAP                  "res\\scrollcursor_ts.bmp"
+
+#else
+IDB_SCROLLCURSOR        BITMAP                  "res\\scrollcursor_ts.bmp"
+
+#endif
+#endif
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+IDR_TERRAINBAR          BITMAP                  "res\\terrainb.bmp"
+
+IDR_CLIFFBAR            BITMAP                  "res\\clifftoo.bmp"
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDB_CELLTAG$(RA2_MODE)  BITMAP                  "res\\celltag_ra2.bmp"
+
+#else
+IDB_CELLTAG             BITMAP                  "res\\celltag_ra2.bmp"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDB_FLAG$(RA2_MODE)     BITMAP                  "res\\wp_ra2.bmp"
+
+#else
+IDB_FLAG                BITMAP                  "res\\wp_ra2.bmp"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDB_SCROLLCURSOR$(RA2_MODE) BITMAP                  "res\\scrollcursor_ra2.bmp"
+
+#else
+IDB_SCROLLCURSOR        BITMAP                  "res\\scrollcursor_ra2.bmp"
+
+#endif
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_NEWRA2HOUSE DIALOG 0, 0, 186, 52
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create new house"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    LTEXT           "Choose parent country:",IDC_STATIC,7,7,98,12
+    COMBOBOX        IDC_COUNTRY,7,20,112,118,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_SAVEOPTIONS$(TS_MODE) DIALOG 0, 0, 233, 125
+#else
+IDD_SAVEOPTIONS DIALOG 0, 0, 233, 125
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Save options"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,176,104,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,117,104,50,14
+    CONTROL         "Compress map",IDC_COMPRESS,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,19,42,118,12
+    CONTROL         "Don't compress map (use this if any problems with the map occur in RA2/TS)",IDC_NOCOMPRESSION,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | NOT WS_VISIBLE,19,52,192,21
+    CONTROL         "Create new preview using minimap",IDC_PREVIEWMODE,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,19,40,150,13
+    CONTROL         "Use existing preview (if possible)",IDC_EXISTINGPREVIEW,
+                    "Button",BS_AUTORADIOBUTTON,19,53,141,12
+    CONTROL         "Don't save any preview",IDC_NOPREVIEW,"Button",BS_AUTORADIOBUTTON,19,66,141,12
+    GROUPBOX        "Compression",IDC_STATIC,7,28,219,52,NOT WS_VISIBLE
+    GROUPBOX        "Preview",IDC_STATIC,7,29,219,56
+    LTEXT           "If you want to play the map online, you should try to make the file size as low as possible. This includes turning off the preview. You should also try using compression.",IDC_STATIC,7,90,219,27,NOT WS_VISIBLE
+    LTEXT           "Map name:",IDC_STATIC,7,7,63,13
+    EDITTEXT        IDC_MAPNAME,73,7,153,12,ES_AUTOHSCROLL
+END
+#endif
+
+IDD_MULTISAVEOPT DIALOG 0, 0, 281, 105
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Specify file type"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,224,84,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,161,84,50,14
+    LTEXT           "Please specify if you want to save your multiplayer map as *.mmx map or as *.mpr map. While *.mmx maps are the recommended method, as they are fully supported and do not slow down RA2 when loading, they are never transferred automatically to other players!",IDC_STATIC,7,7,267,38
+    CONTROL         "Save as *.mmx (no automatic map transfer)",IDC_MMX,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,7,47,267,15
+    CONTROL         "Save as *.mpr (many mprs slow down RA2 while loading)",IDC_MMX2,
+                    "Button",BS_AUTORADIOBUTTON,7,59,267,15
+END
+
+IDD_MMXOPTIONS DIALOG 0, 0, 268, 172
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "MMX options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,211,151,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,141,151,50,14
+    LTEXT           "If description tag does not exist, RA2 will place MISSING: in front of the map name, this does not affect the game!",IDC_STATIC,7,7,254,21
+    LTEXT           "Description tag:",IDC_STATIC,7,37,80,12
+    EDITTEXT        IDC_DESCRIPTION,90,37,171,15,ES_AUTOHSCROLL
+    CONTROL         "Standard",IDC_STANDARD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,89,80,14
+    CONTROL         "Meatgrind",IDC_MEATGRIND,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,90,80,14
+    CONTROL         "Naval War",IDC_NAVALWAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,174,90,80,14
+    CONTROL         "Nuke War",IDC_NUKEWAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,105,80,14
+    CONTROL         "Air War",IDC_AIRWAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,105,80,14
+    CONTROL         "Mega Wealth",IDC_MEGAWEALTH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,174,105,80,14
+    CONTROL         "Duel",IDC_DUEL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,121,80,14
+    CONTROL         "Cooperative",IDC_COOPERATIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,121,80,14
+    LTEXT           "Min players:",IDC_STATIC,7,63,54,12
+    COMBOBOX        IDC_MINPLAYERS,89,62,40,103,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Max players:",IDC_STATIC,148,63,54,12
+    COMBOBOX        IDC_MAXPLAYERS,221,61,40,104,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_SAVEOPTIONS$(RA2_MODE) DIALOG 0, 0, 233, 186
+#else
+IDD_SAVEOPTIONS DIALOG 0, 0, 233, 186
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Save options"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,176,165,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,117,165,50,14
+    CONTROL         "Compress map",IDC_COMPRESS,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,201,46,25,8
+    CONTROL         "Don't compress map (use this if any problems with the map occur in RA2/TS)",IDC_NOCOMPRESSION,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | NOT WS_VISIBLE,184,62,42,13
+    CONTROL         "Create new preview using minimap",IDC_PREVIEWMODE,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,19,40,150,13
+    CONTROL         "Use existing preview (if possible)",IDC_EXISTINGPREVIEW,
+                    "Button",BS_AUTORADIOBUTTON,19,53,141,12
+    CONTROL         "Don't save any preview",IDC_NOPREVIEW,"Button",BS_AUTORADIOBUTTON,19,66,141,12
+    GROUPBOX        "Compression",IDC_STATIC,119,52,107,15,NOT WS_VISIBLE
+    GROUPBOX        "Preview",IDC_STATIC,7,29,219,56
+    LTEXT           "If you want to play the map online, you should try to make the file size as low as possible. This includes turning off the preview.",IDC_STATIC,7,143,219,21
+    LTEXT           "Map name:",IDC_STATIC,7,7,63,13
+    EDITTEXT        IDC_MAPNAME,73,7,153,12,ES_AUTOHSCROLL
+    CONTROL         "Standard",IDC_STANDARD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,89,67,14
+    CONTROL         "Meatgrind",IDC_MEATGRIND,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,83,90,65,14
+    CONTROL         "Naval War",IDC_NAVALWAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,161,90,65,14
+    CONTROL         "Nuke War",IDC_NUKEWAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,105,66,14
+    CONTROL         "Air War",IDC_AIRWAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,83,105,65,14
+    CONTROL         "Mega Wealth",IDC_MEGAWEALTH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,161,105,80,14
+    CONTROL         "Land Rush",IDC_DUEL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,121,59,14
+    CONTROL         "Cooperative",IDC_COOPERATIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,83,121,70,14
+    CONTROL         "Team Alliance",IDC_TEAMGAME,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,161,121,65,14
+END
+#endif
+
+IDD_CHANGESIZE DIALOG 0, 0, 212, 194
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Change Map Size"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,155,173,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,97,173,50,14
+    LTEXT           "Please specify the new width and height of the map. Left and top will automatically be set so that the old area of the map is centered. You can change left and top to modify the left-top position (you may use negative numbers for left/top).",IDC_STATIC,7,7,198,36
+    LTEXT           "Width:",IDC_STATIC,7,54,71,13
+    EDITTEXT        IDC_WIDTH,86,52,62,15,ES_AUTOHSCROLL
+    LTEXT           "Note: If there are any units, buildings, waypoints etc. outside of the new map area, they will be deleted.",IDC_STATIC,7,132,198,19
+    LTEXT           "Height:",IDC_STATIC,7,72,71,13
+    EDITTEXT        IDC_HEIGHT,86,70,62,15,ES_AUTOHSCROLL
+    LTEXT           "Left:",IDC_STATIC,7,90,71,13
+    EDITTEXT        IDC_LEFT,86,88,62,15,ES_AUTOHSCROLL
+    LTEXT           "Top:",IDC_STATIC,7,108,71,13
+    EDITTEXT        IDC_TOP,86,106,62,15,ES_AUTOHSCROLL
+    LTEXT           "UNDO IS NOT AVAILABLE!",IDC_STATIC,7,152,198,16
+END
+
+IDD_AITRIGGERADD DIALOG 0, 0, 222, 97
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enable AI Trigger"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,165,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,165,24,50,14
+    LTEXT           "Select AI Trigger that should be enabled:",IDC_STATIC,7,7,136,21
+    LISTBOX         IDC_AITRIGGERS,7,48,208,42,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_MYOPENDIALOG DIALOGEX 0, 0, 222, 30
+STYLE DS_LOCALEDIT | DS_SETFONT | DS_3DLOOK | WS_CHILD | WS_VISIBLE
+EXSTYLE WS_EX_TRANSPARENT
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    LTEXT           "Map name:",IDC_STATIC,5,4,41,14
+    EDITTEXT        IDC_MAPNAME,54,4,155,14,ES_AUTOHSCROLL
+END
+
+IDD_TIP DIALOGEX 0, 0, 275, 174
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Tip of the day"
+FONT 8, "Tahoma", 0, 0, 0x0
+BEGIN
+    LTEXT           "TIP",IDC_TIPSTRING,28,63,177,60
+    CONTROL         "&Show tips at program start",IDC_STARTUP,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,13,152,134,10
+    PUSHBUTTON      "&Next tip",IDC_NEXTTIP,157,152,52,14,WS_GROUP
+    DEFPUSHBUTTON   "&Close",IDOK,216,152,50,14,WS_GROUP
+    CONTROL         "",IDC_TOOLTIPCENTER,"Static",SS_BLACKFRAME,12,11,251,134
+END
+
+IDD_FINALSUN_DIALOG DIALOGEX 0, 0, 414, 287
+STYLE DS_SETFONT | DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_RTLREADING | WS_EX_LEFTSCROLLBAR | WS_EX_APPWINDOW
+CAPTION "FinalAlert 2"
+MENU IDR_MAIN
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "just to prohibite enter to quit.",IDOK,0,124,21,12,NOT WS_VISIBLE
+    PUSHBUTTON      "and that one to prevent cancelling",IDCANCEL,5,191,18,8,NOT WS_VISIBLE
+    LTEXT           "As FinalAlert was dialog based in earlier versions, we need to have this.",IDC_STATIC,7,156,26,26
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_TSOPTIONS$(RA2_MODE) DIALOGEX 0, 0, 197, 183
+#else
+IDD_TSOPTIONS DIALOGEX 0, 0, 197, 183
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | DS_NOFAILCREATE | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Options"
+FONT 8, "Tahoma", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,140,159,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,85,159,50,14
+    LTEXT           "Red Alert 2 EXE (make sure its in the correct path)",IDC_STATIC,5,5,130,20
+    EDITTEXT        IDC_EDIT1,5,25,130,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse",IDC_CHOOSE,140,25,50,15
+    LTEXT           "Language / Sprache:",IDC_STATIC,7,51,128,11
+    COMBOBOX        IDC_LANGUAGE,7,63,183,94,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Support settings",IDC_STATIC,7,81,183,71
+    CONTROL         "Support mission disks and mods (recommended)",IDC_RULESLIKETS,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,14,92,170,16
+    CONTROL         "Only support original Red Alert 2",IDC_ONLYORIGINAL,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,14,108,168,16
+    CONTROL         "Prefer FinalAlert 2 theater INI files",IDC_PREFER_LOCAL_THEATER_FILES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,131,164,12
+END
+#endif
+
+IDD_ALL DIALOG 0, 0, 303, 204
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "INI Editor"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "We highly recommend not to use this editor except you really know what you are doing.",IDC_STATIC,6,5,290,15
+    LTEXT           "Sections:",IDC_STATIC,5,25,55,10
+    COMBOBOX        IDC_SECTIONS,61,25,235,85,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Keys:",IDC_STATIC,15,80,40,10
+    PUSHBUTTON      "Add",IDC_ADDSECTION,60,40,55,15
+    PUSHBUTTON      "Delete",IDC_DELETESECTION,120,40,55,15
+    GROUPBOX        "Section content",IDC_STATIC,6,67,290,130
+    LISTBOX         IDC_KEYS,60,80,225,90,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Value:",IDC_STATIC,15,175,40,15
+    EDITTEXT        IDC_VALUE,60,175,225,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Add",IDC_ADDKEY,15,95,40,15
+    PUSHBUTTON      "Delete",IDC_DELETEKEY,15,115,40,15
+    PUSHBUTTON      "Insert another INI file content",IDC_INISECTION,181,40,115,15
+END
+
+IDD_MAP DIALOG 0, 0, 303, 204
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Map Properties"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Except useable size just for information.",IDC_DESC,7,7,289,18
+    GROUPBOX        "Size of map data",IDC_SIZEFRAME,6,28,290,62
+    GROUPBOX        """Useable"" size",IDC_USEABLEFRAME,6,95,290,55
+    LTEXT           "The ""physical"" size of the map. Format: 0,0,Width,Height.",IDC_LSIZE,10,39,275,13
+    EDITTEXT        IDC__SIZEX,11,67,90,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "The ""useable"" size of the map. This specifies where you can place buildings etc. Has the following format: Left,Top,Right,Bottom",IDC_LUSEABLE,10,110,275,20
+    EDITTEXT        IDC_USESIZE,10,131,90,12,ES_AUTOHSCROLL
+    LTEXT           "Theater:",IDC_LTHEATER,12,159,284,11
+    COMBOBOX        IDC_THEATER,10,170,90,45,CBS_DROPDOWN | CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Change",IDC_CHANGELOCAL,111,131,70,13
+    PUSHBUTTON      "Change",IDC_CHANGE,212,67,70,13
+    LTEXT           "Width:",IDC_STATIC,12,56,93,9
+    EDITTEXT        IDC__SIZEY,106,67,90,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Height:",IDC_STATIC,107,56,93,9
+END
+
+IDD_INPUTBOX DIALOG 0, 0, 214, 70
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,160,5,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,160,25,50,14
+    LTEXT           "Static",IDC_SENTENCE,5,5,150,35
+    EDITTEXT        IDC_VAL,5,50,205,12,ES_AUTOHSCROLL
+END
+
+IDD_IMPORTINI DIALOG 0, 0, 229, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Insert INI file section"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,170,5,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,170,25,50,14
+    LTEXT           "Choose the sections you want to import in the map. Be careful! If you import a section that already exists, keys of the already existing section may be overwritten!",IDC_STATIC,5,5,155,35
+    LISTBOX         IDC_AVAILABLE,5,75,215,55,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Available sections:",IDC_STATIC,5,65,100,10
+    CONTROL         "Import all sections",IDC_ALLSECTIONS,"Button",BS_AUTORADIOBUTTON,5,40,155,10
+    CONTROL         "Specify sections to be imported",IDC_SPECIFYSECTIONS,
+                    "Button",BS_AUTORADIOBUTTON,5,50,150,10
+    LTEXT           "Select the sections you wish to import.",IDC_STATIC,5,135,215,10
+END
+
+IDD_LIGHTING DIALOG 0, 0, 303, 204
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Lighting Settings"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Lighting settings define the color of the terrain in the game, and you can specify a very dark or very bright map. Be careful, using wrong settings may cause the player to be unable to see his units.",IDC_DESC,6,5,290,25
+    GROUPBOX        "Normal",IDC_LNORMAL,6,35,290,65
+    GROUPBOX        "Ion storm settings",IDC_LIONSTORM,6,110,290,65
+    LTEXT           "Ambient:",IDC_LAMBIENT1,15,50,50,10
+    EDITTEXT        IDC_AMBIENT,65,50,75,12,ES_AUTOHSCROLL
+    LTEXT           "Green:",IDC_LGREEN1,160,65,50,10
+    EDITTEXT        IDC_GREEN,210,65,75,12,ES_AUTOHSCROLL
+    LTEXT           "Red:",IDC_LRED1,160,50,50,10
+    EDITTEXT        IDC_RED,210,50,75,12,ES_AUTOHSCROLL
+    LTEXT           "Blue:",IDC_LBLUE1,160,80,50,10
+    EDITTEXT        IDC_BLUE,210,80,75,12,ES_AUTOHSCROLL
+    LTEXT           "Level:",IDC_LLEVEL1,15,65,50,10
+    EDITTEXT        IDC_LEVEL,65,65,75,12,ES_AUTOHSCROLL
+    LTEXT           "Ambient:",IDC_LAMBIENT2,15,125,50,10
+    EDITTEXT        IDC_AMBIENT2,65,125,75,12,ES_AUTOHSCROLL
+    LTEXT           "Green:",IDC_LGREEN2,160,140,50,10
+    EDITTEXT        IDC_GREEN2,210,140,75,12,ES_AUTOHSCROLL
+    LTEXT           "Red:",IDC_LRED2,160,125,50,10
+    EDITTEXT        IDC_RED2,210,125,75,12,ES_AUTOHSCROLL
+    LTEXT           "Blue:",IDC_LBLUE2,160,155,50,10
+    EDITTEXT        IDC_BLUE2,210,155,75,12,ES_AUTOHSCROLL
+    LTEXT           "Level:",IDC_LLEVEL2,15,140,50,10
+    EDITTEXT        IDC_LEVEL2,65,140,75,12,ES_AUTOHSCROLL
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_INFO$(TS_MODE) DIALOGEX 0, 0, 349, 250
+#else
+IDD_INFO DIALOGEX 0, 0, 349, 250
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Info"
+FONT 8, "Tahoma", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,292,8,50,14
+    LTEXT           "© 1999-2024 ELECTRONIC ARTS INC.   ALL RIGHTS RESERVED\nWestwood Studios(tm) is an Electronic Arts(tm) brand.",IDC_STATIC,7,189,334,18
+    LTEXT           "© 1999-2024 Electronic Arts Inc. Westwood Studios and Electronic Arts are trademarks or registered trademarks of Electronic Arts Inc. in the U.S. and/or other countries. All rights reserved.",IDC_STATIC,7,214,335,28
+    EDITTEXT        IDC_LICENSE_AND_COPYRIGHT,6,29,336,148,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+END
+#endif
+
+IDD_SPECIALFLAGS DIALOG 0, 0, 303, 137
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Special Flags"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Tiberium grows:",IDC_LTIBERIUMGROWS,5,22,75,10
+    COMBOBOX        IDC_TIBERIUMGROWS,85,22,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Tiberium spreads:",IDC_LTIBERIUMSPREADS,5,37,75,10
+    COMBOBOX        IDC_TIBERIUMSPREADS,85,37,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Tiberium explosive:",IDC_LTIBERIUMEXPLOSIVE,5,52,75,10
+    COMBOBOX        IDC_TIBERIUMEXPLOSIVE,85,52,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Destroyable bridges:",IDC_LDESTROYABLEBRIDGES,5,67,75,10
+    COMBOBOX        IDC_DESTROYABLEBRIDGES,85,67,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "MCV deploy:",IDC_LMCVDEPLOY,5,82,75,10
+    COMBOBOX        IDC_MCVDEPLOY,85,82,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Initial veteran: (initial troops have veteran status)",IDC_LINITIALVETERAN,5,97,75,25
+    COMBOBOX        IDC_INITIALVETERAN,85,97,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Fixed alliance:",IDC_LFIXEDALLIANCE,165,22,75,10
+    COMBOBOX        IDC_FIXEDALLIANCE,245,22,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Harvester immune:",IDC_LHARVESTERIMMUNE,165,37,75,10
+    COMBOBOX        IDC_HARVESTERIMMUNE,245,37,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Fog of war:",IDC_LFOGOFWAR,165,52,75,10
+    COMBOBOX        IDC_FOGOFWAR,245,52,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Inert:",IDC_LINERT,165,67,75,10
+    COMBOBOX        IDC_INERT,245,67,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Ion storms:",IDC_LIONSTORMS,165,82,75,10
+    COMBOBOX        IDC_IONSTORMS,245,82,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Meteorites:",IDC_LMETEORITES,165,97,75,10
+    COMBOBOX        IDC_METEORITES,245,97,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Visceroids:",IDC_LVISCEROIDS,165,112,75,10
+    COMBOBOX        IDC_VISCEROIDS,245,112,45,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Some settings only work under certain circumstances.",IDC_DESC,5,5,285,16
+END
+
+IDD_INFANTRY DIALOG 0, 0, 232, 142
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Infantry options"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,175,121,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,117,121,50,14
+    LTEXT           "House:",IDC_LHOUSE,7,6,33,11
+    COMBOBOX        IDC_HOUSE,47,6,65,45,CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Strength:",IDC_LSTRENGTH,7,24,29,10
+    CONTROL         "Slider1",IDC_STRENGTH,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,47,24,70,11
+    LTEXT           "State:",IDC_LSTATE,7,42,40,13
+    COMBOBOX        IDC_STATE,47,42,65,90,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Tag:",IDC_LTAG,7,100,68,19
+    COMBOBOX        IDC_TAG,79,102,142,69,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param1:",IDC_LP1,120,6,35,15
+    EDITTEXT        IDC_P1,155,6,65,12,ES_AUTOHSCROLL
+    LTEXT           "Param2:",IDC_LP2,120,24,32,16
+    LTEXT           "Param3:",IDC_LP3,120,42,32,16
+    LTEXT           "Param4:",IDC_LP4,120,60,36,17
+    EDITTEXT        IDC_P2,155,24,65,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_P3,155,42,65,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_P4,155,60,65,12,ES_AUTOHSCROLL
+    LTEXT           "",IDC_LDESC,0,133,38,8
+    LTEXT           "Direction:",IDC_LDIRECTION,7,60,40,10
+    COMBOBOX        IDC_DIRECTION,47,60,65,69,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param5:",IDC_LP5,120,78,34,19
+    EDITTEXT        IDC_P5,155,78,65,12,ES_AUTOHSCROLL
+END
+
+IDD_HOUSES DIALOG 0, 0, 303, 207
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Houses"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "DESC [quite long]",IDC_DESC,7,5,290,43
+    COMBOBOX        IDC_HOUSES,77,65,220,125,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "House:",IDC_LHOUSE,7,65,64,22
+    PUSHBUTTON      "Add house",IDC_ADDHOUSE,227,82,70,15
+    PUSHBUTTON      "Standard houses",IDC_PREPAREHOUSES,75,82,70,15
+    PUSHBUTTON      "Delete house",IDC_DELETEHOUSE,150,82,70,15
+    LTEXT           "IQ:",IDC_LIQ,10,105,40,10
+    COMBOBOX        IDC_IQ,55,105,70,70,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Edge:",IDC_LEDGE,10,120,40,10
+    COMBOBOX        IDC_EDGE,55,120,70,65,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Side",IDC_LSIDE,10,135,40,10
+    COMBOBOX        IDC_SIDE,55,135,70,65,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Color",IDC_LCOLOR,10,150,40,10
+    COMBOBOX        IDC_COLOR,55,150,70,150,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Allies:",IDC_LALLIES,10,165,40,10
+    EDITTEXT        IDC_ALLIES,55,165,70,12,ES_AUTOHSCROLL
+    LTEXT           "Credits (x100):",IDC_LCREDITS,10,181,40,17
+    EDITTEXT        IDC_CREDITS,55,179,70,12,ES_AUTOHSCROLL
+    LTEXT           "Acts like:",IDC_LACTSLIKE,150,105,69,14
+    COMBOBOX        IDC_ACTSLIKE,227,105,70,50,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Nodecount:",IDC_LNODECOUNT,150,119,68,15
+    COMBOBOX        IDC_NODECOUNT,227,120,70,50,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Techlevel:",IDC_LTECHLEVEL,150,134,63,10
+    COMBOBOX        IDC_TECHLEVEL,227,135,70,135,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Build activity (%):",IDC_LBUILDACTIVITY,150,150,66,17
+    COMBOBOX        IDC_PERCENTBUILT,227,150,70,50,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Player control:",IDC_LPLAYERCONTROL,150,166,70,20
+    COMBOBOX        IDC_PLAYERCONTROL,227,166,70,50,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Human Player:",IDC_LPLAYER,7,48,65,16
+    COMBOBOX        IDC_HUMANPLAYER,77,49,220,70,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,6,98,293,102
+END
+
+IDD_AIRCRAFT DIALOG 0, 0, 232, 130
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Aircraft Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,170,110,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,110,110,50,14
+    CONTROL         "House:",IDC_LHOUSE,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,7,33,11
+    COMBOBOX        IDC_HOUSE,45,7,65,45,CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Strength:",IDC_LSTRENGTH,5,25,29,10
+    CONTROL         "Slider1",IDC_STRENGTH,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,45,25,70,11
+    LTEXT           "State:",IDC_LSTATE,5,62,40,10
+    COMBOBOX        IDC_STATE,45,62,65,90,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Tag:",IDC_LTAG,5,90,66,14
+    COMBOBOX        IDC_TAG,77,90,144,69,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param1:",IDC_LP1,116,7,40,17
+    EDITTEXT        IDC_P1,155,7,65,12,ES_AUTOHSCROLL
+    LTEXT           "Param2:",IDC_LP2,116,25,37,12
+    LTEXT           "Recruitable:",IDC_LP3,116,43,39,15
+    LTEXT           "Param4:",IDC_LP4,116,62,39,18
+    EDITTEXT        IDC_P2,155,25,65,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_P4,155,62,65,12,ES_AUTOHSCROLL
+    LTEXT           "Params are unknown (integers?).",IDC_LDESC,5,120,19,10
+    LTEXT           "Direction:",IDC_LDIRECTION,5,43,40,10
+    COMBOBOX        IDC_DIRECTION,45,43,65,63,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_P3,155,43,66,62,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_BUILDING DIALOG 0, 0, 247, 190
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "Building options"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,190,170,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,131,170,50,14
+    LTEXT           "House:",IDC_LHOUSE,7,41,33,11
+    COMBOBOX        IDC_HOUSE,47,41,65,45,CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Strength:",IDC_LSTRENGTH,7,57,29,10
+    CONTROL         "Slider1",IDC_STRENGTH,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,47,56,69,11
+    LTEXT           "Tag:",IDC_LTAG,7,149,39,15
+    COMBOBOX        IDC_TAG,47,149,193,69,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param1:",IDC_LP1,7,87,35,13
+    EDITTEXT        IDC_P1,47,87,65,12,ES_AUTOHSCROLL
+    LTEXT           "AI repairs:",IDC_LAIREPAIRS,7,102,40,14
+    LTEXT           "Energy:",IDC_LENERGY,7,117,38,18
+    LTEXT           "Upgrade count:",IDC_LUPGRADECOUNT,119,40,30,17
+    LTEXT           "Params are unknown (some integers, some strings?). Note: 0 means no, 1 means yes",IDC_LDESC,5,5,235,36
+    LTEXT           "Direction:",IDC_LDIRECTION,7,71,40,14
+    COMBOBOX        IDC_DIRECTION,47,71,65,58,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Spotlight:",IDC_LSPOTLIGHT,119,57,39,15
+    LTEXT           "Upgrade 1:",IDC_LUPGRADE1,119,72,40,14
+    COMBOBOX        IDC_P6,164,71,77,71,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Upgrade 2:",IDC_LUPGRADE2,119,87,40,16
+    COMBOBOX        IDC_P7,164,86,77,84,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Upgrade 3:",IDC_LUPGRADE3,119,102,38,15
+    COMBOBOX        IDC_P8,164,101,77,89,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param 2:",IDC_LP2,120,117,35,10
+    LTEXT           "Show name:",IDC_LP3,120,132,40,10
+    COMBOBOX        IDC_P3,47,118,65,69,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_P2,47,102,65,41,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_P4,164,41,77,53,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_P5,164,56,77,79,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_P9,164,116,77,41,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_P10,164,132,77,41,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_LOADING$(TS_MODE) DIALOGEX 0, 0, 235, 165
+#else
+IDD_LOADING DIALOGEX 0, 0, 235, 165
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    LTEXT           "Loading...",IDC_CAP,7,7,221,9
+    CONTROL         "",IDC_PROGRESS1,"msctls_progress32",PBS_SMOOTH,7,18,221,13,WS_EX_DLGMODALFRAME
+    LTEXT           "Homepage: http://www.ea.com",IDC_STATIC,7,78,221,11,WS_BORDER
+    CTEXT           "",IDC_VERSION,74,37,154,13,SS_CENTERIMAGE | SS_SUNKEN
+    LTEXT           "Version:",IDC_LVERSION,7,37,61,9
+    CTEXT           "",IDC_BUILTBY,74,52,154,13,SS_CENTERIMAGE | SS_SUNKEN
+    LTEXT           "Built by:",IDC_LBUILTBY,7,52,61,9
+    LTEXT           "© 1999-2024 ELECTRONIC ARTS INC.  ALL RIGHTS RESERVED\nAuthored by Matthias Wagner\nWestwood Studios(tm) is an Electronic Arts(tm) brand.",IDC_STATIC,7,97,221,33
+    LTEXT           "This software comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it.\nFor details open Help->Info",IDC_STATIC,6,129,221,26
+END
+#endif
+
+IDD_WAYPOINT DIALOG 0, 0, 186, 93
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Create waypoint"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,72,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,70,72,50,14
+    LTEXT           "Enter the waypoint number (note that it may already exist and be overwritten!). Or use ""Get free number"".",IDC_DESC,7,7,172,27
+    EDITTEXT        IDC_ID,7,45,67,16,ES_AUTOHSCROLL
+    LTEXT           "ID:",IDC_LID,7,34,78,10
+    PUSHBUTTON      "Get first free number",IDC_FREE,86,45,93,16
+END
+
+IDD_CELLTAG DIALOG 0, 0, 212, 77
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Cell-Tag"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,155,56,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,95,56,50,14
+    LTEXT           "Tag:",IDC_LTAG,7,29,82,8
+    COMBOBOX        IDC_TAG,7,37,198,114,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Associate a tag with a specific cell.",IDC_LDESC,7,7,198,19
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_TEAMTYPES$(TS_MODE) DIALOG 0, 0, 303, 206
+#else
+IDD_TEAMTYPES DIALOG 0, 0, 303, 206
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Teamtypes"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Team types connect a trigger with task forces",IDC_STATIC,6,5,290,10
+    LTEXT           "Team types:",IDC_STATIC,5,20,50,10
+    COMBOBOX        IDC_TEAMTYPES,55,20,155,174,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "New",IDC_NEWTEAMTYPE,261,20,35,15
+    PUSHBUTTON      "Delete",IDC_DELETETEAMTYPE,220,20,35,15
+    LTEXT           "Name:",IDC_STATIC,10,51,30,10
+    EDITTEXT        IDC_NAME,56,51,90,12,ES_AUTOHSCROLL
+    LTEXT           "Veteran level:",IDC_STATIC,10,66,45,15
+    CONTROL         "Loadable",IDC_LOADABLE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,10,145,55,8
+    CONTROL         "Full",IDC_FULL,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,10,155,55,8
+    CONTROL         "Annoyance",IDC_ANNOYANCE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,10,164,55,10
+    CONTROL         "Guard slower",IDC_GUARDSLOWER,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,10,175,55,8
+    CONTROL         "Recruiter",IDC_RECRUITER,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,10,185,55,8
+    LTEXT           "House:",IDC_STATIC,10,81,35,10
+    COMBOBOX        IDC_HOUSE,56,81,90,62,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Autocreate",IDC_AUTOCREATE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,125,145,55,8
+    CONTROL         "Prebuild",IDC_PREBUILD,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,125,155,55,8
+    CONTROL         "Reinforce",IDC_REINFORCE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,125,165,55,8
+    CONTROL         "Droppod",IDC_DROPPOD,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,65,145,55,8
+    CONTROL         "Whiner",IDC_WHINER,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,65,155,55,8
+    CONTROL         "Loose recruit",IDC_LOOSERECRUIT,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,65,165,55,8
+    CONTROL         "Aggressive",IDC_AGGRESSIVE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,65,175,55,8
+    CONTROL         "Suicide",IDC_SUICIDE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,65,185,55,8
+    CONTROL         "OnTransOnly",IDC_ONTRANSONLY,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,125,175,55,8
+    CONTROL         "AvoidThreats",IDC_AVOIDTHREATS,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,125,185,55,8
+    CONTROL         "Ion immune",IDC_IONIMMUNE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,185,145,60,8
+    CONTROL         "TransportsReturnOnUnload",IDC_TRANSPORTRETURNSONUNLOAD,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,185,155,100,8
+    CONTROL         "AreTeamMembersRecruitable",IDC_ARETEAMMEMBERSRECRUITABLE,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,185,165,105,8
+    CONTROL         "IsBaseDefense",IDC_ISBASEDEFENSE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,185,175,80,8
+    CONTROL         "OnlyTargetHouseEnemy",IDC_ONLYTARGETHOUSEENEMY,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,185,185,100,8
+    LTEXT           "Priority:",IDC_STATIC,10,96,40,10
+    EDITTEXT        IDC_PRIORITY,56,96,90,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Max:",IDC_STATIC,10,111,30,10
+    EDITTEXT        IDC_MAX,56,111,90,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Techlevel:",IDC_STATIC,10,125,40,10
+    COMBOBOX        IDC_TECHLEVEL,56,125,91,72,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Group:",IDC_STATIC,156,51,30,10
+    GROUPBOX        "Selected team type",IDC_STATIC,6,37,290,161
+    COMBOBOX        IDC_GROUP,200,51,90,78,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Waypoint:",IDC_STATIC,156,66,40,10
+    COMBOBOX        IDC_WAYPOINT,200,66,90,80,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Script:",IDC_STATIC,156,81,40,10
+    COMBOBOX        IDC_SCRIPT,200,81,90,205,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Task force:",IDC_STATIC,156,96,40,10
+    COMBOBOX        IDC_TASKFORCE,200,96,90,205,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_VETERANLEVEL,56,66,90,60,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Tag:",IDC_STATIC,156,111,40,13
+    COMBOBOX        IDC_TAG,200,111,90,186,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "",IDC_LTRANSPORTWAYPOINT,156,126,40,17
+    COMBOBOX        IDC_TRANSPORTWAYPOINT,200,126,90,80,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Mind Control Decision:",IDC_STATIC,164,4,43,16,NOT WS_VISIBLE
+    COMBOBOX        IDC_MINDCONTROLDECISION,209,6,92,205,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Mind Control Decision:",IDC_MCD_L,10,139,43,16,NOT WS_VISIBLE
+END
+#endif
+
+IDD_TASKFORCES DIALOG 0, 0, 303, 205
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Taskforces"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Task forces:",IDC_STATIC,7,7,71,10
+    COMBOBOX        IDC_TASKFORCES,87,7,199,130,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Units in task force:",IDC_STATIC,17,88,61,13
+    LISTBOX         IDC_UNITS,87,88,199,68,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add",IDC_ADDUNIT,17,102,61,14
+    PUSHBUTTON      "Delete",IDC_DELETEUNIT,17,121,61,15
+    LTEXT           "Group:",IDC_STATIC,17,69,61,13
+    EDITTEXT        IDC_GROUP,87,69,199,13,ES_AUTOHSCROLL
+    LTEXT           "Number of units:",IDC_STATIC,16,160,62,12
+    EDITTEXT        IDC_NUMBERUNITS,87,160,199,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Unit type:",IDC_STATIC,17,179,62,12
+    COMBOBOX        IDC_UNITTYPE,87,179,199,183,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Selected task force",IDC_STATIC,7,45,290,153
+    PUSHBUTTON      "Delete",IDC_DELETETASKFORCE,222,23,64,15
+    PUSHBUTTON      "Add",IDC_ADDTASKFORCE,153,23,64,15
+    LTEXT           "Name:",IDC_STATIC,17,56,61,12
+    EDITTEXT        IDC_NAME,87,54,199,13,ES_AUTOHSCROLL
+END
+
+IDD_TAGS DIALOG 0, 0, 303, 204
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Tags"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Tags make Triggers work. Without a tag, a trigger is usually useless, because it won't be executed (except if another triggers fires it directly).",IDC_STATIC,7,7,290,20
+    LTEXT           "Tag:",IDC_STATIC,7,36,54,12
+    COMBOBOX        IDC_TAG,61,37,236,196,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add",IDC_ADD,169,53,59,14
+    PUSHBUTTON      "Delete",IDC_DELETE,238,53,59,14
+    LTEXT           "Name:",IDC_STATIC,7,90,54,12
+    EDITTEXT        IDC_NAME,61,89,236,13,ES_AUTOHSCROLL
+    LTEXT           "Repeat:",IDC_STATIC,7,110,54,13
+    COMBOBOX        IDC_REPEAT,61,110,236,59,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Trigger:",IDC_STATIC,7,131,54,13
+    COMBOBOX        IDC_TRIGGER,61,131,236,135,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "For every trigger you create, you should create a tag to make the trigger work. A trigger consists of some general properties, an event and an action, which can all be defined in the ""trigger"" section.",IDC_STATIC,7,167,290,30
+END
+
+IDD_TRIGGERS DIALOG 0, 0, 303, 204
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Old Trigger Editor - UNUSED"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Trigger:",IDC_STATIC,7,7,26,11
+    COMBOBOX        IDC_TRIGGER,37,7,120,122,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "House:",IDC_STATIC,7,25,28,12
+    COMBOBOX        IDC_HOUSE,38,25,60,100,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "New trigger",IDC_ADDTRIGGER,165,7,61,14
+    PUSHBUTTON      "Delete trigger",IDC_DELETETRIGGER,234,7,63,14
+    LTEXT           "Name:",IDC_STATIC,109,26,24,12
+    EDITTEXT        IDC_NAME,135,25,162,13,ES_AUTOHSCROLL
+    LTEXT           "Flags:",IDC_STATIC,7,41,19,13
+    EDITTEXT        IDC_FLAG1,37,41,24,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FLAG2,65,41,23,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FLAG3,92,41,23,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FLAG4,119,41,23,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FLAG5,146,41,23,13,ES_AUTOHSCROLL
+    GROUPBOX        "Events which let the trigger start",IDC_STATIC,7,56,290,59
+    GROUPBOX        "Actions - What the trigger will do",IDC_STATIC,7,120,290,77
+    LTEXT           "Event:",IDC_STATIC,13,65,29,11
+    COMBOBOX        IDC_EVENT,57,66,123,68,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add",IDC_ADDEVENT,185,65,49,15
+    PUSHBUTTON      "Delete",IDC_DELETEEVENT,239,65,49,15
+    LTEXT           "Parameter 1:",IDC_LABEL_E1,13,97,44,16
+    COMBOBOX        IDC_EVENTPARAM1,57,97,86,160,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Parameter 2:",IDC_LABEL_E2,149,97,44,16
+    COMBOBOX        IDC_EVENTPARAM2,198,98,90,172,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_ACTION,45,131,134,68,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add",IDC_ADDACTION,185,130,49,15
+    PUSHBUTTON      "Delete",IDC_DELETEACTION,239,130,49,15
+    LTEXT           "Action:",IDC_STATIC,14,131,24,13
+    LTEXT           "Type:",IDC_STATIC,13,82,44,12
+    COMBOBOX        IDC_EVENTTYPE,57,82,230,98,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param1:",IDC_LABEL_A1,13,163,30,14
+    COMBOBOX        IDC_ACTIONPARAM1,45,163,48,219,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Type:",IDC_STATIC,13,148,23,12
+    COMBOBOX        IDC_ACTIONTYPE,45,148,172,133,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param2:",IDC_LABEL_A2,96,163,30,15
+    COMBOBOX        IDC_ACTIONPARAM2,127,163,74,289,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param3:",IDC_LABEL_A3,203,162,30,14
+    COMBOBOX        IDC_ACTIONPARAM3,234,163,56,243,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param4:",IDC_LABEL_A4,13,177,30,15
+    COMBOBOX        IDC_ACTIONPARAM4,45,176,48,204,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param5:",IDC_LABEL_A5,96,178,30,14
+    COMBOBOX        IDC_ACTIONPARAM5,127,176,74,221,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param6:",IDC_LABEL_A6,203,176,30,16
+    COMBOBOX        IDC_ACTIONPARAM6,234,176,56,239,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Waypoint:",IDC_WAYPOINT,221,148,33,11
+    COMBOBOX        IDC_ACTIONWAYPOINT,257,148,32,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Trigger??? :",IDC_STATIC,177,42,37,12
+    COMBOBOX        IDC_TRIGGER2,221,42,76,152,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_AITRIGGERTYPES$(RA2_MODE) DIALOG 0, 0, 303, 234
+#else
+IDD_AITRIGGERTYPES DIALOG 0, 0, 303, 234
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "AI Trigger Types"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "AI Trigger:",IDC_STATIC,7,7,43,11
+    COMBOBOX        IDC_AITRIGGERTYPE,60,7,236,307,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Name:",IDC_STATIC,7,63,43,11
+    EDITTEXT        IDC_NAME,60,64,94,13,ES_AUTOHSCROLL
+    LTEXT           "Teamtype #1:",IDC_STATIC,7,80,43,17
+    COMBOBOX        IDC_TEAMTYPE1,60,81,236,81,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "House:",IDC_STATIC,165,64,50,16
+    COMBOBOX        IDC_OWNER,220,64,76,207,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Teamtype #2:",IDC_STATIC,7,98,43,17
+    COMBOBOX        IDC_TEAMTYPE2,60,98,235,81,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Techlevel:",IDC_STATIC,280,206,8,11,NOT WS_VISIBLE
+    COMBOBOX        IDC_FLAG1,288,222,16,56,CBS_DROPDOWN | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Type:",IDC_STATIC,6,44,53,17
+    COMBOBOX        IDC_FLAG2,60,45,235,71,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Data:",IDC_DATALABEL,265,204,8,13,NOT WS_VISIBLE
+    COMBOBOX        IDC_DATA,287,222,16,128,CBS_DROPDOWN | CBS_AUTOHSCROLL | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Weight:",IDC_STATIC,6,150,33,11
+    EDITTEXT        IDC_FLOAT1,59,148,56,13,ES_AUTOHSCROLL
+    LTEXT           "MinWeight:",IDC_STATIC,6,165,38,11
+    EDITTEXT        IDC_FLOAT2,59,164,56,13,ES_AUTOHSCROLL
+    LTEXT           "MaxWeight:",IDC_STATIC,125,165,40,11
+    EDITTEXT        IDC_FLOAT3,180,164,54,13,ES_AUTOHSCROLL
+    LTEXT           "MinDiff:",IDC_STATIC,279,222,8,12,NOT WS_VISIBLE
+    EDITTEXT        IDC_FLAG4,291,222,8,12,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "Multi-Side:",IDC_STATIC,7,115,33,12
+    PUSHBUTTON      "Delete",IDC_DELETE,220,23,76,13
+    PUSHBUTTON      "Add",IDC_ADD,140,23,74,13
+    CONTROL         "Enabled",IDC_ENABLED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,60,23,76,11
+    CONTROL         "Easy",IDC_EASY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,59,133,42,13
+    CONTROL         "Medium",IDC_MEDIUM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,124,132,42,13
+    CONTROL         "Hard",IDC_HARD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,199,132,42,13
+    CONTROL         "Base defense",IDC_BASEDEFENSE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,124,116,67,13
+    CONTROL         "Available in Skirmish",IDC_SKIRMISH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,199,116,85,14
+    COMBOBOX        IDC_MULTISIDE,60,116,56,63,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Unittype (X):",IDC_STATIC,171,200,51,10
+    COMBOBOX        IDC_UNITTYPE,171,212,125,255,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Condition:",IDC_STATIC,8,200,50,11
+    COMBOBOX        IDC_CONDITION,8,212,95,82,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_NUMBER,109,212,54,13,ES_AUTOHSCROLL
+    LTEXT           "Number (N):",IDC_STATIC,110,200,56,11
+    LTEXT           "Additional parameters for the appropiate AI Trigger Types:",IDC_STATIC,6,188,295,12
+END
+#endif
+
+IDD_NEWMAP DIALOG 0, 0, 248, 226
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New map assistant"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,191,205,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,134,205,50,14
+    PUSHBUTTON      "Browse",IDC_BROWSE,189,106,44,12
+    GROUPBOX        "Import options",IDC_LIMPORTOPTIONS,7,93,234,64
+    CONTROL         "Import Trees",IDC_IMPORTTREES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,125,91,12
+    CONTROL         "Import Overlay",IDC_IMPORTOVERLAY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,138,103,13
+    CONTROL         "Import Units/Buildings",IDC_IMPORTUNITS,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,128,122,94,19
+    CONTROL         "Multiplayer",IDC_MULTIPLAYER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,167,85,12
+    COMBOBOX        IDC_IMPORTFILE,15,106,161,206,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Prepare standard houses",IDC_PREPAREHOUSES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,120,167,113,13
+    COMBOBOX        IDC_HOUSE,177,183,56,99,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Player house:",IDC_LPLAYERHOUSE,119,183,52,15
+    CONTROL         "Set Auto-Production triggers",IDC_AUTOPROD,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,7,178,102,19
+    CONTROL         "Import existing map",IDC_IMPORT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,81,234,11
+    CONTROL         "Create new map",IDC_NEW,"Button",BS_AUTORADIOBUTTON,7,8,234,15
+    GROUPBOX        "New map options",IDC_STATIC,7,21,234,51
+    EDITTEXT        IDC_WIDTH,51,31,51,14,ES_AUTOHSCROLL
+    LTEXT           "Width:",IDC_STATIC,13,31,33,14
+    EDITTEXT        IDC_HEIGHT,178,31,51,14,ES_AUTOHSCROLL
+    LTEXT           "Height:",IDC_STATIC,130,31,41,14
+    LTEXT           "Theater:",IDC_STATIC,13,49,38,12
+    COMBOBOX        IDC_THEATER,51,49,68,71,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Ground height:",IDC_STATIC,130,50,47,16
+    COMBOBOX        IDC_GROUNDHEIGHT,178,50,52,71,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_BASIC DIALOG 0, 0, 303, 208
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Basic Settings"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Note: some of the settings are probably just ignored",IDC_LDESC,5,7,290,10
+    LTEXT           "Next scenario:",IDC_LNEXTSCENARIO,5,35,60,15
+    LTEXT           "Alt. next scenario:",IDC_LALTNEXTSCENARIO,5,51,60,15
+    LTEXT           "Name:",IDC_LNAME,5,20,60,15
+    EDITTEXT        IDC_NAME,70,20,70,12,ES_AUTOHSCROLL
+    LTEXT           "New INI format:",IDC_LNEWINIFORMAT,5,67,60,15
+    EDITTEXT        IDC_NEWINIFORMAT,70,67,70,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "CarryOverCap:",IDC_LCARRYOVERCAP,5,83,60,15
+    EDITTEXT        IDC_CARRYOVERCAP,70,83,70,12,ES_AUTOHSCROLL
+    LTEXT           "EndOfGame",IDC_LENDOFGAME,5,100,60,15
+    COMBOBOX        IDC_ENDOFGAME,70,99,70,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_NEXTSCENARIO,70,35,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_ALTNEXTSCENARIO,70,51,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Skip Score:",IDC_LSKIPSCORE,5,115,60,15
+    COMBOBOX        IDC_SKIPSCORE,70,115,70,45,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "One Time Only:",IDC_LONETIMEONLY,5,130,60,15
+    COMBOBOX        IDC_ONETIMEONLY,70,131,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Skip map select:",IDC_LSKIPMAPSELECT,5,146,60,15
+    COMBOBOX        IDC_SKIPMAPSELECT,70,147,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Official",IDC_LOFFICIAL,5,163,60,15
+    COMBOBOX        IDC_OFFICIAL,70,163,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Ignore global AI triggers",IDC_LIGNOREGLOBALAITRIGGERS,6,178,60,19
+    COMBOBOX        IDC_IGNOREGLOBALAITRIGGERS,70,179,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Truck crate:",IDC_LTRUCKCRATE,150,20,70,17
+    COMBOBOX        IDC_TRUCKCRATE,226,20,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Train crate:",IDC_LTRAINCRATE,150,35,70,16
+    COMBOBOX        IDC_TRAINCRATE,226,36,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Percent: (?)",IDC_LPERCENT,150,52,70,16
+    EDITTEXT        IDC_PERCENT,226,52,70,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Multiplayer Only:",IDC_LMULTIPLAYERONLY,150,67,70,16
+    EDITTEXT        IDC_MULTIPLAYERONLY,226,68,70,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Tiberium growth enabled:",IDC_LTIBERIUMGROWTHENABLED,150,83,70,15
+    COMBOBOX        IDC_TIBERIUMGROWTHENABLED,226,84,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Vein growth enabled:",IDC_LVEINGROWTHENABLED,150,99,70,15
+    COMBOBOX        IDC_VEINGROWTHENABLED,226,100,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Ice growth enabled:",IDC_LICEGROWTHENABLED,150,115,70,15
+    COMBOBOX        IDC_ICEGROWTHENABLED,226,116,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Tiberium death to visceroid:",IDC_LTIBERIUMDEATHTOVISCEROID,150,131,70,15
+    COMBOBOX        IDC_TIBERIUMDEATHTOVISCEROID,226,132,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Free radar:",IDC_LFREERADAR,150,147,70,10
+    COMBOBOX        IDC_FREERADAR,226,148,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Init time:",IDC_LINITIME,150,164,70,10
+    EDITTEXT        IDC_INITTIME,226,164,70,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Required add on:",IDC_LADDONNEEDED,150,179,68,20
+    COMBOBOX        IDC_REQUIREDADDON,226,179,70,40,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_SINGLEPLAYER DIALOG 0, 0, 303, 207
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Singleplayer Map Settings"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Movies && other singleplayer stuff.",IDC_DESC,7,7,289,16
+    GROUPBOX        "Movies",IDC_LMOVIES,7,117,289,81
+    LTEXT           "Intro:",IDC_LINTRO,15,128,59,18
+    COMBOBOX        IDC_INTRO,75,128,68,161,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Brief:",IDC_LBRIEF,15,144,59,18
+    COMBOBOX        IDC_BRIEF,75,144,68,202,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Win:",IDC_LWIN,15,160,59,18
+    COMBOBOX        IDC_WIN,75,160,68,185,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Lose:",IDC_LLOSE,14,177,59,15
+    COMBOBOX        IDC_LOSE,75,176,68,203,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Action:",IDC_LACTION,154,128,59,18
+    COMBOBOX        IDC_ACTION,216,128,68,160,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "PostScore:",IDC_LPOSTSCORE,153,144,59,18
+    COMBOBOX        IDC_POSTSCORE,216,144,68,196,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "PreMapSelect:",IDC_LPREMAPSELECT,153,160,59,18
+    COMBOBOX        IDC_PREMAPSELECT,216,160,68,225,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Starting dropships:",IDC_LSTARTINGDROPSHIPS,7,23,67,16
+    COMBOBOX        IDC_STARTINGDROPSHIPS,75,23,68,161,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Carry over money (percent):",IDC_LCARRYOVERMONEY,7,40,67,16
+    EDITTEXT        IDC_CARRYOVERMONEY,75,41,67,14,ES_AUTOHSCROLL
+    LTEXT           "Inherit timer:",IDC_LINHERITTIMER,7,61,67,16
+    COMBOBOX        IDC_TIMERINHERIT,75,61,68,161,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Fill silos:",IDC_LFILLSILOS,7,79,67,16
+    COMBOBOX        IDC_FILLSILOS,75,79,68,161,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_MAPVALIDATOR DIALOGEX 0, 0, 440, 225
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Map-Validator"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,383,205,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,322,205,50,14
+    LTEXT           "These possible problems were found:",IDC_LPROBLEMSFOUND,7,7,225,14
+    CONTROL         "List1",IDC_MAPPROBLEMS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOCOLUMNHEADER | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,6,21,427,144
+END
+
+IDD_SCRIPTTYPES DIALOG 0, 0, 302, 230
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Scripts"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Scripttypes let you, for example, define that a team moves from one point to another. A scripttype is attached to a TeamType (not a TaskForce!)",IDC_STATIC,7,7,288,20
+    LTEXT           "Scripttype",IDC_STATIC,7,31,65,12
+    COMBOBOX        IDC_SCRIPTTYPE,72,32,223,196,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add",IDC_ADD,169,49,59,14
+    PUSHBUTTON      "Delete",IDC_DELETE,236,49,59,14
+    LTEXT           "Name:",IDC_STATIC,7,74,65,12
+    EDITTEXT        IDC_NAME,72,74,223,13,ES_AUTOHSCROLL
+    LTEXT           "Actions:",IDC_STATIC,7,92,65,11
+    LISTBOX         IDC_ACTION,72,92,223,45,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Type of action:",IDC_STATIC,7,160,65,12
+    LTEXT           "Parameter of action:",IDC_PDESC,7,180,65,17
+    COMBOBOX        IDC_TYPE,72,161,223,192,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_PARAM,72,180,223,111,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Delete",IDC_DELETEACTION,235,140,60,14
+    PUSHBUTTON      "Add",IDC_ADDACTION,168,140,60,14
+    LTEXT           "Description:",IDC_STATIC,7,201,62,13
+    EDITTEXT        IDC_DESCRIPTION,72,201,221,24,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+IDD_AITRIGGERTYPESENABLE DIALOG 0, 0, 303, 204
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "AI Trigger Types Enable"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "This allows the AI for example to create teams automatically. You simply specify which AITriggerTypes are enabled.",IDC_STATIC,7,7,287,23
+    LTEXT           "AITriggerType:",IDC_STATIC,7,62,60,13
+    COMBOBOX        IDC_AITRIGGERTYPE,71,62,223,281,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Enable all standard AI triggers (recommended)",IDC_ENABLEALL,7,30,160,14
+    PUSHBUTTON      "Delete = Disable AITrigger",IDC_DELETE,192,81,102,15
+    PUSHBUTTON      "Add = Enable AITrigger",IDC_ADD,85,81,102,15
+END
+
+IDD_TERRAINBAR DIALOG 0, 0, 387, 29
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Terrain / Ground:",IDC_STATIC,7,7,32,20
+    COMBOBOX        IDC_TILESET,42,7,141,169,CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Overlay && Special:",IDC_STATIC,204,7,32,20
+    COMBOBOX        IDC_OVERLAY,239,7,141,169,CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_TOOLSETTINGS DIALOGEX 0, 0, 116, 17
+STYLE DS_SETFONT | WS_CHILD
+EXSTYLE WS_EX_TRANSPARENT
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Brush size:",IDC_STATIC,7,3,46,11,SS_CENTERIMAGE,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_BRUSHSIZE,58,1,51,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_SHUTDOWN DIALOG 0, 0, 186, 35
+STYLE DS_SETFONT | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Shutdown"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Shutting down, please wait a few seconds",IDC_STATIC,7,14,172,13
+END
+
+IDD_DYNAMICLOAD DIALOG 0, 0, 220, 44
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Loading"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Loading graphics, please wait a few seconds.",IDC_STATIC,7,7,206,15
+    CONTROL         "Progress4",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,7,22,206,15
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_SAVING$(TS_MODE) DIALOG 0, 0, 263, 46
+#else
+IDD_SAVING DIALOG 0, 0, 263, 46
+#endif
+STYLE DS_SETFONT | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Saving"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Please wait a few seconds while FinalSun is saving. On very large maps this may even take some minutes, please do not cancel! More information is available in the status bar, most time will be needed for packing.",IDC_STATIC,7,7,249,32
+END
+#endif
+
+IDD_TRIGGEREDITOR DIALOGEX 0, 0, 389, 263
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Trigger editor"
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    LTEXT           "Select current trigger:",IDC_STATIC,7,7,80,10
+    PUSHBUTTON      "New trigger",IDC_NEWTRIGGER,180,7,60,14
+    PUSHBUTTON      "Delete trigger",IDC_DELETETRIGGER,254,7,60,14
+    COMBOBOX        IDC_TRIGGER,7,26,307,165,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Tab3",IDC_TRIGGERTAB,"SysTabControl32",TCS_HOTTRACK | TCS_TOOLTIPS,7,44,377,214,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Place on map",IDC_PLACEONMAP,324,7,60,14
+    PUSHBUTTON      "Clone trigger",IDC_CLONE,324,24,60,14
+END
+
+IDD_TRIGGEROPTIONS DIALOGEX 0, 0, 365, 204
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Tahoma", 0, 0, 0x0
+BEGIN
+    LTEXT           "Type (modifies all attached Tags!):",IDC_STATIC,231,30,125,9
+    COMBOBOX        IDC_TRIGGERTYPE,231,41,125,71,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Name",IDC_STATIC,7,2,264,10
+    EDITTEXT        IDC_NAME,6,12,350,13,ES_AUTOHSCROLL
+    LTEXT           "House:",IDC_STATIC,4,31,125,9
+    COMBOBOX        IDC_HOUSE,4,41,186,78,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Attached trigger:",IDC_STATIC,4,59,125,8
+    COMBOBOX        IDC_ATTACHEDTRIGGER,4,68,352,133,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Disabled",IDC_DISABLED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,90,124,9
+    LTEXT           "Disabled triggers must be enabled using other triggers before they fire.",IDC_STATIC,4,102,260,9
+    CONTROL         "Easy",IDC_EASY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,115,58,13
+    CONTROL         "Medium",IDC_MEDIUM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,68,115,58,13
+    CONTROL         "Hard",IDC_HARD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,140,115,58,13
+END
+
+IDD_TRIGGEREVENTS DIALOGEX 0, 0, 365, 204
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Tahoma", 0, 0, 0x0
+BEGIN
+    LTEXT           "Current event:",IDC_STATIC,6,6,64,11
+    COMBOBOX        IDC_EVENT,72,6,150,79,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "New event",IDC_NEWEVENT,233,6,61,14
+    PUSHBUTTON      "Delete event",IDC_DELETEEVENT,300,6,61,14
+    GROUPBOX        "Event options",IDC_STATIC,6,19,355,178
+    LTEXT           "Event type:",IDC_STATIC,14,32,57,12
+    COMBOBOX        IDC_EVENTTYPE,72,30,282,184,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EVENTDESCRIPTION,14,48,340,26,ES_MULTILINE | ES_READONLY | WS_VSCROLL
+    LTEXT           "Event parameters:",IDC_STATIC,14,79,74,10
+    LISTBOX         IDC_PARAMETER,14,93,159,96,LBS_SORT | LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "Parameter value:",IDC_STATIC,185,79,118,10
+    COMBOBOX        IDC_PARAMVALUE,185,93,169,125,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select the event type first, then set all parameters.",IDC_STATIC,185,110,169,25
+END
+
+IDD_TRIGGERACTIONS DIALOGEX 0, 0, 365, 202
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Tahoma", 0, 0, 0x0
+BEGIN
+    LTEXT           "Current action:",IDC_STATIC,6,6,58,11
+    COMBOBOX        IDC_ACTION,72,6,149,79,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "New action",IDC_NEWACTION,233,6,60,14
+    PUSHBUTTON      "Delete action",IDC_DELETEACTION,301,6,59,14
+    GROUPBOX        "Action options",IDC_STATIC,6,20,354,174
+    LTEXT           "Action type:",IDC_STATIC,14,32,57,12
+    COMBOBOX        IDC_ACTIONTYPE,72,30,282,184,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_ACTIONDESCRIPTION,14,48,340,26,ES_MULTILINE | ES_READONLY | WS_VSCROLL
+    LTEXT           "Action parameters:",IDC_STATIC,14,79,74,10
+    LISTBOX         IDC_PARAMETER,14,93,160,94,LBS_SORT | LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "Parameter value:",IDC_STATIC,186,79,118,10
+    COMBOBOX        IDC_PARAMVALUE,186,92,168,125,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_NOINTEGRALHEIGHT | CBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select the event type first, then set all parameters.",IDC_STATIC,186,110,168,25
+END
+
+IDD_GLOBALS DIALOG 0, 0, 186, 79
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Local Variables"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Select variable:",IDC_STATIC,7,7,60,12
+    COMBOBOX        IDC_GLOBAL,7,19,172,92,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Description:",IDC_STATIC,7,41,44,12
+    EDITTEXT        IDC_DESCRIPTION,56,41,123,13,ES_AUTOHSCROLL
+    LTEXT           "Preset value:",IDC_STATIC,7,60,45,11
+    COMBOBOX        IDC_VALUE,57,59,122,55,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_TSOPTIONS$(TS_MODE) DIALOGEX 0, 0, 197, 183
+#else
+IDD_TSOPTIONS DIALOGEX 0, 0, 197, 183
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | DS_NOFAILCREATE | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Options"
+FONT 8, "Tahoma", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,140,160,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,85,160,50,14
+    LTEXT           "Tiberian Sun EXE (make sure its in the correct path)",IDC_STATIC,5,5,130,20
+    EDITTEXT        IDC_EDIT1,5,25,130,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse",IDC_CHOOSE,140,25,50,15
+    LTEXT           "Language / Sprache:",IDC_STATIC,7,51,128,11
+    COMBOBOX        IDC_LANGUAGE,7,63,183,94,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Rules, Art && AI ini files",IDC_STATIC,7,81,183,71
+    CONTROL         "Act like Tiberian Sun when searching for files (recommended)",IDC_RULESLIKETS,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,14,92,170,16
+    CONTROL         "Only use the files inside tibsun.mix (do not use Firestorm or any mods)",IDC_ONLYORIGINAL,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,14,110,168,16
+    CONTROL         "Prefer FinalSun theater INI files",IDC_PREFER_LOCAL_THEATER_FILES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,131,164,12
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_INFO$(RA2_MODE) DIALOGEX 0, 0, 349, 250
+#else
+IDD_INFO DIALOGEX 0, 0, 349, 250
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Info"
+FONT 8, "Tahoma", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,292,8,50,14
+    LTEXT           "© 1999-2024 ELECTRONIC ARTS INC.   ALL RIGHTS RESERVED\nWestwood Studios(tm) is an Electronic Arts(tm) brand.",IDC_STATIC,7,189,334,18
+    LTEXT           "© 1999-2024 Electronic Arts Inc. Westwood Studios and Electronic Arts are trademarks or registered trademarks of Electronic Arts Inc. in the U.S. and/or other countries. All rights reserved.",IDC_STATIC,7,214,335,28
+    EDITTEXT        IDC_LICENSE_AND_COPYRIGHT,6,29,336,148,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_LOADING$(RA2_MODE) DIALOGEX 0, 0, 235, 165
+#else
+IDD_LOADING DIALOGEX 0, 0, 235, 165
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    LTEXT           "Loading...",IDC_CAP,7,7,221,9
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",PBS_SMOOTH,7,18,221,13,WS_EX_DLGMODALFRAME
+    LTEXT           "Homepage: http://www.ea.com",IDC_STATIC,7,78,221,11,WS_BORDER
+    CTEXT           "",IDC_VERSION,74,37,154,13,SS_CENTERIMAGE | SS_SUNKEN
+    LTEXT           "Version:",IDC_LVERSION,7,37,61,9
+    CTEXT           "",IDC_BUILTBY,74,52,154,13,SS_CENTERIMAGE | SS_SUNKEN
+    LTEXT           "Built by:",IDC_LBUILTBY,7,52,61,9
+    LTEXT           "© 1999-2024 ELECTRONIC ARTS INC.  ALL RIGHTS RESERVED\nAuthored by Matthias Wagner\nWestwood Studios(tm) is an Electronic Arts(tm) brand.",IDC_STATIC,7,97,221,33
+    LTEXT           "This software comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it.\nFor details open Help->Info",IDC_STATIC,6,129,221,26
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_TEAMTYPES$(RA2_MODE) DIALOG 0, 0, 303, 215
+#else
+IDD_TEAMTYPES DIALOG 0, 0, 303, 215
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Teams"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Team types connect a trigger with task forces",IDC_STATIC,6,5,290,10
+    LTEXT           "Team types:",IDC_STATIC,5,20,50,10
+    COMBOBOX        IDC_TEAMTYPES,55,20,155,174,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "New",IDC_NEWTEAMTYPE,261,20,35,15
+    PUSHBUTTON      "Delete",IDC_DELETETEAMTYPE,220,20,35,15
+    LTEXT           "Name:",IDC_STATIC,10,51,30,10
+    EDITTEXT        IDC_NAME,56,51,90,12,ES_AUTOHSCROLL
+    LTEXT           "Veteran level:",IDC_STATIC,10,66,45,15
+    CONTROL         "Loadable",IDC_LOADABLE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,10,157,55,8
+    CONTROL         "Full",IDC_FULL,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,10,167,55,8
+    CONTROL         "Annoyance",IDC_ANNOYANCE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,10,176,55,10
+    CONTROL         "Guard slower",IDC_GUARDSLOWER,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,10,187,55,8
+    CONTROL         "Recruiter",IDC_RECRUITER,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,10,197,55,8
+    LTEXT           "House:",IDC_STATIC,10,81,35,10
+    COMBOBOX        IDC_HOUSE,56,81,90,62,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Autocreate",IDC_AUTOCREATE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,125,157,55,8
+    CONTROL         "Prebuild",IDC_PREBUILD,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,125,167,55,8
+    CONTROL         "Reinforce",IDC_REINFORCE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,125,177,55,8
+    CONTROL         "Cargo plane",IDC_DROPPOD,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,65,157,55,8
+    CONTROL         "Whiner",IDC_WHINER,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,65,167,55,8
+    CONTROL         "Loose recruit",IDC_LOOSERECRUIT,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,65,177,55,8
+    CONTROL         "Aggressive",IDC_AGGRESSIVE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,65,187,55,8
+    CONTROL         "Suicide",IDC_SUICIDE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,65,197,55,8
+    CONTROL         "OnTransOnly",IDC_ONTRANSONLY,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,125,187,55,8
+    CONTROL         "AvoidThreats",IDC_AVOIDTHREATS,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,125,197,55,8
+    CONTROL         "Ion immune",IDC_IONIMMUNE,"Button",BS_AUTOCHECKBOX | BS_LEFT | NOT WS_VISIBLE | WS_TABSTOP,185,157,60,8
+    CONTROL         "TransportsReturnOnUnload",IDC_TRANSPORTRETURNSONUNLOAD,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,185,177,100,8
+    CONTROL         "AreTeamMembersRecruitable",IDC_ARETEAMMEMBERSRECRUITABLE,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,185,167,105,8
+    CONTROL         "IsBaseDefense",IDC_ISBASEDEFENSE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,185,187,80,8
+    CONTROL         "OnlyTargetHouseEnemy",IDC_ONLYTARGETHOUSEENEMY,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,185,197,100,8
+    LTEXT           "Priority:",IDC_STATIC,10,96,40,10
+    EDITTEXT        IDC_PRIORITY,56,96,90,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Max:",IDC_STATIC,10,111,30,10
+    EDITTEXT        IDC_MAX,56,111,90,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Techlevel:",IDC_STATIC,10,125,40,10
+    COMBOBOX        IDC_TECHLEVEL,56,125,91,72,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Group:",IDC_STATIC,156,51,30,10
+    GROUPBOX        "Selected team type",IDC_STATIC,6,37,290,173
+    COMBOBOX        IDC_GROUP,200,51,90,78,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Waypoint:",IDC_STATIC,156,66,40,10
+    COMBOBOX        IDC_WAYPOINT,200,66,90,80,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Script:",IDC_STATIC,156,81,40,10
+    COMBOBOX        IDC_SCRIPT,200,81,90,205,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Task force:",IDC_STATIC,156,96,40,10
+    COMBOBOX        IDC_TASKFORCE,200,96,90,205,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_VETERANLEVEL,56,66,90,60,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Tag:",IDC_STATIC,156,111,40,13
+    COMBOBOX        IDC_TAG,200,111,90,186,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Transport waypoint:",IDC_LTRANSPORTWAYPOINT,156,126,40,17
+    COMBOBOX        IDC_TRANSPORTWAYPOINT,200,126,90,80,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Mind Control Decision:",IDC_MCD_L,10,139,43,16
+    COMBOBOX        IDC_MINDCONTROLDECISION,55,140,92,205,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+#endif
+
+IDD_NEWMAPTYPE DIALOG 0, 0, 222, 129
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create new map - Step 1"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "Next",IDOK,165,108,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,7,108,50,14
+    LTEXT           "Please select if you want to create a new singleplayer map or multiplayer map. Multiplayer maps are maps used in both skirmish and multiplayer games.",IDC_STATIC,7,7,208,33
+    CONTROL         "Singleplayer map (only for experienced users that can handle advanced mode)",IDC_SINGLE,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,7,55,208,20
+    CONTROL         "Multiplayer map",IDC_MULTI,"Button",BS_AUTORADIOBUTTON,7,76,208,11
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_NEWMAPCREATE$(TS_MODE) DIALOG 0, 0, 222, 129
+#else
+IDD_NEWMAPCREATE DIALOG 0, 0, 222, 129
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create new map - Step 2"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "Next",IDOK,165,108,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,7,108,50,14
+    LTEXT           "Please select here if you want to create a completely new map from scratch or if you want to import an already existing map (Note: You cannot import maps created by the random map generator of RA2 or of TS version 1.15 or higher)",IDC_STATIC,7,7,208,37
+    CONTROL         "Create a completely new map",IDC_CREATE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,55,208,11
+    CONTROL         "Import an existing map or bitmap (BMP)",IDC_IMPORT,
+                    "Button",BS_AUTORADIOBUTTON,7,67,208,11
+    CONTROL         "Activate AI Triggers (results in better AI)",IDC_AITRIGGERS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,83,208,14
+END
+#endif
+
+IDD_NEWMAPSPOPTIONS DIALOG 0, 0, 222, 129
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create new map - Step 4"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "Next",IDOK,165,108,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,7,108,50,14
+    CONTROL         "Prepare standard houses (recommended)",IDC_PREPAREHOUSES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,39,159,13
+    COMBOBOX        IDC_HOUSE,87,63,115,99,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Player house:",IDC_LPLAYERHOUSE,15,63,52,15
+    CONTROL         "Set Auto-Production triggers",IDC_AUTOPROD,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,14,78,192,14
+    LTEXT           "Please select the human player. It is recommended to leave the other options as they are.",IDC_STATIC,7,7,208,26
+    GROUPBOX        "",IDC_STATIC,7,52,208,46
+END
+
+IDD_NEWMAPCREATENEW DIALOG 0, 0, 222, 129
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create new map - Step 3"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "Next",IDOK,165,108,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,7,108,50,14
+    LTEXT           "Please select size, theater and starting height here. The size should be below 100x100 for best results.",IDC_STATIC,7,7,208,32
+    LTEXT           "Width:",IDC_STATIC,7,39,35,11
+    EDITTEXT        IDC_WIDTH,130,39,85,13,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Height:",IDC_STATIC,7,55,35,11
+    EDITTEXT        IDC_HEIGHT,130,55,85,13,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Theater:",IDC_STATIC,7,71,53,12
+    COMBOBOX        IDC_THEATER,130,71,85,58,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Starting height:",IDC_STATIC,7,87,64,12
+    COMBOBOX        IDC_STARTINGHEIGHT,130,87,85,93,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_NEWMAPIMPORT DIALOG 0, 0, 222, 129
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create new map - Step 3"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "Next",IDOK,165,108,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,7,108,50,14
+    PUSHBUTTON      "Browse",IDC_BROWSE,155,51,60,12
+    CONTROL         "Import Trees",IDC_IMPORTTREES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,69,91,12
+    CONTROL         "Import Overlay",IDC_IMPORTOVERLAY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,82,103,13
+    CONTROL         "Import Units/Buildings",IDC_IMPORTUNITS,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,120,66,94,19
+    COMBOBOX        IDC_IMPORTFILE,7,51,131,206,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Please select the map you want to import. No triggers or houses will be imported. Bitmaps will be scaled down to appropiate size. Currently bitmaps will always be converted to temperate theater maps.",IDC_STATIC,7,7,208,43
+END
+
+IDD_MAPLOAD DIALOG 0, 0, 220, 50
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Loading"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Loading map, please wait. This may take several minutes on big maps.",IDC_STATIC,7,7,206,18
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,7,29,206,14
+END
+
+IDD_NEWMAPBITMAP DIALOG 0, 0, 222, 129
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create new map - Step 3"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "Next",IDOK,165,108,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,7,108,50,14
+    LTEXT           "Please select size, theater and starting height here. The size should be below 150x150.",IDC_STATIC,7,7,208,32
+    LTEXT           "Width:",IDC_STATIC,7,39,35,11
+    EDITTEXT        IDC_WIDTH,130,39,85,13,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Height:",IDC_STATIC,7,55,35,11
+    EDITTEXT        IDC_HEIGHT,130,55,85,13,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Theater:",IDC_STATIC,7,71,53,12
+    COMBOBOX        IDC_THEATER,130,71,85,58,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Starting height:",IDC_STATIC,7,87,64,12
+    COMBOBOX        IDC_STARTINGHEIGHT,130,87,85,93,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PROGRESS DIALOG 0, 0, 208, 89
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Progress"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,67,68,50,14
+    LTEXT           "Progress:",IDC_LABEL,7,7,194,22
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,7,47,194,13
+    LTEXT           "Progress: ",IDC_PROGLABEL,7,31,194,13
+END
+
+IDD_AUTOUPDATE DIALOG 0, 0, 290, 177
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Auto Update"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Download",IDOK,223,156,60,14
+    PUSHBUTTON      "Cancel",IDCANCEL,152,156,60,14
+    LTEXT           "Updates available:",IDC_STATIC,7,7,184,16
+    LISTBOX         IDC_UPDATELIST,7,23,276,36,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Description:",IDC_STATIC,7,66,80,14
+    EDITTEXT        IDC_DESCRIPTION,92,66,191,42,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    LTEXT           "Download locations:",IDC_STATIC,7,118,69,14
+    LISTBOX         IDC_DOWNLOADLIST,91,117,192,29,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_NEWMAPCREATE$(RA2_MODE) DIALOG 0, 0, 222, 129
+#else
+IDD_NEWMAPCREATE DIALOG 0, 0, 222, 129
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create new map - Step 2"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "Next",IDOK,165,108,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,7,108,50,14
+    LTEXT           "Please select here if you want to create a completely new map from scratch or if you want to import an already existing map (Note: You cannot import maps created by the random map generator of RA2)",IDC_STATIC,7,7,208,37
+    CONTROL         "Create a completely new map",IDC_CREATE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,55,208,11
+    CONTROL         "Import an existing map or bitmap (BMP)",IDC_IMPORT,
+                    "Button",BS_AUTORADIOBUTTON,7,67,208,11
+    CONTROL         "Activate AI Triggers (results in better AI)",IDC_AITRIGGERS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,83,208,14
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_SAVING$(RA2_MODE) DIALOG 0, 0, 263, 46
+#else
+IDD_SAVING DIALOG 0, 0, 263, 46
+#endif
+STYLE DS_SETFONT | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Saving"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Please wait a few seconds while FinalAlert 2 is saving. On very large maps this may even take some minutes, please do not cancel! More information is available in the status bar, most time will be needed for packing.",IDC_STATIC,7,7,249,32
+END
+#endif
+
+IDD_UNIT DIALOG 0, 0, 232, 145
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Unit Options"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,170,124,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,110,124,50,14
+    LTEXT           "House:",IDC_LHOUSE,5,8,33,11
+    COMBOBOX        IDC_HOUSE,45,8,65,45,CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Strength:",IDC_LSTRENGTH,5,26,29,10
+    CONTROL         "Slider1",IDC_STRENGTH,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,45,26,70,11
+    LTEXT           "State:",IDC_LSTATE,5,43,40,10
+    COMBOBOX        IDC_STATE,45,43,65,90,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Tag:",IDC_LTAG,6,105,63,14
+    COMBOBOX        IDC_TAG,74,106,153,69,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param1:",IDC_LP1,5,80,37,17
+    EDITTEXT        IDC_P1,45,80,65,12,ES_AUTOHSCROLL
+    LTEXT           "Param2:",IDC_LP2,125,8,30,16
+    LTEXT           "Param3:",IDC_LP3,125,25,30,16
+    LTEXT           "Param4:",IDC_LP4,125,43,30,16
+    EDITTEXT        IDC_P2,161,8,65,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_P3,161,25,65,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_P4,161,43,65,12,ES_AUTOHSCROLL
+    LTEXT           "Params are unknown (integers?).",IDC_DESC,4,137,53,8
+    LTEXT           "Direction:",IDC_LDIRECTION,5,61,40,10
+    COMBOBOX        IDC_DIRECTION,45,61,65,75,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Param5:",IDC_LP5,125,61,34,17
+    EDITTEXT        IDC_P6,161,79,65,12,ES_AUTOHSCROLL
+    LTEXT           "Param6:",IDC_LP6,125,79,35,16
+    EDITTEXT        IDC_P5,161,61,65,12,ES_AUTOHSCROLL
+END
+
+IDD_TERRAINPLACING DIALOG 0, 0, 193, 234
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Random Tree Placing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,136,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,136,24,50,14
+    LTEXT           "Please select the trees that shall be placed",IDC_STATIC,7,7,104,22
+    LISTBOX         IDC_AVAIL,7,58,73,77,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Available:",IDC_STATIC,7,45,86,11
+    LISTBOX         IDC_USED,113,58,73,77,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Used:",IDC_STATIC,114,45,74,11
+    PUSHBUTTON      "<-",IDC_REMOVE,87,75,20,11
+    PUSHBUTTON      "->",IDC_ADD,87,58,20,11
+    GROUPBOX        "Preview",IDC_PREVIEW,7,140,179,86
+END
+
+IDD_SEARCHWAYPOINT DIALOG 0, 0, 186, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Search Waypoint"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Search",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    LTEXT           "Waypoints:",IDC_STATIC,7,7,96,12
+    LISTBOX         IDC_WAYPOINTS,7,21,97,67,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_AITRIGGERTYPES$(TS_MODE) DIALOG 0, 0, 303, 234
+#else
+IDD_AITRIGGERTYPES DIALOG 0, 0, 303, 234
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "AI Trigger Types"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "AI Trigger:",IDC_STATIC,7,7,43,11
+    COMBOBOX        IDC_AITRIGGERTYPE,60,7,236,307,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Name:",IDC_STATIC,7,63,43,11
+    EDITTEXT        IDC_NAME,60,64,94,13,ES_AUTOHSCROLL
+    LTEXT           "Teamtype #1:",IDC_STATIC,7,80,43,17
+    COMBOBOX        IDC_TEAMTYPE1,60,81,236,81,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "House:",IDC_STATIC,165,64,50,16
+    COMBOBOX        IDC_OWNER,220,64,76,207,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Teamtype #2:",IDC_STATIC,7,98,43,17
+    COMBOBOX        IDC_TEAMTYPE2,60,98,235,81,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Techlevel:",IDC_STATIC,280,206,8,11,NOT WS_VISIBLE
+    COMBOBOX        IDC_FLAG1,288,222,16,56,CBS_DROPDOWN | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Type:",IDC_STATIC,6,44,53,17
+    COMBOBOX        IDC_FLAG2,60,45,235,71,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Data:",IDC_DATALABEL,265,204,8,13,NOT WS_VISIBLE
+    COMBOBOX        IDC_DATA,287,222,16,128,CBS_DROPDOWN | CBS_AUTOHSCROLL | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Weight:",IDC_STATIC,6,150,33,11
+    EDITTEXT        IDC_FLOAT1,59,148,56,13,ES_AUTOHSCROLL
+    LTEXT           "MinWeight:",IDC_STATIC,6,165,38,11
+    EDITTEXT        IDC_FLOAT2,59,164,56,13,ES_AUTOHSCROLL
+    LTEXT           "MaxWeight:",IDC_STATIC,125,165,40,11
+    EDITTEXT        IDC_FLOAT3,180,164,54,13,ES_AUTOHSCROLL
+    LTEXT           "MinDiff:",IDC_STATIC,279,222,8,12,NOT WS_VISIBLE
+    EDITTEXT        IDC_FLAG4,291,222,8,12,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "Multi-Side:",IDC_STATIC,7,115,33,12
+    PUSHBUTTON      "Delete",IDC_DELETE,220,23,76,13
+    PUSHBUTTON      "Add",IDC_ADD,140,23,74,13
+    CONTROL         "Enabled",IDC_ENABLED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,60,23,76,11
+    CONTROL         "Easy",IDC_EASY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,59,133,42,13
+    CONTROL         "Medium",IDC_MEDIUM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,124,132,42,13
+    CONTROL         "Hard",IDC_HARD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,199,132,42,13
+    CONTROL         "Base defense",IDC_BASEDEFENSE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,124,116,67,13
+    CONTROL         "Available in Skirmish",IDC_SKIRMISH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,199,116,85,14
+    COMBOBOX        IDC_MULTISIDE,60,116,56,63,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Unittype (X):",IDC_STATIC,171,200,51,10
+    COMBOBOX        IDC_UNITTYPE,171,212,125,255,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Condition:",IDC_STATIC,8,200,50,11
+    COMBOBOX        IDC_CONDITION,8,212,95,82,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_NUMBER,109,212,54,13,ES_AUTOHSCROLL
+    LTEXT           "Number (N):",IDC_STATIC,110,200,56,11
+    LTEXT           "Additional parameters for the appropiate AI Trigger Types:",IDC_STATIC,6,188,295,12
+END
+#endif
+
+IDD_USERSCRIPTS DIALOG 0, 0, 301, 193
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Map Scripts"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Run",IDOK,244,40,50,14
+    PUSHBUTTON      "Quit",IDCANCEL,244,57,50,14
+    LTEXT           "Scripts available:",IDC_STATIC,7,24,109,12
+    LISTBOX         IDC_SCRIPTS,7,39,230,74,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Report:",IDC_STATIC,7,124,117,15
+    EDITTEXT        IDC_REPORT,7,145,287,41,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    LTEXT           "For safety reasons, you should save your map before running scripts. Undo is not available.",IDC_STATIC,7,7,287,17
+END
+
+IDD_COMBO_UINPUT DIALOG 0, 0, 238, 63
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Please select"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,181,42,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,124,42,50,14,NOT WS_VISIBLE
+    LTEXT           "CAPTION",IDC_CAPTION,7,7,224,12
+    COMBOBOX        IDC_COMBO1,7,23,224,160,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_NEWRA2HOUSE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 45
+    END
+
+    "IDD_SAVEOPTIONS$(TS_MODE)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 226
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 118
+    END
+
+    IDD_MULTISAVEOPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 98
+    END
+
+    IDD_MMXOPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 165
+    END
+
+    "IDD_SAVEOPTIONS$(RA2_MODE)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 226
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+
+    IDD_CHANGESIZE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 205
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 187
+    END
+
+    IDD_AITRIGGERADD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 215
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 90
+    END
+
+    IDD_MYOPENDIALOG, DIALOG
+    BEGIN
+    END
+
+    IDD_TIP, DIALOG
+    BEGIN
+        RIGHTMARGIN, 274
+    END
+
+    IDD_FINALSUN_DIALOG, DIALOG
+    BEGIN
+    END
+
+    "IDD_TSOPTIONS$(RA2_MODE)", DIALOG
+    BEGIN
+        BOTTOMMARGIN, 165
+    END
+
+    IDD_ALL, DIALOG
+    BEGIN
+    END
+
+    IDD_MAP, DIALOG
+    BEGIN
+    END
+
+    IDD_INPUTBOX, DIALOG
+    BEGIN
+    END
+
+    IDD_IMPORTINI, DIALOG
+    BEGIN
+    END
+
+    IDD_LIGHTING, DIALOG
+    BEGIN
+    END
+
+    "IDD_INFO$(TS_MODE)", DIALOG
+    BEGIN
+        RIGHTMARGIN, 343
+        BOTTOMMARGIN, 243
+    END
+
+    IDD_SPECIALFLAGS, DIALOG
+    BEGIN
+    END
+
+    IDD_INFANTRY, DIALOG
+    BEGIN
+    END
+
+    IDD_HOUSES, DIALOG
+    BEGIN
+    END
+
+    IDD_AIRCRAFT, DIALOG
+    BEGIN
+    END
+
+    IDD_BUILDING, DIALOG
+    BEGIN
+    END
+
+    "IDD_LOADING$(TS_MODE)", DIALOG
+    BEGIN
+        BOTTOMMARGIN, 159
+    END
+
+    IDD_WAYPOINT, DIALOG
+    BEGIN
+    END
+
+    IDD_CELLTAG, DIALOG
+    BEGIN
+    END
+
+    "IDD_TEAMTYPES$(TS_MODE)", DIALOG
+    BEGIN
+    END
+
+    IDD_TASKFORCES, DIALOG
+    BEGIN
+    END
+
+    IDD_TAGS, DIALOG
+    BEGIN
+    END
+
+    IDD_TRIGGERS, DIALOG
+    BEGIN
+    END
+
+    "IDD_AITRIGGERTYPES$(RA2_MODE)", DIALOG
+    BEGIN
+    END
+
+    IDD_NEWMAP, DIALOG
+    BEGIN
+    END
+
+    IDD_BASIC, DIALOG
+    BEGIN
+    END
+
+    IDD_SINGLEPLAYER, DIALOG
+    BEGIN
+    END
+
+    IDD_MAPVALIDATOR, DIALOG
+    BEGIN
+        RIGHTMARGIN, 433
+        VERTGUIDE, 6
+        VERTGUIDE, 372
+        BOTTOMMARGIN, 219
+        HORZGUIDE, 165
+    END
+
+    IDD_SCRIPTTYPES, DIALOG
+    BEGIN
+    END
+
+    IDD_TERRAINBAR, DIALOG
+    BEGIN
+    END
+
+    IDD_TOOLSETTINGS, DIALOG
+    BEGIN
+    END
+
+    IDD_SHUTDOWN, DIALOG
+    BEGIN
+    END
+
+    IDD_DYNAMICLOAD, DIALOG
+    BEGIN
+    END
+
+    "IDD_SAVING$(TS_MODE)", DIALOG
+    BEGIN
+    END
+
+    IDD_TRIGGEREDITOR, DIALOG
+    BEGIN
+        RIGHTMARGIN, 384
+        VERTGUIDE, 228
+        BOTTOMMARGIN, 258
+    END
+
+    IDD_TRIGGEROPTIONS, DIALOG
+    BEGIN
+        VERTGUIDE, 4
+        VERTGUIDE, 356
+    END
+
+    IDD_TRIGGEREVENTS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 361
+        VERTGUIDE, 6
+        VERTGUIDE, 14
+        VERTGUIDE, 72
+        VERTGUIDE, 173
+        VERTGUIDE, 185
+        VERTGUIDE, 222
+        VERTGUIDE, 233
+        VERTGUIDE, 294
+        VERTGUIDE, 300
+        VERTGUIDE, 354
+        HORZGUIDE, 6
+        HORZGUIDE, 79
+    END
+
+    IDD_TRIGGERACTIONS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 360
+        VERTGUIDE, 6
+        VERTGUIDE, 14
+        VERTGUIDE, 72
+        VERTGUIDE, 174
+        VERTGUIDE, 186
+        VERTGUIDE, 221
+        VERTGUIDE, 233
+        VERTGUIDE, 293
+        VERTGUIDE, 301
+        VERTGUIDE, 354
+        BOTTOMMARGIN, 194
+        HORZGUIDE, 6
+        HORZGUIDE, 74
+        HORZGUIDE, 79
+    END
+
+    "IDD_TSOPTIONS$(TS_MODE)", DIALOG
+    BEGIN
+        BOTTOMMARGIN, 165
+    END
+
+    "IDD_INFO$(RA2_MODE)", DIALOG
+    BEGIN
+        RIGHTMARGIN, 342
+        TOPMARGIN, 8
+        BOTTOMMARGIN, 242
+    END
+
+    "IDD_LOADING$(RA2_MODE)", DIALOG
+    BEGIN
+        BOTTOMMARGIN, 159
+    END
+
+    "IDD_TEAMTYPES$(RA2_MODE)", DIALOG
+    BEGIN
+    END
+
+    IDD_NEWMAPTYPE, DIALOG
+    BEGIN
+    END
+
+    "IDD_NEWMAPCREATE$(TS_MODE)", DIALOG
+    BEGIN
+    END
+
+    IDD_NEWMAPSPOPTIONS, DIALOG
+    BEGIN
+    END
+
+    IDD_NEWMAPCREATENEW, DIALOG
+    BEGIN
+    END
+
+    IDD_NEWMAPIMPORT, DIALOG
+    BEGIN
+    END
+
+    IDD_MAPLOAD, DIALOG
+    BEGIN
+    END
+
+    IDD_NEWMAPBITMAP, DIALOG
+    BEGIN
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+    END
+
+    IDD_AUTOUPDATE, DIALOG
+    BEGIN
+    END
+
+    "IDD_NEWMAPCREATE$(RA2_MODE)", DIALOG
+    BEGIN
+    END
+
+    "IDD_SAVING$(RA2_MODE)", DIALOG
+    BEGIN
+    END
+
+    IDD_UNIT, DIALOG
+    BEGIN
+    END
+
+    IDD_TERRAINPLACING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 226
+    END
+
+    IDD_SEARCHWAYPOINT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    "IDD_AITRIGGERTYPES$(TS_MODE)", DIALOG
+    BEGIN
+    END
+
+    IDD_USERSCRIPTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 294
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_COMBO_UINPUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 56
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_MMXOPTIONS DLGINIT
+BEGIN
+    IDC_MINPLAYERS, 0x403, 2, 0
+0x0032, 
+    IDC_MINPLAYERS, 0x403, 2, 0
+0x0033, 
+    IDC_MINPLAYERS, 0x403, 2, 0
+0x0034, 
+    IDC_MINPLAYERS, 0x403, 2, 0
+0x0035, 
+    IDC_MINPLAYERS, 0x403, 2, 0
+0x0036, 
+    IDC_MINPLAYERS, 0x403, 2, 0
+0x0037, 
+    IDC_MINPLAYERS, 0x403, 2, 0
+0x0038, 
+    IDC_MAXPLAYERS, 0x403, 2, 0
+0x0032, 
+    IDC_MAXPLAYERS, 0x403, 2, 0
+0x0033, 
+    IDC_MAXPLAYERS, 0x403, 2, 0
+0x0034, 
+    IDC_MAXPLAYERS, 0x403, 2, 0
+0x0035, 
+    IDC_MAXPLAYERS, 0x403, 2, 0
+0x0036, 
+    IDC_MAXPLAYERS, 0x403, 2, 0
+0x0037, 
+    IDC_MAXPLAYERS, 0x403, 2, 0
+0x0038, 
+    0
+END
+
+IDD_MAP DLGINIT
+BEGIN
+    IDC_THEATER, 0x403, 5, 0
+0x4e53, 0x574f, "\000" 
+    IDC_THEATER, 0x403, 10, 0
+0x4554, 0x504d, 0x5245, 0x5441, 0x0045, 
+    0
+END
+
+IDD_SPECIALFLAGS DLGINIT
+BEGIN
+    IDC_TIBERIUMGROWS, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_TIBERIUMGROWS, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_TIBERIUMSPREADS, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_TIBERIUMSPREADS, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_TIBERIUMEXPLOSIVE, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_TIBERIUMEXPLOSIVE, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_DESTROYABLEBRIDGES, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_DESTROYABLEBRIDGES, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_MCVDEPLOY, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_MCVDEPLOY, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_INITIALVETERAN, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_INITIALVETERAN, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_FIXEDALLIANCE, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_FIXEDALLIANCE, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_HARVESTERIMMUNE, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_HARVESTERIMMUNE, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_FOGOFWAR, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_FOGOFWAR, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_INERT, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_INERT, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_IONSTORMS, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_IONSTORMS, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_METEORITES, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_METEORITES, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_VISCEROIDS, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_VISCEROIDS, 0x403, 3, 0
+0x6f6e, "\000" 
+    0
+END
+
+IDD_INFANTRY DLGINIT
+BEGIN
+    IDC_STATE, 0x403, 6, 0
+0x6c53, 0x6565, 0x0070, 
+    IDC_STATE, 0x403, 9, 0
+0x6148, 0x6d72, 0x656c, 0x7373, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x7453, 0x6369, 0x796b, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x7441, 0x6174, 0x6b63, "\000" 
+    IDC_STATE, 0x403, 5, 0
+0x6f4d, 0x6576, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x6150, 0x7274, 0x6c6f, "\000" 
+    IDC_STATE, 0x403, 6, 0
+0x4d51, 0x766f, 0x0065, 
+    IDC_STATE, 0x403, 8, 0
+0x6552, 0x7274, 0x6165, 0x0074, 
+    IDC_STATE, 0x403, 6, 0
+0x7547, 0x7261, 0x0064, 
+    IDC_STATE, 0x403, 6, 0
+0x6e45, 0x6574, 0x0072, 
+    IDC_STATE, 0x403, 8, 0
+0x6143, 0x7470, 0x7275, 0x0065, 
+    IDC_STATE, 0x403, 8, 0
+0x6148, 0x7672, 0x7365, 0x0074, 
+    IDC_STATE, 0x403, 11, 0
+0x7241, 0x6165, 0x4720, 0x6175, 0x6472, "\000" 
+    IDC_STATE, 0x403, 17, 0
+0x6552, 0x7574, 0x6e72, 0x3c20, 0x6e75, 0x7375, 0x6465, 0x3e21, "\000" 
+    IDC_STATE, 0x403, 5, 0
+0x7453, 0x706f, "\000" 
+    IDC_STATE, 0x403, 17, 0
+0x6d41, 0x7562, 0x6873, 0x3c20, 0x6e75, 0x7375, 0x6465, 0x3e21, "\000" 
+    IDC_STATE, 0x403, 5, 0
+0x7548, 0x746e, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x6e55, 0x6f6c, 0x6461, "\000" 
+    IDC_STATE, 0x403, 9, 0
+0x6153, 0x6f62, 0x6174, 0x6567, "\000" 
+    IDC_STATE, 0x403, 13, 0
+0x6f43, 0x736e, 0x7274, 0x6375, 0x6974, 0x6e6f, "\000" 
+    IDC_STATE, 0x403, 8, 0
+0x6553, 0x6c6c, 0x6e69, 0x0067, 
+    IDC_STATE, 0x403, 7, 0
+0x6552, 0x6170, 0x7269, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x6552, 0x6373, 0x6575, "\000" 
+    IDC_STATE, 0x403, 8, 0
+0x694d, 0x7373, 0x6c69, 0x0065, 
+    IDC_STATE, 0x403, 5, 0
+0x704f, 0x6e65, "\000" 
+    IDC_TAG, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_DIRECTION, 0x403, 2, 0
+0x0030, 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3233, "\000" 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3436, "\000" 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3639, "\000" 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3231, 0x0038, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3631, 0x0030, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3931, 0x0032, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3232, 0x0034, 
+    0
+END
+
+IDD_HOUSES DLGINIT
+BEGIN
+    IDC_IQ, 0x403, 2, 0
+0x0030, 
+    IDC_IQ, 0x403, 2, 0
+0x0031, 
+    IDC_IQ, 0x403, 2, 0
+0x0032, 
+    IDC_IQ, 0x403, 2, 0
+0x0033, 
+    IDC_IQ, 0x403, 2, 0
+0x0034, 
+    IDC_IQ, 0x403, 2, 0
+0x0035, 
+    IDC_EDGE, 0x403, 5, 0
+0x6557, 0x7473, "\000" 
+    IDC_EDGE, 0x403, 5, 0
+0x6145, 0x7473, "\000" 
+    IDC_EDGE, 0x403, 6, 0
+0x6f4e, 0x7472, 0x0068, 
+    IDC_EDGE, 0x403, 6, 0
+0x6f53, 0x7475, 0x0068, 
+    IDC_SIDE, 0x403, 4, 0
+0x4447, 0x0049, 
+    IDC_SIDE, 0x403, 4, 0
+0x6f4e, 0x0064, 
+    IDC_SIDE, 0x403, 9, 0
+0x6943, 0x6976, 0x696c, 0x6e61, "\000" 
+    IDC_SIDE, 0x403, 7, 0
+0x754d, 0x6174, 0x746e, "\000" 
+    IDC_ACTSLIKE, 0x403, 6, 0
+0x2030, 0x4447, 0x0049, 
+    IDC_ACTSLIKE, 0x403, 6, 0
+0x2031, 0x6f4e, 0x0064, 
+    IDC_NODECOUNT, 0x403, 2, 0
+0x0030, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0030, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0031, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0032, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0033, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0034, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0035, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0036, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0037, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0038, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0039, 
+    IDC_TECHLEVEL, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_PERCENTBUILT, 0x403, 2, 0
+0x0030, 
+    IDC_PERCENTBUILT, 0x403, 3, 0
+0x3035, "\000" 
+    IDC_PERCENTBUILT, 0x403, 4, 0
+0x3031, 0x0030, 
+    IDC_PLAYERCONTROL, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_PLAYERCONTROL, 0x403, 4, 0
+0x6579, 0x0073, 
+    0
+END
+
+IDD_AIRCRAFT DLGINIT
+BEGIN
+    IDC_STATE, 0x403, 6, 0
+0x6c53, 0x6565, 0x0070, 
+    IDC_STATE, 0x403, 9, 0
+0x6148, 0x6d72, 0x656c, 0x7373, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x7453, 0x6369, 0x796b, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x7441, 0x6174, 0x6b63, "\000" 
+    IDC_STATE, 0x403, 5, 0
+0x6f4d, 0x6576, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x6150, 0x7274, 0x6c6f, "\000" 
+    IDC_STATE, 0x403, 6, 0
+0x4d51, 0x766f, 0x0065, 
+    IDC_STATE, 0x403, 8, 0
+0x6552, 0x7274, 0x6165, 0x0074, 
+    IDC_STATE, 0x403, 6, 0
+0x7547, 0x7261, 0x0064, 
+    IDC_STATE, 0x403, 6, 0
+0x6e45, 0x6574, 0x0072, 
+    IDC_STATE, 0x403, 8, 0
+0x6143, 0x7470, 0x7275, 0x0065, 
+    IDC_STATE, 0x403, 8, 0
+0x6148, 0x7672, 0x7365, 0x0074, 
+    IDC_STATE, 0x403, 11, 0
+0x7241, 0x6165, 0x4720, 0x6175, 0x6472, "\000" 
+    IDC_STATE, 0x403, 17, 0
+0x6552, 0x7574, 0x6e72, 0x3c20, 0x6e75, 0x7375, 0x6465, 0x3e21, "\000" 
+    IDC_STATE, 0x403, 5, 0
+0x7453, 0x706f, "\000" 
+    IDC_STATE, 0x403, 17, 0
+0x6d41, 0x7562, 0x6873, 0x3c20, 0x6e75, 0x7375, 0x6465, 0x3e21, "\000" 
+    IDC_STATE, 0x403, 5, 0
+0x7548, 0x746e, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x6e55, 0x6f6c, 0x6461, "\000" 
+    IDC_STATE, 0x403, 9, 0
+0x6153, 0x6f62, 0x6174, 0x6567, "\000" 
+    IDC_STATE, 0x403, 13, 0
+0x6f43, 0x736e, 0x7274, 0x6375, 0x6974, 0x6e6f, "\000" 
+    IDC_STATE, 0x403, 8, 0
+0x6553, 0x6c6c, 0x6e69, 0x0067, 
+    IDC_STATE, 0x403, 7, 0
+0x6552, 0x6170, 0x7269, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x6552, 0x6373, 0x6575, "\000" 
+    IDC_STATE, 0x403, 8, 0
+0x694d, 0x7373, 0x6c69, 0x0065, 
+    IDC_STATE, 0x403, 5, 0
+0x704f, 0x6e65, "\000" 
+    IDC_TAG, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_DIRECTION, 0x403, 2, 0
+0x0030, 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3233, "\000" 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3436, "\000" 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3639, "\000" 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3231, 0x0038, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3631, 0x0030, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3931, 0x0032, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3232, 0x0034, 
+    0
+END
+
+IDD_BUILDING DLGINIT
+BEGIN
+    IDC_TAG, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_DIRECTION, 0x403, 2, 0
+0x0030, 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3233, "\000" 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3436, "\000" 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3639, "\000" 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3231, 0x0038, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3631, 0x0030, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3931, 0x0032, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3232, 0x0034, 
+    IDC_P6, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_P7, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_P8, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_P3, 0x403, 2, 0
+0x0030, 
+    IDC_P3, 0x403, 2, 0
+0x0031, 
+    IDC_P2, 0x403, 2, 0
+0x0030, 
+    IDC_P2, 0x403, 2, 0
+0x0031, 
+    IDC_P4, 0x403, 2, 0
+0x0030, 
+    IDC_P4, 0x403, 2, 0
+0x0031, 
+    IDC_P4, 0x403, 2, 0
+0x0032, 
+    IDC_P4, 0x403, 2, 0
+0x0033, 
+    IDC_P5, 0x403, 17, 0
+0x2030, 0x202d, 0x6f4e, 0x7320, 0x6f70, 0x6c74, 0x6769, 0x7468, "\000" 
+    IDC_P5, 0x403, 22, 0
+0x2031, 0x202d, 0x7552, 0x656c, 0x2e73, 0x6e49, 0x2069, 0x6573, 0x7474, 
+0x6e69, 0x0067, 
+    IDC_P5, 0x403, 23, 0
+0x2032, 0x202d, 0x6943, 0x6372, 0x656c, 0x2f20, 0x4420, 0x7269, 0x6365, 
+0x6974, 0x6e6f, "\000" 
+    IDC_P9, 0x403, 2, 0
+0x0030, 
+    IDC_P9, 0x403, 2, 0
+0x0031, 
+    IDC_P10, 0x403, 2, 0
+0x0030, 
+    IDC_P10, 0x403, 2, 0
+0x0031, 
+    0
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_TEAMTYPES$(TS_MODE) DLGINIT
+#else
+IDD_TEAMTYPES DLGINIT
+#endif
+BEGIN
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0030, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0031, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0032, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0033, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0034, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0035, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0036, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0037, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0038, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0039, 
+    IDC_TECHLEVEL, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_GROUP, 0x403, 3, 0
+0x312d, "\000" 
+    IDC_VETERANLEVEL, 0x403, 2, 0
+0x0031, 
+    IDC_VETERANLEVEL, 0x403, 2, 0
+0x0032, 
+    IDC_VETERANLEVEL, 0x403, 2, 0
+0x0033, 
+    IDC_MINDCONTROLDECISION, 0x403, 17, 0
+0x2030, 0x202d, 0x443c, 0x6e6f, 0x7427, 0x6320, 0x7261, 0x3e65, "\000" 
+    IDC_MINDCONTROLDECISION, 0x403, 16, 0
+0x2031, 0x202d, 0x6441, 0x2064, 0x6f54, 0x5420, 0x6165, 0x006d, 
+    IDC_MINDCONTROLDECISION, 0x403, 19, 0
+0x2032, 0x202d, 0x7550, 0x2074, 0x6e69, 0x4720, 0x6972, 0x646e, 0x7265, 
+"\000" 
+    IDC_MINDCONTROLDECISION, 0x403, 23, 0
+0x2033, 0x202d, 0x7550, 0x2074, 0x6e69, 0x4220, 0x6f69, 0x5220, 0x6165, 
+0x7463, 0x726f, "\000" 
+    IDC_MINDCONTROLDECISION, 0x403, 15, 0
+0x2034, 0x202d, 0x6f47, 0x7420, 0x206f, 0x7548, 0x746e, "\000" 
+    IDC_MINDCONTROLDECISION, 0x403, 15, 0
+0x2035, 0x202d, 0x6f44, 0x4e20, 0x746f, 0x6968, 0x676e, "\000" 
+    0
+END
+#endif
+
+IDD_TAGS DLGINIT
+BEGIN
+    IDC_REPEAT, 0x403, 36, 0
+0x2030, 0x202d, 0x614d, 0x656b, 0x7420, 0x6568, 0x7420, 0x6972, 0x6767, 
+0x7265, 0x7720, 0x726f, 0x206b, 0x6e6f, 0x796c, 0x6f20, 0x636e, 0x0065, 
+
+    IDC_REPEAT, 0x403, 12, 0
+0x2031, 0x202d, 0x6e55, 0x6e6b, 0x776f, 0x006e, 
+    IDC_REPEAT, 0x403, 32, 0
+0x2032, 0x202d, 0x614d, 0x656b, 0x7420, 0x6568, 0x7420, 0x6972, 0x6767, 
+0x7265, 0x7220, 0x7065, 0x6165, 0x6974, 0x676e, 0x0020, 
+    0
+END
+
+IDD_TRIGGERS DLGINIT
+BEGIN
+    IDC_TRIGGER2, 0x403, 7, 0
+0x6e3c, 0x6e6f, 0x3e65, "\000" 
+    0
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_AITRIGGERTYPES$(RA2_MODE) DLGINIT
+#else
+IDD_AITRIGGERTYPES DLGINIT
+#endif
+BEGIN
+    IDC_FLAG2, 0x403, 8, 0
+0x312d, 0x4e20, 0x6e6f, 0x0065, 
+    IDC_FLAG2, 0x403, 37, 0
+0x2030, 0x6e45, 0x6d65, 0x2079, 0x776f, 0x736e, 0x2820, 0x4f43, 0x444e, 
+0x5449, 0x4f49, 0x294e, 0x4e20, 0x6f20, 0x2066, 0x7974, 0x6570, 0x5820, 
+"\000" 
+    IDC_FLAG2, 0x403, 37, 0
+0x2031, 0x6f48, 0x7375, 0x2065, 0x776f, 0x736e, 0x2820, 0x4f43, 0x444e, 
+0x5449, 0x4f49, 0x294e, 0x4e20, 0x6f20, 0x2066, 0x7974, 0x6570, 0x5820, 
+"\000" 
+    IDC_FLAG2, 0x403, 22, 0
+0x2032, 0x6e45, 0x6d65, 0x3a79, 0x5920, 0x6c65, 0x6f6c, 0x2077, 0x6f70, 
+0x6577, 0x0072, 
+    IDC_FLAG2, 0x403, 19, 0
+0x2033, 0x6e45, 0x6d65, 0x3a79, 0x5220, 0x6465, 0x7020, 0x776f, 0x7265, 
+"\000" 
+    IDC_FLAG2, 0x403, 33, 0
+0x2034, 0x6e45, 0x6d65, 0x2079, 0x776f, 0x736e, 0x2820, 0x4f43, 0x444e, 
+0x5449, 0x4f49, 0x294e, 0x4e20, 0x6d20, 0x6e6f, 0x7965, "\000" 
+    IDC_FLAG2, 0x403, 26, 0
+0x2035, 0x7249, 0x6e6f, 0x6320, 0x7275, 0x6174, 0x6e69, 0x6e20, 0x6165, 
+0x2072, 0x6572, 0x6461, 0x0079, 
+    IDC_FLAG2, 0x403, 26, 0
+0x2036, 0x6843, 0x6f72, 0x6f6e, 0x7073, 0x6568, 0x6572, 0x6e20, 0x6165, 
+0x2072, 0x6572, 0x6461, 0x0079, 
+    IDC_FLAG2, 0x403, 39, 0
+0x2037, 0x654e, 0x7475, 0x6172, 0x206c, 0x776f, 0x736e, 0x2820, 0x4f43, 
+0x444e, 0x5449, 0x4f49, 0x294e, 0x4e20, 0x6f20, 0x2066, 0x7974, 0x6570, 
+0x5820, "\000" 
+    IDC_DATA, 0x403, 65, 0
+0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 
+0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 
+0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 
+0x3030, 0x3030, 0x3030, 0x3030, 0x3030, "\000" 
+    IDC_MULTISIDE, 0x403, 7, 0
+0x2030, 0x6f4e, 0x656e, "\000" 
+    IDC_MULTISIDE, 0x403, 9, 0
+0x2031, 0x6c41, 0x696c, 0x6465, "\000" 
+    IDC_MULTISIDE, 0x403, 9, 0
+0x2032, 0x6f53, 0x6976, 0x7465, "\000" 
+    IDC_MULTISIDE, 0x403, 8, 0
+0x2033, 0x6854, 0x7269, 0x0064, 
+    IDC_CONDITION, 0x403, 10, 0
+0x656c, 0x7373, 0x7420, 0x6168, 0x006e, 
+    IDC_CONDITION, 0x403, 22, 0
+0x656c, 0x7373, 0x7420, 0x6168, 0x206e, 0x726f, 0x6520, 0x7571, 0x6c61, 
+0x7420, 0x006f, 
+    IDC_CONDITION, 0x403, 9, 0
+0x7165, 0x6175, 0x206c, 0x6f74, "\000" 
+    IDC_CONDITION, 0x403, 25, 0
+0x7267, 0x6165, 0x6574, 0x2072, 0x6874, 0x6e61, 0x6f20, 0x2072, 0x7165, 
+0x6175, 0x206c, 0x6f74, "\000" 
+    IDC_CONDITION, 0x403, 13, 0
+0x7267, 0x6165, 0x6574, 0x2072, 0x6874, 0x6e61, "\000" 
+    IDC_CONDITION, 0x403, 13, 0
+0x6f6e, 0x2074, 0x7165, 0x6175, 0x206c, 0x6f74, "\000" 
+    0
+END
+#endif
+
+IDD_BASIC DLGINIT
+BEGIN
+    IDC_ENDOFGAME, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_ENDOFGAME, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_SKIPSCORE, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_SKIPSCORE, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_ONETIMEONLY, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_ONETIMEONLY, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_SKIPMAPSELECT, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_SKIPMAPSELECT, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_OFFICIAL, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_OFFICIAL, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_IGNOREGLOBALAITRIGGERS, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_IGNOREGLOBALAITRIGGERS, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_TRUCKCRATE, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_TRUCKCRATE, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_TRAINCRATE, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_TRAINCRATE, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_TIBERIUMGROWTHENABLED, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_TIBERIUMGROWTHENABLED, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_VEINGROWTHENABLED, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_VEINGROWTHENABLED, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_ICEGROWTHENABLED, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_ICEGROWTHENABLED, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_TIBERIUMDEATHTOVISCEROID, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_TIBERIUMDEATHTOVISCEROID, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_FREERADAR, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_FREERADAR, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_REQUIREDADDON, 0x403, 2, 0
+0x0030, 
+    IDC_REQUIREDADDON, 0x403, 2, 0
+0x0031, 
+    0
+END
+
+IDD_SINGLEPLAYER DLGINIT
+BEGIN
+    IDC_STARTINGDROPSHIPS, 0x403, 2, 0
+0x0030, 
+    IDC_STARTINGDROPSHIPS, 0x403, 2, 0
+0x0031, 
+    IDC_TIMERINHERIT, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_TIMERINHERIT, 0x403, 3, 0
+0x6f6e, "\000" 
+    IDC_FILLSILOS, 0x403, 4, 0
+0x6579, 0x0073, 
+    IDC_FILLSILOS, 0x403, 3, 0
+0x6f6e, "\000" 
+    0
+END
+
+IDD_SCRIPTTYPES DLGINIT
+BEGIN
+    IDC_TYPE, 0x403, 32, 0
+0x2030, 0x202d, 0x7441, 0x6174, 0x6b63, 0x7420, 0x7261, 0x6567, 0x2074, 
+0x7428, 0x7261, 0x6567, 0x2074, 0x7974, 0x6570, 0x0029, 
+    IDC_TYPE, 0x403, 38, 0
+0x2031, 0x202d, 0x7441, 0x6174, 0x6b63, 0x7720, 0x7961, 0x6f70, 0x6e69, 
+0x2074, 0x7728, 0x7961, 0x6f70, 0x6e69, 0x2074, 0x756e, 0x626d, 0x7265, 
+0x0029, 
+    IDC_TYPE, 0x403, 39, 0
+0x2033, 0x202d, 0x6f4d, 0x6576, 0x7420, 0x206f, 0x6177, 0x7079, 0x696f, 
+0x746e, 0x2820, 0x6177, 0x7079, 0x696f, 0x746e, 0x6e20, 0x6d75, 0x6562, 
+0x2972, "\000" 
+    IDC_TYPE, 0x403, 58, 0
+0x2034, 0x202d, 0x6f4d, 0x6576, 0x7420, 0x206f, 0x6563, 0x6c6c, 0x2820, 
+0x6177, 0x7079, 0x696f, 0x746e, 0x7620, 0x6c61, 0x6575, 0x2820, 0x5820, 
+0x5858, 0x5959, 0x2c59, 0x6120, 0x2074, 0x656c, 0x7361, 0x2074, 0x5958, 
+0x5959, 0x0029, 
+    IDC_TYPE, 0x403, 37, 0
+0x2035, 0x202d, 0x7547, 0x7261, 0x2064, 0x7261, 0x6165, 0x2820, 0x6974, 
+0x656d, 0x7520, 0x696e, 0x7374, 0x7420, 0x206f, 0x7567, 0x7261, 0x2964, 
+"\000" 
+    IDC_TYPE, 0x403, 36, 0
+0x2036, 0x202d, 0x754a, 0x706d, 0x7420, 0x206f, 0x6361, 0x6974, 0x6e6f, 
+0x2320, 0x2820, 0x6361, 0x6974, 0x6e6f, 0x7420, 0x206f, 0x6f67, 0x0029, 
+
+    IDC_TYPE, 0x403, 18, 0
+0x2037, 0x202d, 0x7441, 0x6174, 0x6b63, 0x7420, 0x7261, 0x6f63, 0x006d, 
+
+    IDC_TYPE, 0x403, 46, 0
+0x2038, 0x202d, 0x6e55, 0x6f6c, 0x6461, 0x6320, 0x7261, 0x6f67, 0x2820, 
+0x7073, 0x696c, 0x2074, 0x7274, 0x6e61, 0x7073, 0x726f, 0x2074, 0x6e61, 
+0x2064, 0x7274, 0x6f6f, 0x7370, 0x0029, 
+    IDC_TYPE, 0x403, 24, 0
+0x2039, 0x202d, 0x6544, 0x6c70, 0x796f, 0x2820, 0x6170, 0x6172, 0x206d, 
+0x7369, 0x3020, 0x0029, 
+    IDC_TYPE, 0x403, 30, 0
+0x3131, 0x2d20, 0x4420, 0x206f, 0x6562, 0x6168, 0x6976, 0x756f, 0x2072, 
+0x6228, 0x6865, 0x7661, 0x6f69, 0x7275, 0x0029, 
+    IDC_TYPE, 0x403, 32, 0
+0x3431, 0x2d20, 0x4c20, 0x616f, 0x2064, 0x6e6f, 0x7420, 0x6172, 0x736e, 
+0x6f70, 0x7472, 0x2073, 0x7528, 0x6573, 0x3020, 0x0029, 
+    IDC_TYPE, 0x403, 42, 0
+0x3631, 0x2d20, 0x5020, 0x7461, 0x6f72, 0x206c, 0x6f74, 0x7720, 0x7961, 
+0x6f70, 0x6e69, 0x2074, 0x7728, 0x7961, 0x6f70, 0x6e69, 0x2074, 0x756e, 
+0x626d, 0x7265, 0x0029, 
+    IDC_TYPE, 0x403, 46, 0
+0x3032, 0x2d20, 0x4320, 0x6168, 0x676e, 0x2065, 0x6f68, 0x7375, 0x2065, 
+0x6e28, 0x6d75, 0x6562, 0x2072, 0x666f, 0x6e20, 0x7765, 0x6f20, 0x6e77, 
+0x7265, 0x6820, 0x756f, 0x6573, 0x0029, 
+    IDC_TYPE, 0x403, 23, 0
+0x3733, 0x2d20, 0x4c20, 0x6165, 0x6576, 0x6d20, 0x7061, 0x2820, 0x7375, 
+0x2065, 0x2930, "\000" 
+    IDC_TYPE, 0x403, 25, 0
+0x3933, 0x2d20, 0x5320, 0x7465, 0x6720, 0x6f6c, 0x6162, 0x206c, 0x6728, 
+0x6f6c, 0x6162, 0x296c, "\000" 
+    IDC_TYPE, 0x403, 19, 0
+0x3034, 0x2d20, 0x4320, 0x656c, 0x7261, 0x6720, 0x6f6c, 0x6162, 0x3f6c, 
+"\000" 
+    IDC_TYPE, 0x403, 25, 0
+0x3234, 0x2d20, 0x5420, 0x7275, 0x206e, 0x6e69, 0x6f74, 0x6420, 0x7269, 
+0x6365, 0x6974, 0x6e6f, "\000" 
+    IDC_TYPE, 0x403, 16, 0
+0x3434, 0x2d20, 0x4c20, 0x616f, 0x2064, 0x6163, 0x6772, 0x006f, 
+    IDC_TYPE, 0x403, 18, 0
+0x3534, 0x2d20, 0x5520, 0x6c6e, 0x616f, 0x2064, 0x6163, 0x6772, 0x006f, 
+
+    IDC_TYPE, 0x403, 29, 0
+0x3634, 0x2d20, 0x4120, 0x7474, 0x6361, 0x206b, 0x6174, 0x6772, 0x7465, 
+0x7320, 0x7274, 0x6375, 0x7574, 0x6572, "\000" 
+    IDC_TYPE, 0x403, 30, 0
+0x3734, 0x2d20, 0x4d20, 0x766f, 0x2065, 0x6f74, 0x7420, 0x7261, 0x6567, 
+0x2074, 0x7473, 0x7572, 0x7463, 0x7275, 0x0065, 
+    0
+END
+
+IDD_NEWMAP DLGINIT
+BEGIN
+    IDC_GROUNDHEIGHT, 0x403, 2, 0
+0x0030, 
+    IDC_GROUNDHEIGHT, 0x403, 2, 0
+0x0031, 
+    IDC_GROUNDHEIGHT, 0x403, 2, 0
+0x0032, 
+    IDC_GROUNDHEIGHT, 0x403, 2, 0
+0x0033, 
+    IDC_GROUNDHEIGHT, 0x403, 2, 0
+0x0034, 
+    IDC_GROUNDHEIGHT, 0x403, 2, 0
+0x0035, 
+    IDC_GROUNDHEIGHT, 0x403, 2, 0
+0x0036, 
+    IDC_GROUNDHEIGHT, 0x403, 2, 0
+0x0037, 
+    IDC_GROUNDHEIGHT, 0x403, 2, 0
+0x0038, 
+    IDC_GROUNDHEIGHT, 0x403, 2, 0
+0x0039, 
+    IDC_GROUNDHEIGHT, 0x403, 3, 0
+0x3031, "\000" 
+    0
+END
+
+IDD_TOOLSETTINGS DLGINIT
+BEGIN
+    IDC_BRUSHSIZE, 0x403, 4, 0
+0x7831, 0x0031, 
+    IDC_BRUSHSIZE, 0x403, 4, 0
+0x7832, 0x0032, 
+    IDC_BRUSHSIZE, 0x403, 4, 0
+0x7833, 0x0033, 
+    IDC_BRUSHSIZE, 0x403, 4, 0
+0x7834, 0x0034, 
+    IDC_BRUSHSIZE, 0x403, 4, 0
+0x7835, 0x0035, 
+    IDC_BRUSHSIZE, 0x403, 6, 0
+0x3031, 0x3178, 0x0030, 
+    IDC_BRUSHSIZE, 0x403, 4, 0
+0x7831, 0x0032, 
+    IDC_BRUSHSIZE, 0x403, 4, 0
+0x7832, 0x0031, 
+    IDC_BRUSHSIZE, 0x403, 4, 0
+0x7831, 0x0033, 
+    IDC_BRUSHSIZE, 0x403, 4, 0
+0x7833, 0x0031, 
+    0
+END
+
+IDD_TRIGGEROPTIONS DLGINIT
+BEGIN
+    IDC_TRIGGERTYPE, 0x403, 13, 0
+0x2030, 0x202d, 0x7453, 0x6e61, 0x6164, 0x6472, "\000" 
+    IDC_TRIGGERTYPE, 0x403, 14, 0
+0x2032, 0x202d, 0x6552, 0x6570, 0x7461, 0x6e69, 0x0067, 
+    IDC_HOUSE, 0x403, 13, 0
+0x2030, 0x202d, 0x7453, 0x6e61, 0x6164, 0x6472, "\000" 
+    IDC_HOUSE, 0x403, 14, 0
+0x2032, 0x202d, 0x6552, 0x6570, 0x7461, 0x6e69, 0x0067, 
+    0
+END
+
+IDD_GLOBALS DLGINIT
+BEGIN
+    IDC_VALUE, 0x403, 10, 0
+0x2030, 0x202d, 0x6c43, 0x6165, 0x0072, 
+    IDC_VALUE, 0x403, 8, 0
+0x2031, 0x202d, 0x6553, 0x0074, 
+    0
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_TEAMTYPES$(RA2_MODE) DLGINIT
+#else
+IDD_TEAMTYPES DLGINIT
+#endif
+BEGIN
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0030, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0031, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0032, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0033, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0034, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0035, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0036, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0037, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0038, 
+    IDC_TECHLEVEL, 0x403, 2, 0
+0x0039, 
+    IDC_TECHLEVEL, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_GROUP, 0x403, 3, 0
+0x312d, "\000" 
+    IDC_VETERANLEVEL, 0x403, 2, 0
+0x0031, 
+    IDC_VETERANLEVEL, 0x403, 2, 0
+0x0032, 
+    IDC_VETERANLEVEL, 0x403, 2, 0
+0x0033, 
+    IDC_MINDCONTROLDECISION, 0x403, 17, 0
+0x2030, 0x202d, 0x443c, 0x6e6f, 0x7427, 0x6320, 0x7261, 0x3e65, "\000" 
+    IDC_MINDCONTROLDECISION, 0x403, 16, 0
+0x2031, 0x202d, 0x6441, 0x2064, 0x6f54, 0x5420, 0x6165, 0x006d, 
+    IDC_MINDCONTROLDECISION, 0x403, 19, 0
+0x2032, 0x202d, 0x7550, 0x2074, 0x6e69, 0x4720, 0x6972, 0x646e, 0x7265, 
+"\000" 
+    IDC_MINDCONTROLDECISION, 0x403, 23, 0
+0x2033, 0x202d, 0x7550, 0x2074, 0x6e69, 0x4220, 0x6f69, 0x5220, 0x6165, 
+0x7463, 0x726f, "\000" 
+    IDC_MINDCONTROLDECISION, 0x403, 15, 0
+0x2034, 0x202d, 0x6f47, 0x7420, 0x206f, 0x7548, 0x746e, "\000" 
+    IDC_MINDCONTROLDECISION, 0x403, 15, 0
+0x2035, 0x202d, 0x6f44, 0x4e20, 0x746f, 0x6968, 0x676e, "\000" 
+    0
+END
+#endif
+
+IDD_NEWMAPCREATENEW DLGINIT
+BEGIN
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0030, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0031, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0032, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0033, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0034, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0035, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0036, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0037, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0038, 
+    0
+END
+
+IDD_NEWMAPBITMAP DLGINIT
+BEGIN
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0030, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0031, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0032, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0033, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0034, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0035, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0036, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0037, 
+    IDC_STARTINGHEIGHT, 0x403, 2, 0
+0x0038, 
+    0
+END
+
+IDD_UNIT DLGINIT
+BEGIN
+    IDC_STATE, 0x403, 6, 0
+0x6c53, 0x6565, 0x0070, 
+    IDC_STATE, 0x403, 9, 0
+0x6148, 0x6d72, 0x656c, 0x7373, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x7453, 0x6369, 0x796b, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x7441, 0x6174, 0x6b63, "\000" 
+    IDC_STATE, 0x403, 5, 0
+0x6f4d, 0x6576, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x6150, 0x7274, 0x6c6f, "\000" 
+    IDC_STATE, 0x403, 6, 0
+0x4d51, 0x766f, 0x0065, 
+    IDC_STATE, 0x403, 8, 0
+0x6552, 0x7274, 0x6165, 0x0074, 
+    IDC_STATE, 0x403, 6, 0
+0x7547, 0x7261, 0x0064, 
+    IDC_STATE, 0x403, 6, 0
+0x6e45, 0x6574, 0x0072, 
+    IDC_STATE, 0x403, 8, 0
+0x6143, 0x7470, 0x7275, 0x0065, 
+    IDC_STATE, 0x403, 8, 0
+0x6148, 0x7672, 0x7365, 0x0074, 
+    IDC_STATE, 0x403, 11, 0
+0x7241, 0x6165, 0x4720, 0x6175, 0x6472, "\000" 
+    IDC_STATE, 0x403, 17, 0
+0x6552, 0x7574, 0x6e72, 0x3c20, 0x6e75, 0x7375, 0x6465, 0x3e21, "\000" 
+    IDC_STATE, 0x403, 5, 0
+0x7453, 0x706f, "\000" 
+    IDC_STATE, 0x403, 17, 0
+0x6d41, 0x7562, 0x6873, 0x3c20, 0x6e75, 0x7375, 0x6465, 0x3e21, "\000" 
+    IDC_STATE, 0x403, 5, 0
+0x7548, 0x746e, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x6e55, 0x6f6c, 0x6461, "\000" 
+    IDC_STATE, 0x403, 9, 0
+0x6153, 0x6f62, 0x6174, 0x6567, "\000" 
+    IDC_STATE, 0x403, 13, 0
+0x6f43, 0x736e, 0x7274, 0x6375, 0x6974, 0x6e6f, "\000" 
+    IDC_STATE, 0x403, 8, 0
+0x6553, 0x6c6c, 0x6e69, 0x0067, 
+    IDC_STATE, 0x403, 7, 0
+0x6552, 0x6170, 0x7269, "\000" 
+    IDC_STATE, 0x403, 7, 0
+0x6552, 0x6373, 0x6575, "\000" 
+    IDC_STATE, 0x403, 8, 0
+0x694d, 0x7373, 0x6c69, 0x0065, 
+    IDC_STATE, 0x403, 5, 0
+0x704f, 0x6e65, "\000" 
+    IDC_TAG, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_DIRECTION, 0x403, 2, 0
+0x0030, 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3233, "\000" 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3436, "\000" 
+    IDC_DIRECTION, 0x403, 3, 0
+0x3639, "\000" 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3231, 0x0038, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3631, 0x0030, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3931, 0x0032, 
+    IDC_DIRECTION, 0x403, 4, 0
+0x3232, 0x0034, 
+    0
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_AITRIGGERTYPES$(TS_MODE) DLGINIT
+#else
+IDD_AITRIGGERTYPES DLGINIT
+#endif
+BEGIN
+    IDC_FLAG2, 0x403, 8, 0
+0x312d, 0x4e20, 0x6e6f, 0x0065, 
+    IDC_FLAG2, 0x403, 37, 0
+0x2030, 0x6e45, 0x6d65, 0x2079, 0x776f, 0x736e, 0x2820, 0x4f43, 0x444e, 
+0x5449, 0x4f49, 0x294e, 0x4e20, 0x6f20, 0x2066, 0x7974, 0x6570, 0x5820, 
+"\000" 
+    IDC_FLAG2, 0x403, 37, 0
+0x2031, 0x6f48, 0x7375, 0x2065, 0x776f, 0x736e, 0x2820, 0x4f43, 0x444e, 
+0x5449, 0x4f49, 0x294e, 0x4e20, 0x6f20, 0x2066, 0x7974, 0x6570, 0x5820, 
+"\000" 
+    IDC_FLAG2, 0x403, 22, 0
+0x2032, 0x6e45, 0x6d65, 0x3a79, 0x5920, 0x6c65, 0x6f6c, 0x2077, 0x6f70, 
+0x6577, 0x0072, 
+    IDC_FLAG2, 0x403, 19, 0
+0x2033, 0x6e45, 0x6d65, 0x3a79, 0x5220, 0x6465, 0x7020, 0x776f, 0x7265, 
+"\000" 
+    IDC_FLAG2, 0x403, 33, 0
+0x2034, 0x6e45, 0x6d65, 0x2079, 0x776f, 0x736e, 0x2820, 0x4f43, 0x444e, 
+0x5449, 0x4f49, 0x294e, 0x4e20, 0x6d20, 0x6e6f, 0x7965, "\000" 
+    IDC_DATA, 0x403, 65, 0
+0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 
+0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 
+0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 0x3030, 
+0x3030, 0x3030, 0x3030, 0x3030, 0x3030, "\000" 
+    IDC_MULTISIDE, 0x403, 7, 0
+0x2030, 0x6f4e, 0x656e, "\000" 
+    IDC_MULTISIDE, 0x403, 6, 0
+0x2031, 0x4447, 0x0049, 
+    IDC_MULTISIDE, 0x403, 6, 0
+0x2032, 0x6f4e, 0x0064, 
+    IDC_CONDITION, 0x403, 10, 0
+0x656c, 0x7373, 0x7420, 0x6168, 0x006e, 
+    IDC_CONDITION, 0x403, 22, 0
+0x656c, 0x7373, 0x7420, 0x6168, 0x206e, 0x726f, 0x6520, 0x7571, 0x6c61, 
+0x7420, 0x006f, 
+    IDC_CONDITION, 0x403, 9, 0
+0x7165, 0x6175, 0x206c, 0x6f74, "\000" 
+    IDC_CONDITION, 0x403, 25, 0
+0x7267, 0x6165, 0x6574, 0x2072, 0x6874, 0x6e61, 0x6f20, 0x2072, 0x7165, 
+0x6175, 0x206c, 0x6f74, "\000" 
+    IDC_CONDITION, 0x403, 13, 0
+0x7267, 0x6165, 0x6574, 0x2072, 0x6874, 0x6e61, "\000" 
+    IDC_CONDITION, 0x403, 13, 0
+0x6f6e, 0x2074, 0x7165, 0x6175, 0x206c, 0x6f74, "\000" 
+    0
+END
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+#if defined(APSTUDIO_INVOKED) || defined(YR_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDR_MAINFRAME$(YR_MODE) ICON                    "res\\FinalAlert2YR.ico"
+
+#else
+IDR_MAINFRAME           ICON                    "res\\FinalAlert2YR.ico"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE_ICON)
+#if defined(APSTUDIO_INVOKED)
+IDR_MAINFRAME$(RA2_MODE_ICON) ICON                    "res\\FinalAlert2.ico"
+
+#else
+IDR_MAINFRAME           ICON                    "res\\FinalAlert2.ico"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDR_MAINFRAME$(TS_MODE) ICON                    "res\\FinalSun.ico"
+
+#else
+IDR_MAINFRAME           ICON                    "res\\FinalSun.ico"
+
+#endif
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// WAVE
+//
+
+IDR_WAVE1               WAVE                    "RES\\uacbopen.wav"
+
+IDR_WAVE2               WAVE                    "RES\\ugamclos.wav"
+
+IDR_WAVE3               WAVE                    "RES\\umenscol.wav"
+
+IDR_WAVE4               WAVE                    "RES\\uqeue.wav"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+VS_VERSION_INFO$(RA2_MODE) VERSIONINFO
+#else
+VS_VERSION_INFO VERSIONINFO
+#endif
+ FILEVERSION 1,0,0,2
+ PRODUCTVERSION 1,0,0,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x2bL
+#else
+ FILEFLAGS 0x2aL
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "FinalAlert 2: Yuri's Revenge Mission Editor"
+            VALUE "CompanyName", "Electronic Arts, Inc."
+            VALUE "FileDescription", "FinalAlert 2: Yuri's Revenge"
+            VALUE "FileVersion", "2.00"
+            VALUE "InternalName", "FinalAlert 2: Yuri's Revenge Mission Editor"
+            VALUE "LegalCopyright", "Copyright (C) 1999-2024 Electronic Arts, Inc."
+            VALUE "LegalTrademarks", "FinalAlert 2: Yuri's Revenge"
+            VALUE "OriginalFilename", "FinalAlert2YR.EXE"
+            VALUE "ProductName", "FinalAlert 2: Yuri's Revenge"
+            VALUE "ProductVersion", "2.00"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+VS_VERSION_INFO$(TS_MODE) VERSIONINFO
+#else
+VS_VERSION_INFO VERSIONINFO
+#endif
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x23L
+#else
+ FILEFLAGS 0x22L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "FinalSun Mission Editor"
+            VALUE "CompanyName", "Electronic Arts, Inc."
+            VALUE "FileDescription", "FinalSun"
+            VALUE "FileVersion", "2.00"
+            VALUE "InternalName", "FinalSun Mission Editor"
+            VALUE "LegalCopyright", "Copyright (C) 1999-2024 Electronic Arts, Inc."
+            VALUE "LegalTrademarks", "FinalSun"
+            VALUE "OriginalFilename", "FinalSun.EXE"
+            VALUE "ProductName", "FinalSun"
+            VALUE "ProductVersion", "2.00"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDR_MAIN$(TS_MODE) MENU
+#else
+IDR_MAIN MENU
+#endif
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "New",                         ID_FILE_NEW
+        MENUITEM SEPARATOR
+        MENUITEM "Open",                        ID_FILE_OPENMAP
+        MENUITEM SEPARATOR
+        MENUITEM "Save",                        ID_FILE_SAVE
+        MENUITEM "Save as",                     ID_FILE_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "Check map",                   ID_FILE_VALIDATEMAP
+        MENUITEM SEPARATOR
+        MENUITEM "Quit",                        ID_FILE_QUIT
+    END
+    POPUP "Edit"
+    BEGIN
+        MENUITEM "Undo\tCtrl+Z",                ID_EDIT_UNDO
+        MENUITEM "Redo\tCtrl+Y",                ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Copy\tCtrl+C",                ID_EDIT_COPY
+        MENUITEM "Copy whole map",              ID_EDIT_COPYWHOLEMAP
+        MENUITEM "Paste\tCtrl+V",               ID_EDIT_PASTE
+        MENUITEM "Paste centered",              ID_EDIT_PASTEWHOLEMAP
+        MENUITEM SEPARATOR
+        MENUITEM "Map",                         ID_EDIT_MAP
+        MENUITEM "Basic",                       ID_EDIT_BASICSETTINGS
+        MENUITEM "Special flags",               ID_EDIT_SPECIALFLAGS
+        MENUITEM "Lighting",                    ID_EDIT_LIGHTING
+        MENUITEM SEPARATOR
+        MENUITEM "Singleplayer settings",       ID_EDIT_SINGLEPLAYERSETTINGS
+        MENUITEM SEPARATOR
+        MENUITEM "Houses",                      ID_EDIT_HOUSES
+        MENUITEM SEPARATOR
+        MENUITEM "Local variables (Locals)",    ID_EDIT_GLOBALVARIABLES
+        MENUITEM SEPARATOR
+        MENUITEM "Trigger editor",              ID_EDIT_TRIGGEREDITOR
+        MENUITEM "Tag editor",                  ID_EDIT_TAGS
+        MENUITEM SEPARATOR
+        MENUITEM "Scripts",                     ID_EDIT_SCRIPTS
+        MENUITEM SEPARATOR
+        MENUITEM "Taskforces",                  ID_EDIT_TASKFORCES
+        MENUITEM "Teams",                       ID_EDIT_TEAMS
+        MENUITEM SEPARATOR
+        MENUITEM "AI Triggers",                 ID_EDIT_AITRIGGERS
+        MENUITEM "AI Trigger enabling",         ID_EDIT_AITRIGGERENABLING
+        MENUITEM SEPARATOR
+        MENUITEM "INI editing",                 ID_EDIT_INIEDITING
+    END
+    POPUP "Terrain"
+    BEGIN
+        MENUITEM "Raise ground",                ID_TERRAIN_HEIGHTENGROUND
+        MENUITEM "Lower ground",                ID_TERRAIN_LOWERGROUND
+        MENUITEM "Flatten ground",              ID_TERRAIN_FLATTEN
+        MENUITEM SEPARATOR
+        MENUITEM "Hide tileset",                ID_TERRAIN_CLOAK
+        MENUITEM "Show every tileset",          ID_TERRAIN_SHOWEVERYTILE
+        MENUITEM "Hide single field",           ID_TERRAIN_HIDEFIELD
+        MENUITEM "Show all fields",             ID_TERRAIN_SHOWALLFIELDS
+        MENUITEM SEPARATOR
+        MENUITEM "Raise single tile (Be careful!)", ID_TERRAIN_RAISETILE
+        MENUITEM "Lower single tile (Be careful!)", ID_TERRAIN_LOWERTILE
+    END
+    POPUP "Map tools"
+    BEGIN
+        MENUITEM "Change map height",           ID_MAPTOOLS_CHANGEMAPHEIGHT
+        MENUITEM SEPARATOR
+        MENUITEM "Autocreate shores",           ID_MAPTOOLS_AUTOCREATESHORES
+        MENUITEM "Auto level using cliffs",     ID_MAPTOOLS_AUTOLEVEL
+        MENUITEM SEPARATOR
+        MENUITEM "Paint cliff front",           ID_MAPTOOLS_FRONTCLIFF
+        MENUITEM "Paint cliff back",            ID_MAPTOOLS_BACKCLIFF
+        MENUITEM SEPARATOR
+        MENUITEM "Search Waypoint",             ID_MAPTOOLS_SEARCHWAYPOINT
+        MENUITEM SEPARATOR
+        MENUITEM "Tool Scripts",                ID_MAPTOOLS_TOOLSCRIPTS
+    END
+    POPUP "Options"
+    BEGIN
+        MENUITEM "Settings",                    ID_OPTIONS_TIBERIANSUNOPTIONS
+        MENUITEM "Show minimap",                ID_OPTIONS_SHOWMINIMAP
+        MENUITEM "Easy mode",                   ID_OPTIONS_SIMPLEVIEW
+        MENUITEM "Sounds",                      ID_OPTIONS_SOUNDS
+        MENUITEM "Show Building Outline",       ID_OPTIONS_SHOWBUILDINGOUTLINE
+        MENUITEM "Disable AutoShore\tCTRL-A",   ID_OPTIONS_DISABLEAUTOSHORE
+        MENUITEM "Disable AutoLat\tCTRL-L",     ID_OPTIONS_DISABLEAUTOLAT
+        MENUITEM "Disable Slope Correction",    ID_OPTIONS_DISABLESLOPECORRECTION
+        MENUITEM "Smooth zoom",                 ID_OPTIONS_SMOOTHZOOM
+        MENUITEM "Use default mouse cursor",    ID_OPTIONS_USEDEFAULTMOUSECURSOR
+    END
+    POPUP "Help"
+    BEGIN
+        MENUITEM "Manual\tF1",                  ID_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "Info",                        ID_HELP_INFO
+        MENUITEM "Tip of the day",              ID_HELP_TIPOFTHEDAY
+        MENUITEM SEPARATOR
+        MENUITEM "Show logs",                   ID_HELP_SHOWLOGS
+    END
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDR_MAIN$(RA2_MODE) MENU
+#else
+IDR_MAIN MENU
+#endif
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "New",                         ID_FILE_NEW
+        MENUITEM SEPARATOR
+        MENUITEM "Open",                        ID_FILE_OPENMAP
+        MENUITEM SEPARATOR
+        MENUITEM "Save",                        ID_FILE_SAVE
+        MENUITEM "Save as",                     ID_FILE_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "Check map",                   ID_FILE_VALIDATEMAP
+        MENUITEM SEPARATOR
+        MENUITEM "Quit",                        ID_FILE_QUIT
+    END
+    POPUP "Edit"
+    BEGIN
+        MENUITEM "Undo\tCtrl+Z",                ID_EDIT_UNDO
+        MENUITEM "Redo\tCtrl+Y",                ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Copy\tCtrl+C",                ID_EDIT_COPY
+        MENUITEM "Copy whole map",              ID_EDIT_COPYWHOLEMAP
+        MENUITEM "Paste\tCtrl+V",               ID_EDIT_PASTE
+        MENUITEM "Paste centered",              ID_EDIT_PASTEWHOLEMAP
+        MENUITEM SEPARATOR
+        MENUITEM "Map",                         ID_EDIT_MAP
+        MENUITEM "Basic",                       ID_EDIT_BASICSETTINGS
+        MENUITEM "Special flags",               ID_EDIT_SPECIALFLAGS
+        MENUITEM "Lighting",                    ID_EDIT_LIGHTING
+        MENUITEM SEPARATOR
+        MENUITEM "Singleplayer settings",       ID_EDIT_SINGLEPLAYERSETTINGS
+        MENUITEM SEPARATOR
+        MENUITEM "Houses",                      ID_EDIT_HOUSES
+        MENUITEM SEPARATOR
+        MENUITEM "Local variables (Locals)",    ID_EDIT_GLOBALVARIABLES
+        MENUITEM SEPARATOR
+        MENUITEM "Trigger editor",              ID_EDIT_TRIGGEREDITOR
+        MENUITEM "Tag editor",                  ID_EDIT_TAGS
+        MENUITEM SEPARATOR
+        MENUITEM "Scripts",                     ID_EDIT_SCRIPTS
+        MENUITEM SEPARATOR
+        MENUITEM "Taskforces",                  ID_EDIT_TASKFORCES
+        MENUITEM "Teams",                       ID_EDIT_TEAMS
+        MENUITEM SEPARATOR
+        MENUITEM "AI Triggers",                 ID_EDIT_AITRIGGERS
+        MENUITEM "AI Trigger enabling",         ID_EDIT_AITRIGGERENABLING
+        MENUITEM SEPARATOR
+        MENUITEM "INI editing",                 ID_EDIT_INIEDITING
+    END
+    POPUP "Terrain"
+    BEGIN
+        MENUITEM "Raise ground",                ID_TERRAIN_HEIGHTENGROUND
+        MENUITEM "Lower ground",                ID_TERRAIN_LOWERGROUND
+        MENUITEM "Flatten ground",              ID_TERRAIN_FLATTEN
+        MENUITEM SEPARATOR
+        MENUITEM "Hide tileset",                ID_TERRAIN_CLOAK
+        MENUITEM "Show every tileset",          ID_TERRAIN_SHOWEVERYTILE
+        MENUITEM "Hide single field",           ID_TERRAIN_HIDEFIELD
+        MENUITEM "Show all fields",             ID_TERRAIN_SHOWALLFIELDS
+        MENUITEM SEPARATOR
+        MENUITEM "Raise single tile (Be careful!)", ID_TERRAIN_RAISETILE
+        MENUITEM "Lower single tile (Be careful!)", ID_TERRAIN_LOWERTILE
+    END
+    POPUP "Map tools"
+    BEGIN
+        MENUITEM "Change map height",           ID_MAPTOOLS_CHANGEMAPHEIGHT
+        MENUITEM SEPARATOR
+        MENUITEM "Autocreate shores",           ID_MAPTOOLS_AUTOCREATESHORES
+        MENUITEM "Auto level using cliffs",     ID_MAPTOOLS_AUTOLEVEL
+        MENUITEM SEPARATOR
+        MENUITEM "Paint cliff front",           ID_MAPTOOLS_FRONTCLIFF
+        MENUITEM "Paint cliff back",            ID_MAPTOOLS_BACKCLIFF
+        MENUITEM SEPARATOR
+        MENUITEM "Search Waypoint",             ID_MAPTOOLS_SEARCHWAYPOINT
+        MENUITEM SEPARATOR
+        MENUITEM "Tool Scripts",                ID_MAPTOOLS_TOOLSCRIPTS
+    END
+    POPUP "Options"
+    BEGIN
+        MENUITEM "Settings",                    ID_OPTIONS_TIBERIANSUNOPTIONS
+        MENUITEM "Show minimap",                ID_OPTIONS_SHOWMINIMAP
+        MENUITEM "Easy mode",                   ID_OPTIONS_SIMPLEVIEW
+        MENUITEM "Sounds",                      ID_OPTIONS_SOUNDS
+        MENUITEM "Show Building Outline",       ID_OPTIONS_SHOWBUILDINGOUTLINE
+        MENUITEM "Disable AutoShore\tCTRL-A",   ID_OPTIONS_DISABLEAUTOSHORE
+        MENUITEM "Disable AutoLat\tCTRL-L",     ID_OPTIONS_DISABLEAUTOLAT
+        MENUITEM "Disable Slope Correction",    ID_OPTIONS_DISABLESLOPECORRECTION
+        MENUITEM "Smooth zoom",                 ID_OPTIONS_SMOOTHZOOM
+        MENUITEM "Use default mouse cursor",    ID_OPTIONS_USEDEFAULTMOUSECURSOR
+    END
+    POPUP "Help"
+    BEGIN
+        MENUITEM "Manual\tF1",                  ID_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "Info",                        ID_HELP_INFO
+        MENUITEM "Tip of the day",              ID_HELP_TIPOFTHEDAY
+        MENUITEM SEPARATOR
+        MENUITEM "Show logs",                   ID_HELP_SHOWLOGS
+    END
+END
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPENMAP
+    BUTTON      ID_FILE_SAVE
+END
+
+IDR_TERRAINBAR TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_TERRAIN_HEIGHTENGROUND
+    BUTTON      ID_TERRAIN_LOWERGROUND
+    BUTTON      ID_TERRAIN_FLATTEN
+    BUTTON      ID_TERRAIN_CLOAK
+    BUTTON      ID_TERRAIN_SHOWEVERYTILE
+    BUTTON      ID_TERRAIN_HIDEFIELD
+    BUTTON      ID_TERRAIN_SHOWALLFIELDS
+    BUTTON      ID_TERRAIN_RAISETILE
+    BUTTON      ID_TERRAIN_LOWERTILE
+    SEPARATOR
+    BUTTON      ID_MARBLEMADNESS
+END
+
+IDR_CLIFFBAR TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_MAPTOOLS_FRONTCLIFF
+    BUTTON      ID_MAPTOOLS_BACKCLIFF
+    SEPARATOR
+    BUTTON      ID_MAPTOOLS_AUTOLEVEL
+    BUTTON      ID_MAPTOOLS_AUTOCREATESHORES
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAIN ACCELERATORS
+BEGIN
+    "A",            ID_OPTIONS_DISABLEAUTOSHORE, VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_MARBLEMADNESS,       VIRTKEY, CONTROL, NOINVERT
+    "L",            ID_OPTIONS_DISABLEAUTOLAT, VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_INFO$(RA2_MODE) AFX_DIALOG_LAYOUT
+#else
+IDD_INFO AFX_DIALOG_LAYOUT
+#endif
+BEGIN
+    0
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_INFO$(TS_MODE) AFX_DIALOG_LAYOUT
+#else
+IDD_INFO AFX_DIALOG_LAYOUT
+#endif
+BEGIN
+    0
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_LOADING$(RA2_MODE) AFX_DIALOG_LAYOUT
+#else
+IDD_LOADING AFX_DIALOG_LAYOUT
+#endif
+BEGIN
+    0
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_LOADING$(TS_MODE) AFX_DIALOG_LAYOUT
+#else
+IDD_LOADING AFX_DIALOG_LAYOUT
+#endif
+BEGIN
+    0
+END
+#endif
+
+IDD_FINALSUN_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_TIP AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TS_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_TSOPTIONS$(TS_MODE) AFX_DIALOG_LAYOUT
+#else
+IDD_TSOPTIONS AFX_DIALOG_LAYOUT
+#endif
+BEGIN
+    0
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
+#if defined(APSTUDIO_INVOKED)
+IDD_TSOPTIONS$(RA2_MODE) AFX_DIALOG_LAYOUT
+#else
+IDD_TSOPTIONS AFX_DIALOG_LAYOUT
+#endif
+BEGIN
+    0
+END
+#endif
+
+IDD_TRIGGEREDITOR AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_TRIGGERACTIONS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_TRIGGEREVENTS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_TRIGGEROPTIONS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_MAPVALIDATOR AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_BUILTBY             "Matthias Wagner"
+    IDS_VERSIONTEXT         "Version 2.00"
+    IDS_VERSION             "2.00"
+    IDS_VERSIONTEXTTS       "Version 2.00"
+END
+
+STRINGTABLE
+BEGIN
+    ID_TERRAIN_HEIGHTENGROUND "Heighten ground (slope logic)"
+    ID_TERRAIN_LOWERGROUND  "Lower ground (slope logic)"
+    ID_TERRAIN_PAINT        "Paint terrain types"
+    ID_TERRAIN_RISETILE     "Raise a single tile"
+    ID_TERRAIN_RAISETILE    "Raise a single tile"
+    ID_TERRAIN_LOWERTILE    "Lower a single tile"
+END
+
+STRINGTABLE
+BEGIN
+    ID_TERRAIN_FLATTEN      "Make terrain flat"
+    ID_TERRAIN_CLOAK        "Hide tileset"
+    ID_TERRAIN_SHOWEVERYTILE "Show all tilesets"
+    ID_TERRAIN_SHOWALLFIELDS "Show all fields"
+    ID_TERRAIN_HIDEFIELD    "Hide single field"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "New map"
+    ID_FILE_SAVE            "Save map"
+    IDS_LINEARVERSION       "3"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_OPENMAP         "Open map"
+END
+
+STRINGTABLE
+BEGIN
+    ID_MAPTOOLS_AUTOLEVEL   "AutoLevel terrain height using cliffs"
+    ID_MAPTOOLS_FRONTCLIFF  "Paint cliff front"
+    ID_MAPTOOLS_BACKCLIFF   "Paint cliff back"
+END
+
+STRINGTABLE
+BEGIN
+    ID_MAPTOOLS_AUTOCREATESHORES "AutoCreate shores"
+END
+
+STRINGTABLE
+BEGIN
+    ID_MARBLEMADNESS        "Switch Framework Mode"
+END
+
+#endif    // Englisch (USA) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(65001)
+#endif //_WIN32
+#include "res\FinalSun.rc2"  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen
+#include "afxres.rc"         // Standardkomponenten
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

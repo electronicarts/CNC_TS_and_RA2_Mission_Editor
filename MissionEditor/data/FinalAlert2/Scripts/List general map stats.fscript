@@ -1,0 +1,27 @@
+// FinalAlert2:YR Script file
+// Name: Move 4 starting points close to corners
+// Written By: Matthias Wagner
+// Last Change: August 21, 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+
+Print("Player count: %PlayerCount%");
+Print("Waypoint count: %WaypointCount%");
+Print("Unit count: %UnitCount%");
+Print("Infantry count: %InfantryCount%");
+Print("Structure count: %StructureCount%");
+Print("Aircraft count: %AircraftCount%");
+
+SetVariable("%WPCounter%","100");
+
+// BEGIN WAYPOINT LOOP
+:WaypointLoop:
+
+SetVariable("%WPID%","100");
+Substract("%WPID%","%WPCounter%");
+GetWaypointPos("%WPID%","%X%","%Y%");
+Print("Waypoint %WPID%: %X% / %Y%","%X%"); // List waypoint if x coordinate !=0, as we have non-existing waypoints
+Substract("%WPCounter%","1");
+
+JumpTo("WaypointLoop", "%WPCounter%");
+// END WAYPOINT LOOP

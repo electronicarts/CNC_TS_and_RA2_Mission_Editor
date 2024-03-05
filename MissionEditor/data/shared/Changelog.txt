@@ -1,0 +1,25 @@
+New features for FinalSun and FinalAlert 2 (Yuri's Revenge)
+
+2.0
+---
+- Fixed a few code issues to allow the application to run on modern operating systems.
+- Updated the application icons with new 256x256 graphics.
+- You can now zoom in & out with the middle mouse button or wheel
+- You don't need administrator access anymore if the program is installed in the program folder, as all user data and settings are now stored in your AppData folder
+- Tunnel tube editing completely reimplemented
+  + Tunnel tilesets available
+  + You can edit existing tubes by using the tool on the end of an existing tube
+  + You can now create curved tubes
+  + You can now create unidirectional tubes
+- LAT support for Crystal and Swamp terrain in Tiberian Sun temperate maps
+- House colors are now read from map or rules.ini
+- Units and buildings are now shaded in the house colors correctly
+- Voxel units now have shading applied
+- Minimap can now be resized
+- Undo steps increased to 64
+- Map rendering performance improved
+- Several fixes for crashes
+- Fixed addon turrets display
+- SHP turrets and Voxel turrets + barrels have their positioning fixed.
+- Maps up to 400x112 (or 112x400) are now allowed.
+- Fixed minimap for non-quadratic maps.

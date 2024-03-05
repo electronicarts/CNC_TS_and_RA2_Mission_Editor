@@ -1,0 +1,15 @@
+// FinalAlert2:YR Script file
+// Name: Add Reveal Map Debug trigger
+// Written By: Matthias Wagner
+// Last Change: August 21, 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+
+AskContinue("This script will add a trigger that reveals the whole map after 10 seconds. Continue?");
+AllowAdd("TRUE");
+
+// now add the trigger, use the variable %TriggerID% as ID filler, and let a tag be created automatically
+AddTrigger("%TriggerID%", "Americans,<none>,Reveal Map Debug Trigger,0,1,1,1,0", "1,13,0,10", "1,16,0,0,0,0,0,0,A", "TRUE");
+Message("Trigger %TriggerID% added","Success");
+
+

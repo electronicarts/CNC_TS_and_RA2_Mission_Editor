@@ -1,0 +1,71 @@
+// FinalAlert2:YR Script file
+// Name: Move 4 starting points close to corners
+// Written By: Matthias Wagner
+// Last Change: August 21, 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+
+
+AskContinue("This script will add AI Triggers and Teams that makes soviet AIs attack with a certain amount of Apocs. Continue?");
+
+// disable safe mode so that we can move already existing waypoints, not just create new ones
+// user must allow the script to do this. If he does not, the waypoints won´t be moved if they
+// already exist.
+SetSafeMode("FALSE","Necessary for moving waypoints");
+
+AllowAdd("Necessary for adding AI trigger");
+
+UInputGetInteger("%Count%","How many Apocalypse tanks shall be in the attack force?","1","20");
+
+SetIniKey("ScriptTypes","63811929","63811929");
+SetIniKey("TaskForces","63811928","63811928");
+SetIniKey("TeamTypes","63811930","63811930");
+
+// taskforce
+SetIniKey("63811928","0","%Count%,APOC");
+SetIniKey("63811928","Name","%Count% Apocs");
+SetIniKey("63811928","Group","-1");
+
+// script
+SetIniKey("63811929","0","54,0");
+SetIniKey("63811929","1","53,0");
+SetIniKey("63811929","2","0,1");
+SetIniKey("63811929","3","11,15");
+SetIniKey("63811929","Name","AI Apoc Attack");
+
+// teamtype
+SetIniKey("63811930","Max","5");
+SetIniKey("63811930","Full","no");
+SetIniKey("63811930","Name","Apoc Attack");
+SetIniKey("63811930","Group","-1");
+SetIniKey("63811930","House","Neutral");
+SetIniKey("63811930","Script","63811929");
+SetIniKey("63811930","Whiner","no");
+SetIniKey("63811930","Droppod","no");
+SetIniKey("63811930","Suicide","no");
+SetIniKey("63811930","Loadable","no");
+SetIniKey("63811930","Prebuild","no");
+SetIniKey("63811930","Priority","5");
+SetIniKey("63811930","Waypoint","A");
+SetIniKey("63811930","Annoyance","yes");
+SetIniKey("63811930","IonImmune","no");
+SetIniKey("63811930","Recruiter","yes");
+SetIniKey("63811930","Reinforce","no");
+SetIniKey("63811930","TaskForce","63811928");
+SetIniKey("63811930","TechLevel","0");
+SetIniKey("63811930","Aggressive","yes");
+SetIniKey("63811930","Autocreate","no");
+SetIniKey("63811930","GuardSlower","no");
+SetIniKey("63811930","OnTransOnly","no");
+SetIniKey("63811930","AvoidThreats","no");
+SetIniKey("63811930","LooseRecruit","no");
+SetIniKey("63811930","VeteranLevel","1");
+SetIniKey("63811930","IsBaseDefense","no");
+SetIniKey("63811930","UseTransportOrigin","no");
+SetIniKey("63811930","MindControlDecision","0");
+SetIniKey("63811930","OnlyTargetHouseEnemy","no");
+SetIniKey("63811930","TransportsReturnOnUnload","no");
+SetIniKey("63811930","AreTeamMembersRecruitable","yes");
+
+AddAITrigger("%AITrigID%","Apoc Attack,63811930,<all>,1,1,NATECH,01000000030000000000000000000000000000000000670100000000cc869412,250.000000,230.000000,250.000000,1,0,2,0,<none>,1,1,1");
+SetIniKey("AITriggerTypesEnable","%AITrigID%","yes");

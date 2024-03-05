@@ -1,0 +1,52 @@
+// FinalAlert2:YR Script file
+// Name: Move 4 starting points close to corners
+// Written By: Matthias Wagner
+// Last Change: August 21, 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+
+// only for multiplayer maps:
+RequiresMP();
+
+Is("%PlayerCount%","!=", "4", "4Players?");
+Print("Warning: Script usually should be used only on 4 player maps.","4Players?");
+Print("This map currently has %PlayerCount% players.","4Players?");
+Print("The map will be set up for at least 4 players","4Players?");
+
+AskContinue("This tool will move the starting locations of the first 4 players into the corners of the map. It needs to disable INI protection to do this.");
+
+// disable safe mode so that we can move already existing waypoints, not just create new ones
+// user must allow the script to do this. If he does not, the waypoints won´t be moved if they
+// already exist.
+SetSafeMode("FALSE","Necessary for moving waypoints");
+
+// Waypoint 0:
+SetVariable("Y", "20");
+SetVariable("X", "%Width%");
+
+SetWaypoint("0", "X", "Y");
+
+
+// Waypoint 1:
+SetVariable("X", "20");
+SetVariable("Y", "%Width%");
+
+SetWaypoint("1", "X", "Y");
+
+
+// helper variable for 2,3:
+SetVariable("V", "%IsoSize%");
+Substract("V", "20");
+
+// Waypoint 2:
+SetVariable("X", "%Height%");
+SetVariable("Y", "V");
+
+SetWaypoint("2", "X", "Y");
+
+// Waypoint 3:
+SetVariable("Y", "%Height%");
+SetVariable("X", "V");
+
+SetWaypoint("3", "X", "Y");
+

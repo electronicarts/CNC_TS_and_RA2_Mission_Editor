@@ -1,0 +1,28 @@
+// FinalAlert2:YR Script file
+// Name: Enlarge map by 50x50
+// Written By: Matthias Wagner
+// Last Change: August 21, 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+Is("%Width%", ">", "150", "WidthTooLarge");
+Is("%Height%", ">", "150", "HeightTooLarge");
+
+Print("Script cannot resize map, because the map width is too large.","WidthTooLarge");
+Print("Script cannot resize map, because the map height is too large.","HeightTooLarge");
+Cancel("WidthTooLarge");
+Cancel("HeightTooLarge");
+
+SetVariable("NW", "%Width%");
+SetVariable("NH", "%Height%");
+SetVariable("X", "25");
+SetVariable("Y", "25");
+
+Add("NW", "50");
+Add("NH", "50");
+
+AskContinue("This script will resize the map from %Width%x%Height% to NWxNH. Continue?");
+
+Resize("X","Y","NW","NH");
+
+
+

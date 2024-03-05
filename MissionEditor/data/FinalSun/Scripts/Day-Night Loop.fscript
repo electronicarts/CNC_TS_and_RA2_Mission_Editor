@@ -1,0 +1,84 @@
+// FinalSun Script file
+// Name: Start Day\Night Loop
+// Written By: Bill Brislin aka RVMECH
+// Last Change: Dec,24,2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+
+AskContinue("This script will add a trigger that starts the Day and Night loop after 50 seconds, it will also set your lighting levels for the proper operation of the loop. Remember to set the enable & disable parameters in the triggers when when you are finished. Ready...hope this works?");
+AllowAdd("Because it makes your life easier when someone else does all the dirty work");
+
+// now add the trigger, use the variable %TriggerID% as ID filler, and let a tag be created automatically
+AddTrigger("%trig1%", "Neutral,<none>,Start_Day_Night_Loop,0,1,1,1,0", "1,13,0,2", "1,53,2,Please_select_Sunrise,0,0,0,0,A", "FALSE");
+
+GetIniKey("%action%", "Actions","%trig1%");
+SetParam("%action%", "1","%trig2%");
+SetIniKey("Actions","%trig1%", "%action%");
+
+AddTag("%newtag1%", "0,Start_Day_Night_Loop,%trig1%");
+
+
+AddTrigger("%trig2%", "Neutral,<none>,Sunrise,1,1,1,1,0", "1,13,0,32", "5,53,2,please_select_Ambient_up,0,0,0,0,A,54,2,please_select_Sunrise,0,0,0,0,A,73,0,95,0,0,0,0,A,72,0,1070000000,0,0,0,0,A,71,0,1019000000,0,0,0,0,A", "FALSE");
+
+GetIniKey("%action%", "Actions","%trig2%");
+SetParam("%action%", "3", "%trig2%");
+SetIniKey("Actions", "%trig2%", "%action%");
+
+AddTag("%newtag2%", "2,Sunrise,%trig2%");
+
+AddTrigger("%trig3%", "Neutral,<none>,Ambient_is_Up,1,1,1,1,0", "1,46,0,95", "2,53,2,please_select_Sunset,0,0,0,0,A,54,0,please_select_Ambient_up,0,0,0,0,A", "FALSE");
+
+GetIniKey("%action%", "Actions","%trig3%");
+SetParam("%action%", "3", "%trig3%");
+SetIniKey("Actions", "%trig3%", "%action%");
+
+AddTag("%newtag3%", "2,Ambient_is_Up,%trig3%");
+
+
+
+AddTrigger("%trig4%", "Neutral,<none>,Sunset,1,1,1,1,0", "1,13,0,32", "5,53,2,please_select_Ambient_Down,0,0,0,0,A,54,2,please_select_Sunset,0,0,0,0,A,73,0,40,0,0,0,0,A,72,0,1070000000,0,0,0,0,A,71,0,1019000000,0,0,0,0,A", "FALSE");
+
+GetIniKey("%action%", "Actions","%trig4%");
+SetParam("%action%", "3", "%trig4%");
+SetIniKey("Actions", "%trig4%", "%action%");
+
+AddTag("%newtag4%", "2,Sunset,%trig4%");
+
+
+AddTrigger("%trig5%", "Neutral,<none>,Ambient_is_Down,1,1,1,1,0", "1,45,0,40", "2,53,2,please_select_Sunrise,0,0,0,0,A,54,0,please_select_Ambient_Down,0,0,0,0,A", "FALSE");
+
+GetIniKey("%action%", "Actions","%trig5%");
+SetParam("%action%", "3", "%trig5%");
+SetIniKey("Actions", "%trig3%", "%action%");
+
+AddTag("%newtag5%", "2,Ambient_is_Down,%trig5%");
+
+
+
+SetSafeMode("FALSE","Necessary for setting lighting values..hang on to your hat");
+
+SetIniKey("Lighting","Level","0.015000");
+SetIniKey("Lighting","IonLevel","0.010000");
+
+SetIniKey("Lighting","Ambient","0.400000");
+SetIniKey("Lighting","Red",".950000");
+SetIniKey("Lighting","Green","0.950000");
+SetIniKey("Lighting","Blue","1.100000");
+
+SetIniKey("Lighting","IonAmbient","0.380000");
+SetIniKey("Lighting","IonRed","1.000000");
+SetIniKey("Lighting","IonGreen","1.000000");
+SetIniKey("Lighting","IonBlue","1.400000");
+
+SetIniKey("Lighting","DominatorRed","0.850000");
+SetIniKey("Lighting","DominatorBlue","0.300000");
+SetIniKey("Lighting","DominatorGreen","0.200000");
+SetIniKey("Lighting","DominatorLevel","0.000000");
+SetIniKey("Lighting","DominatorGround","0.000000");
+SetIniKey("Lighting","DominatorAmbient","1.500000");
+SetIniKey("Lighting","DominatorAmbientChangeRate"'"0.001000");
+
+
+Message("Lighting Levels have been changed and the Day Night Loop has been added","Success");
+
+

@@ -1,0 +1,5 @@
+This software contains parts of the XCC library by Olaf van der Spek available under https://github.com/OlafvdSpek/xcc/ (specifically a modified subset of https://github.com/OlafvdSpek/xcc/tree/70358b46858973426c1ecf204485cb2a88716217/).
+It has been stripped down to only the required parts and uses the dynamically linked C runtime.
+
+Please see copyright.txt and COPYING for the copyright notice and the license of the included files and https://github.com/OlafvdSpek/xcc/ for all legal and licensing terms.
+

@@ -1,0 +1,73 @@
+// FinalAlert2:YR Script file
+// Name: Move 4 starting points close to corners
+// Written By: Matthias Wagner
+// Last Change: August 21, 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+
+
+AskContinue("This script will add AI Triggers and Teams that makes allied AIs attack with a certain amount of Prism tanks and Mirages. Continue?");
+
+// disable safe mode so that we can move already existing waypoints, not just create new ones
+// user must allow the script to do this. If he does not, the waypoints won´t be moved if they
+// already exist.
+SetSafeMode("FALSE","Necessary for moving waypoints");
+
+AllowAdd("Necessary for adding AI trigger");
+
+UInputGetInteger("%Count%","How many Prism tanks shall be in the attack force?","1","20");
+UInputGetInteger("%MCount%","How many Mirage tanks shall be in the attack force?","1","20");
+
+SetIniKey("ScriptTypes","63811829","63811829");
+SetIniKey("TaskForces","63811828","63811828");
+SetIniKey("TeamTypes","63811830","63811830");
+
+// taskforce
+SetIniKey("63811828","0","%MCount%,MGTK");
+SetIniKey("63811828","1","%Count%,SREF");
+SetIniKey("63811828","Name","%Count% Prism Tanks, %MCount% Mirages");
+SetIniKey("63811828","Group","-1");
+
+// script
+SetIniKey("63811829","0","54,0");
+SetIniKey("63811829","1","53,0");
+SetIniKey("63811829","2","0,1");
+SetIniKey("63811829","3","11,15");
+SetIniKey("63811829","Name","AI Prism+Mirage Attack");
+
+// teamtype
+SetIniKey("63811830","Max","5");
+SetIniKey("63811830","Full","no");
+SetIniKey("63811830","Name","Prism+Mirage Attack");
+SetIniKey("63811830","Group","-1");
+SetIniKey("63811830","House","Neutral");
+SetIniKey("63811830","Script","63811829");
+SetIniKey("63811830","Whiner","no");
+SetIniKey("63811830","Droppod","no");
+SetIniKey("63811830","Suicide","no");
+SetIniKey("63811830","Loadable","no");
+SetIniKey("63811830","Prebuild","no");
+SetIniKey("63811830","Priority","5");
+SetIniKey("63811830","Waypoint","A");
+SetIniKey("63811830","Annoyance","yes");
+SetIniKey("63811830","IonImmune","no");
+SetIniKey("63811830","Recruiter","yes");
+SetIniKey("63811830","Reinforce","no");
+SetIniKey("63811830","TaskForce","63811828");
+SetIniKey("63811830","TechLevel","0");
+SetIniKey("63811830","Aggressive","yes");
+SetIniKey("63811830","Autocreate","no");
+SetIniKey("63811830","GuardSlower","no");
+SetIniKey("63811830","OnTransOnly","no");
+SetIniKey("63811830","AvoidThreats","no");
+SetIniKey("63811830","LooseRecruit","no");
+SetIniKey("63811830","VeteranLevel","1");
+SetIniKey("63811830","IsBaseDefense","no");
+SetIniKey("63811830","UseTransportOrigin","no");
+SetIniKey("63811830","MindControlDecision","0");
+SetIniKey("63811830","OnlyTargetHouseEnemy","no");
+SetIniKey("63811830","TransportsReturnOnUnload","no");
+SetIniKey("63811830","AreTeamMembersRecruitable","yes");
+
+AddAITrigger("%AITrigID%","Prism+Mirage Attack,63811830,<all>,1,1,GATECH,01000000030000000000000000000000000000000000670100000000cc869412,250.000000,230.000000,250.000000,1,0,1,0,<none>,1,1,1");
+SetIniKey("AITriggerTypesEnable","%AITrigID%","yes");

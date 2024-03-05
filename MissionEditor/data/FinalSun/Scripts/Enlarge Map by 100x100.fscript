@@ -1,0 +1,29 @@
+// FinalSun Script file
+// Name: Enlarge map by100x100
+// Written By: Bill Brislin
+// Last Change:December,30 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+Is("%Width%", ">", "200", "WidthTooLarge");
+Is("%Height%", ">", "200", "HeightTooLarge");
+
+Print("Script cannot resize map, because the map width is too large.","WidthTooLarge");
+Print("Script cannot resize map, because the map height is too large.","HeightTooLarge");
+Cancel("WidthTooLarge");
+Cancel("HeightTooLarge");
+
+SetVariable("NW", "%Width%");
+SetVariable("NH", "%Height%");
+SetVariable("X", "50");
+SetVariable("Y", "50");
+
+Add("NW", "100");
+Add("NH", "100");
+
+AskContinue("This script will resize the map from %Width%x%Height% to NWxNH. Continue?");
+
+Resize("X","Y","NW","NH");
+
+
+
+

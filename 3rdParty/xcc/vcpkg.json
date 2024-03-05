@@ -1,0 +1,12 @@
+{
+  "name": "xcc",
+  "version-string": "0",
+  "dependencies": [
+    "boost-algorithm",
+    "boost-crc",
+    "bzip2",
+    "lzo",
+    "zlib"
+  ],
+  "builtin-baseline": "45c8b198b7647b6a68235353a00839082c910914"
+}

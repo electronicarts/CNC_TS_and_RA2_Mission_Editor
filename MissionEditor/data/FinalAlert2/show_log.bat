@@ -1,0 +1,1 @@
+start notepad "%LOCALAPPDATA%/FinalAlert 2/finalalert2log.txt"

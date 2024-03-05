@@ -1,0 +1,71 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# MSVC
+[Dd]ebug*/
+[Rr]elease*/
+build/
+build_*/
+*.vs
+*.user
+*.spec
+*.ncb
+*.sdf
+*.suo
+*.sln
+*.vcxproj
+*.filters
+*.aps
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+CMakeUserPresets.json
+*.dir
+
+# Windows
+thumbs.db
+desktop.ini
+*.log
+
+# Misc
+*.tmp
+*.bak
+*.idb
+
+# FinalSun/FinalAlert specific
+dist/
+intermediate/
+vcpkg_installed/
+vcpkg_downloads/
+[Tt]emplate/

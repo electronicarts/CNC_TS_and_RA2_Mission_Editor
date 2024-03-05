@@ -1,0 +1,1 @@
+start explorer "%LOCALAPPDATA%\FinalSun"

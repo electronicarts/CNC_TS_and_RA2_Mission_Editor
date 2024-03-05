@@ -1,0 +1,38 @@
+AllowAdd("Necessary");
+
+SetVariable("%X%", "%IsoSize%");
+SetVariable("%Y%", "%IsoSize%");
+Divide("%X%", "2");
+Divide("%Y%", "2");
+
+SetVariable("%XCounter%","-5");
+
+:XLoop:
+
+SetVariable("%YCounter%","-5");
+
+:YLoop:
+
+Add("%YCounter%", "1");
+Is("%YCounter%","<","5","YLoopAgain");
+
+GetRandom("%Val%");
+Add("%Val%","6000");
+Divide("%Val%","32767")
+
+SetVariable("%MX%","%X%");
+Add("%MX%","%XCounter%");
+SetVariable("%MY%","%Y%");
+Add("%MY%","%YCounter%");
+
+AddTerrain("TREE01", "%MX%","%MY%","%Val%");
+
+JumpTo("YLoop", "YLoopAgain");
+// :YLoop:
+
+Add("%XCounter%","1");
+
+Is("%XCounter%","<","5","XLoopAgain");
+JumpTo("XLoop","XLoopAgain");
+// :XLoop:
+

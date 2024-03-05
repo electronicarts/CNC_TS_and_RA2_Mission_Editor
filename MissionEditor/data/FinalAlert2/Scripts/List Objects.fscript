@@ -1,0 +1,54 @@
+// FinalAlert2:YR Script file
+// Name: Change Unit Facing
+// Written By: Matthias Wagner
+// Last Change: August 21, 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+
+
+SetAutoUpdate("FALSE"); // no screen flickering...
+
+
+SetVariable("%TCounter%","%InfantryCount%");
+
+// LOOP BEGIN
+:LoopInfantry:
+SetVariable("%pos%","%TCounter%");
+Substract("%pos%","1");
+GetInfantry("%data%","%pos%");
+Print("Infantry %pos%: %data%");
+Substract("%TCounter%", "1", "%TCounter%"); // only substract if >=0, else infinite loop!
+JumpTo("LoopInfantry","%TCounter%");
+
+SetVariable("%TCounter%","%UnitCount%");
+
+// LOOP BEGIN
+:LoopVehicle:
+SetVariable("%pos%","%TCounter%");
+Substract("%pos%","1");
+GetVehicle("%data%","%pos%");
+Print("Vehicle %pos%: %data%");
+Substract("%TCounter%", "1", "%TCounter%"); // only substract if >=0, else infinite loop!
+JumpTo("LoopVehicle","%TCounter%");
+
+SetVariable("%TCounter%","%AircraftCount%");
+
+// LOOP BEGIN
+:LoopAircraft:
+SetVariable("%pos%","%TCounter%");
+Substract("%pos%","1");
+GetAircraft("%data%","%pos%");
+Print("Aircraft %pos%: %data%");
+Substract("%TCounter%", "1", "%TCounter%"); // only substract if >=0, else infinite loop!
+JumpTo("LoopAircraft","%TCounter%");
+
+SetVariable("%TCounter%","%StructureCount%");
+
+// LOOP BEGIN
+:LoopStructure:
+SetVariable("%pos%","%TCounter%");
+Substract("%pos%","1");
+GetStructure("%data%","%pos%");
+Print("Structure %pos%: %data%");
+Substract("%TCounter%", "1", "%TCounter%"); // only substract if >=0, else infinite loop!
+JumpTo("LoopStructure","%TCounter%");
