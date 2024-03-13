@@ -380,7 +380,7 @@ BOOL CFinalSunApp::InitInstance()
 
 void CFinalSunApp::ParseCommandLine()
 {
-#ifdef 0 // Removed as it can conflict with Steam game arguments! -LF 23.02.2024
+#if 0 // Removed as it can conflict with Steam game arguments! -LF 23.02.2024
 	char data[MAX_PATH + 30];
 
 	strcpy(data, theApp.m_lpCmdLine);
