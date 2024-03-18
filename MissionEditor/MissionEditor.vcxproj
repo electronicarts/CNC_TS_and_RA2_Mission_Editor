@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="FinalSunDebug|Win32">
+      <Configuration>FinalSunDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="FinalAlertDebug YR|Win32">
+      <Configuration>FinalAlertDebug YR</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="FinalAlertDebug|Win32">
+      <Configuration>FinalAlertDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="FinalAlertRelease YR|Win32">
+      <Configuration>FinalAlertRelease YR</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="FinalAlertRelease|Win32">
+      <Configuration>FinalAlertRelease</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="FinalSunRelease|Win32">
+      <Configuration>FinalSunRelease</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Tests FinalAlertDebug YR|Win32">
+      <Configuration>Tests FinalAlertDebug YR</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>MissionEditor</ProjectName>
+    <SccProjectName />
+    <SccLocalPath />
+    <Keyword>MFCProj</Keyword>
+    <ProjectGuid>{9326D29A-6547-42B9-A668-519F3C0720A9}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DisableFastUpToDateCheck>True</DisableFastUpToDateCheck>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalSunRelease|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalSunDebug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease YR|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug YR|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tests FinalAlertDebug YR|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='FinalSunRelease|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+    <Import Project="PropertySheets\Release.props" />
+    <Import Project="PropertySheets\FinalSun.props" />
+    <Import Project="PropertySheets\Distribution.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='FinalSunDebug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+    <Import Project="PropertySheets\Debug.props" />
+    <Import Project="PropertySheets\FinalSun.props" />
+    <Import Project="PropertySheets\Distribution.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease YR|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+    <Import Project="PropertySheets\Release.props" />
+    <Import Project="PropertySheets\FinalAlert2YR.props" />
+    <Import Project="PropertySheets\Distribution.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+    <Import Project="PropertySheets\Release.props" />
+    <Import Project="PropertySheets\FinalAlert2.props" />
+    <Import Project="PropertySheets\Distribution.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+    <Import Project="PropertySheets\Debug.props" />
+    <Import Project="PropertySheets\FinalAlert2.props" />
+    <Import Project="PropertySheets\Distribution.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug YR|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+    <Import Project="PropertySheets\Debug.props" />
+    <Import Project="PropertySheets\FinalAlert2YR.props" />
+    <Import Project="PropertySheets\Distribution.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Tests FinalAlertDebug YR|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+    <Import Project="PropertySheets\Debug.props" />
+    <Import Project="PropertySheets\FinalAlert2YR.props" />
+    <Import Project="PropertySheets\Tests.props" />
+    <Import Project="PropertySheets\Distribution.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug YR|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>FinalAlert2YR_D</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tests FinalAlertDebug YR|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>FinalAlert2YRTestsd</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>FinalAlert2_D</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>FinalAlert2</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease YR|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>FinalAlert2YR</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalSunDebug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>FinalSun_D</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FinalSunRelease|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>FinalSun</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug YR|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tests FinalAlertDebug YR|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>RA2_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>RA2_MODE;RA2_MODE_ICON;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>RA2_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>RA2_MODE;RA2_MODE_ICON;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease YR|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalSunDebug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>TS_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>TS_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalSunRelease|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>TS_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>TS_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Aircraft.cpp" />
+    <ClCompile Include="AITriggerAddDlg.cpp" />
+    <ClCompile Include="AITriggerTypes.cpp" />
+    <ClCompile Include="AiTriggerTypesEnable.cpp" />
+    <ClCompile Include="All.cpp" />
+    <ClCompile Include="BackCliffModifier.cpp" />
+    <ClCompile Include="Basic.cpp" />
+    <ClCompile Include="Bitmap2MapConverter.cpp" />
+    <ClCompile Include="Building.cpp" />
+    <ClCompile Include="CellTag.cpp" />
+    <ClCompile Include="ChangeSizeDlg.cpp" />
+    <ClCompile Include="CliffModifier.cpp" />
+    <ClCompile Include="ComboUInputDlg.cpp" />
+    <ClCompile Include="DynamicGraphDlg.cpp" />
+    <ClCompile Include="FinalSun.cpp" />
+    <ClCompile Include="FinalSunDlg.cpp" />
+    <ClCompile Include="FloatEdit.cpp" />
+    <ClCompile Include="FrontCliffModifier.cpp" />
+    <ClCompile Include="functions.cpp" />
+    <ClCompile Include="GlobalsDlg.cpp" />
+    <ClCompile Include="Houses.cpp" />
+    <ClCompile Include="ImportINI.cpp" />
+    <ClCompile Include="Infantry.cpp" />
+    <ClCompile Include="Info.cpp" />
+    <ClCompile Include="IniFile.cpp" />
+    <ClCompile Include="InputBox.cpp" />
+    <ClCompile Include="IsoView.cpp" />
+    <ClCompile Include="Lighting.cpp" />
+    <ClCompile Include="LineDrawer.cpp" />
+    <ClCompile Include="Loading.cpp" />
+    <ClCompile Include="MapD.cpp" />
+    <ClCompile Include="MapData.cpp" />
+    <ClCompile Include="MapLoadingDlg.cpp" />
+    <ClCompile Include="MapModifier.cpp" />
+    <ClCompile Include="MapOpenDialog.cpp" />
+    <ClCompile Include="MapValidator.cpp" />
+    <ClCompile Include="MiniMap.cpp" />
+    <ClCompile Include="MMXSavingOptionsDlg.cpp" />
+    <ClCompile Include="MultiSaveOptionsDlg.cpp" />
+    <ClCompile Include="MyComboBox.cpp" />
+    <ClCompile Include="MyViewFrame.cpp" />
+    <ClCompile Include="NewMap.cpp" />
+    <ClCompile Include="NewMapCreateDlg.cpp" />
+    <ClCompile Include="NewMapCreateNewDlg.cpp" />
+    <ClCompile Include="NewMapImportDlg.cpp" />
+    <ClCompile Include="NewMapSpDlg.cpp" />
+    <ClCompile Include="NewMapTypeDlg.cpp" />
+    <ClCompile Include="NewRA2HouseDlg.cpp" />
+    <ClCompile Include="ProgressDlg.cpp" />
+    <ClCompile Include="RightFrame.cpp" />
+    <ClCompile Include="RTPDlg.cpp" />
+    <ClCompile Include="SaveMapOptionsDlg.cpp" />
+    <ClCompile Include="SavingDlg.cpp" />
+    <ClCompile Include="ScriptTypes.cpp" />
+    <ClCompile Include="SearchWaypointDlg.cpp" />
+    <ClCompile Include="ShutDownDlg.cpp" />
+    <ClCompile Include="SingleplayerSettings.cpp" />
+    <ClCompile Include="SpecialFlags.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug YR|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Tests FinalAlertDebug YR|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug YR|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tests FinalAlertDebug YR|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease YR|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease YR|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalSunDebug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalSunDebug|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalSunRelease|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalSunRelease|Win32'">stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="structs.cpp" />
+    <ClCompile Include="Tags.cpp" />
+    <ClCompile Include="TaskForce.cpp" />
+    <ClCompile Include="TeamTypes.cpp" />
+    <ClCompile Include="TerrainDlg.cpp" />
+    <ClCompile Include="TerrainModifier.cpp" />
+    <ClCompile Include="tests.cpp">
+      <ExcludedFromBuild Condition="'$(IS_UNITTEST)'!='True'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TextDrawer.cpp" />
+    <ClCompile Include="TileSetBrowserFrame.cpp" />
+    <ClCompile Include="TileSetBrowserView.cpp" />
+    <ClCompile Include="TipDlg.cpp" />
+    <ClCompile Include="ToolSettingsBar.cpp" />
+    <ClCompile Include="TriggerActionsDlg.cpp" />
+    <ClCompile Include="TriggerEditorDlg.cpp" />
+    <ClCompile Include="TriggerEventsDlg.cpp" />
+    <ClCompile Include="TriggerOptionsDlg.cpp" />
+    <ClCompile Include="Triggers.cpp" />
+    <ClCompile Include="TSOptions.cpp" />
+    <ClCompile Include="Tube.cpp" />
+    <ClCompile Include="TubeTool.cpp" />
+    <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="UserScriptsDlg.cpp" />
+    <ClCompile Include="variables.cpp" />
+    <ClCompile Include="ViewObjects.cpp" />
+    <ClCompile Include="WaypointID.cpp" />
+    <ClCompile Include="MapCode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MissionEditor.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Aircraft.h" />
+    <ClInclude Include="AITriggerAddDlg.h" />
+    <ClInclude Include="AITriggerTypes.h" />
+    <ClInclude Include="AiTriggerTypesEnable.h" />
+    <ClInclude Include="All.h" />
+    <ClInclude Include="BackCliffModifier.h" />
+    <ClInclude Include="Basic.h" />
+    <ClInclude Include="Bitmap2MapConverter.h" />
+    <ClInclude Include="Building.h" />
+    <ClInclude Include="CellTag.h" />
+    <ClInclude Include="ChangeSizeDlg.h" />
+    <ClInclude Include="CliffModifier.h" />
+    <ClInclude Include="ComboUInputDlg.h" />
+    <ClInclude Include="defines.h" />
+    <ClInclude Include="LineDrawer.h" />
+    <ClInclude Include="DynamicGraphDlg.h" />
+    <ClInclude Include="FinalSun.h" />
+    <ClInclude Include="FinalSunDlg.h" />
+    <ClInclude Include="FloatEdit.h" />
+    <ClInclude Include="FrontCliffModifier.h" />
+    <ClInclude Include="functions.h" />
+    <ClInclude Include="GlobalsDlg.h" />
+    <ClInclude Include="Houses.h" />
+    <ClInclude Include="ImportINI.h" />
+    <ClInclude Include="Infantry.h" />
+    <ClInclude Include="Info.h" />
+    <ClInclude Include="IniFile.h" />
+    <ClInclude Include="inlines.h" />
+    <ClInclude Include="InputBox.h" />
+    <ClInclude Include="IsoView.h" />
+    <ClInclude Include="Lighting.h" />
+    <ClInclude Include="Loading.h" />
+    <ClInclude Include="macros.h" />
+    <ClInclude Include="MapD.h" />
+    <ClInclude Include="MapData.h" />
+    <ClInclude Include="MapLoadingDlg.h" />
+    <ClInclude Include="MapModifier.h" />
+    <ClInclude Include="MapOpenDialog.h" />
+    <ClInclude Include="MapTool.h" />
+    <ClInclude Include="MapValidator.h" />
+    <ClInclude Include="MiniMap.h" />
+    <ClInclude Include="MMXSavingOptionsDlg.h" />
+    <ClInclude Include="MultiSaveOptionsDlg.h" />
+    <ClInclude Include="MyComboBox.h" />
+    <ClInclude Include="MyViewFrame.h" />
+    <ClInclude Include="NewMap.h" />
+    <ClInclude Include="NewMapCreateDlg.h" />
+    <ClInclude Include="NewMapCreateNewDlg.h" />
+    <ClInclude Include="NewMapImportDlg.h" />
+    <ClInclude Include="NewMapSpDlg.h" />
+    <ClInclude Include="NewMapTypeDlg.h" />
+    <ClInclude Include="NewRA2HouseDlg.h" />
+    <ClInclude Include="ovrlinline.h" />
+    <ClInclude Include="ProgressDlg.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RightFrame.h" />
+    <ClInclude Include="RTPDlg.h" />
+    <ClInclude Include="SaveMapOptionsDlg.h" />
+    <ClInclude Include="SavingDlg.h" />
+    <ClInclude Include="ScriptTypes.h" />
+    <ClInclude Include="SearchWaypointDlg.h" />
+    <ClInclude Include="ShutDownDlg.h" />
+    <ClInclude Include="SingleplayerSettings.h" />
+    <ClInclude Include="SpecialFlags.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="structs.h" />
+    <ClInclude Include="Tags.h" />
+    <ClInclude Include="TaskForce.h" />
+    <ClInclude Include="TeamTypes.h" />
+    <ClInclude Include="TerrainDlg.h" />
+    <ClInclude Include="TerrainModifier.h" />
+    <ClInclude Include="tests.h" />
+    <ClInclude Include="TextDrawer.h" />
+    <ClInclude Include="TileSetBrowserFrame.h" />
+    <ClInclude Include="TileSetBrowserView.h" />
+    <ClInclude Include="TipDlg.h" />
+    <ClInclude Include="ToolSettingsBar.h" />
+    <ClInclude Include="TriggerActionsDlg.h" />
+    <ClInclude Include="TriggerEditorDlg.h" />
+    <ClInclude Include="TriggerEventsDlg.h" />
+    <ClInclude Include="TriggerOptionsDlg.h" />
+    <ClInclude Include="Triggers.h" />
+    <ClInclude Include="TSOptions.h" />
+    <ClInclude Include="Tube.h" />
+    <ClInclude Include="TubeTool.h" />
+    <ClInclude Include="Unit.h" />
+    <ClInclude Include="UserScriptsDlg.h" />
+    <ClInclude Include="variables.h" />
+    <ClInclude Include="Vec2.h" />
+    <ClInclude Include="ViewObjects.h" />
+    <ClInclude Include="WaypointID.h" />
+    <ClInclude Include="MapCode.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bmp00005.bmp" />
+    <Image Include="res\celltag_ra2.bmp" />
+    <Image Include="res\celltag_ts.bmp" />
+    <Image Include="res\clifftoo.bmp" />
+    <Image Include="res\FinalAlert2.ico" />
+    <Image Include="res\FinalAlert2YR.ico" />
+    <Image Include="res\FinalSun.ico" />
+    <Image Include="res\ico00003.ico" />
+    <Image Include="res\idr_main.ico" />
+    <Image Include="res\litebulb.bmp" />
+    <Image Include="res\mv_probl.bmp" />
+    <Image Include="res\scrollcursor_ra2.bmp" />
+    <Image Include="res\scrollcursor_ts.bmp" />
+    <Image Include="res\terrainb.bmp" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\wp_ra2.bmp" />
+    <Image Include="res\wp_ts.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="data\FinalAlert2\FAData.ini" />
+    <CustomBuild Include="data\FinalAlert2\FALanguage.ini" />
+    <CustomBuild Include="data\FinalSun\FSLanguage.ini" />
+    <CustomBuild Include="res\FinalSun.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Res\uacbopen.wav" />
+    <Media Include="Res\ugamclos.wav" />
+    <Media Include="Res\umenscol.wav" />
+    <Media Include="Res\uqeue.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\3rdParty\xcc\Library\XCC Library.vcxproj">
+      <Project>{5e445578-cb45-4d82-9a1c-fc7d3e8d866a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\MissionEditorPackLib\MissionEditorPackLib.vcxproj">
+      <Project>{deb40ef0-e215-4c2f-a0ad-3742e2e01a8c}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\FinalSun\FSData.ini" />
+    <None Include="res\ra2_arrow.cur" />
+    <None Include="res\ts_arrow.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\shared\Changelog.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
