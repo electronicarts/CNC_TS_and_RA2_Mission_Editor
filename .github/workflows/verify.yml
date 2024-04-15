@@ -6,22 +6,15 @@ on:
 
 jobs:
   compile-check:
-    runs-on: windows-2019
+    runs-on: windows-2022
     env:
-      CONFIGURATION: Debug
+      CONFIGURATION: FinalAlertDebug YR
 
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
         submodules: recursive
-    - name: Change configuration to debug for PR
-      if: github.event_name == 'pull_request'
-      shell: bash
-      run: |
-        echo "CONFIGURATION=FinalAlertDebug YR" >> $GITHUB_ENV
-        mkdir Debug || true
-
     - name: setup-msvc
       uses: egor-tensin/vs-shell@v2
       with:
