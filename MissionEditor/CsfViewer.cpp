@@ -8,7 +8,7 @@ BEGIN_MESSAGE_MAP(CCsfViewer, CDialog)
     ON_BN_CLICKED(Controls::Reload, onReload)
     ON_CBN_KILLFOCUS(IDC_CSF_VIEW_SELECTED, onEditchangeSearch)
     ON_NOTIFY(LVN_ITEMCHANGED, IDC_CSF_VIEW_LIST, onViewerSelectedChange)
-    ON_NOTIFY(NM_DBLCLK, IDC_CSF_VIEW_LIST, OnListDblClk)
+    ON_NOTIFY(NM_DBLCLK, IDC_CSF_VIEW_LIST, onViewerDoubleClickApply)
 END_MESSAGE_MAP()
 
 #if 0
@@ -160,7 +160,7 @@ BOOL CCsfViewer::onMessageKeyDown(MSG* pMsg)
     return TRUE;
 }
 
-void CCsfViewer::OnListDblClk(NMHDR* pNMHDR, LRESULT* pResult)
+void CCsfViewer::onViewerDoubleClickApply(NMHDR* pNMHDR, LRESULT* pResult)
 {
     LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
 
