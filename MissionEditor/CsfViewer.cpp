@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "CsfViewer.h"
 #include "variables.h"
 #include "functions.h"
@@ -8,6 +8,7 @@ BEGIN_MESSAGE_MAP(CCsfViewer, CDialog)
     ON_BN_CLICKED(Controls::Reload, onReload)
     ON_CBN_KILLFOCUS(IDC_CSF_VIEW_SELECTED, onEditchangeSearch)
     ON_NOTIFY(LVN_ITEMCHANGED, IDC_CSF_VIEW_LIST, onViewerSelectedChange)
+    ON_NOTIFY(NM_DBLCLK, IDC_CSF_VIEW_LIST, OnListDblClk)
 END_MESSAGE_MAP()
 
 #if 0
@@ -157,6 +158,43 @@ BOOL CCsfViewer::onMessageKeyDown(MSG* pMsg)
     }
     }
     return TRUE;
+}
+
+void CCsfViewer::OnListDblClk(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+
+    int nItem = pNMItemActivate->iItem;
+    if (nItem >= 0)
+    {
+        int nSelected = m_stringList.GetNextItem(-1, LVNI_SELECTED);
+        if (nSelected == -1) {
+            return;
+        }
+        CString selectedText = m_stringList.GetItemText(nSelected, 0);
+
+        if (selectedText.IsEmpty()) {
+            m_richEditCtrl.SetWindowText("");
+            m_selectedLabel.SetWindowText("");
+            m_selectedCSFLabel = "";
+            return;
+        }
+
+		CString value = "";
+        auto const it = AllStrings.find(selectedText);
+        if (it == AllStrings.end()) {
+            return;
+        }
+
+        m_richEditCtrl.SetWindowText(it->second.cString);
+        m_selectedLabel.SetWindowText(selectedText);
+
+        m_selectedCSFLabel = selectedText;
+        m_selectedCSFContent = it->second.cString;
+    }
+    OnOK();
+
+    *pResult = 0;
 }
 
 void CCsfViewer::onViewerSelectedChange(NMHDR* pNMHDR, LRESULT* pResult)

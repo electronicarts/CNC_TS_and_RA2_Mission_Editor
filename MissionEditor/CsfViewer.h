@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <map>
 #include <vector>
@@ -51,6 +51,8 @@ protected:
     void onEditchangeSearch();
     void applySearch(const CString keyword = {});
     void onViewerSelectedChange(NMHDR* pNMHDR, LRESULT* pResult);
+    void OnListDblClk(NMHDR* pNMHDR, LRESULT* pResult);
+
     BOOL onMessageKeyDown(MSG* pMsg);
 
     DECLARE_MESSAGE_MAP()
