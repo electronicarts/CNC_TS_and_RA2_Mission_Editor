@@ -2,7 +2,7 @@
 
 [![release](https://img.shields.io/github/v/release/revengenowstudio/YR_RN_Mission_Editor)](https://github.com/revengenowstudio/YR_RN_Mission_Editor/releases/latest)
 
-[简体中文](./README.md) | [English](./README_en.md)
+简体中文 | [English](./README_en.md)
 
 本项目是《FinalAlert（YR）地图编辑器》 RN 团队二次开发强化版本（下文以"FR - Final Revenge"、"RN定制版地图编辑器"或"本编辑器"代称），虽然名为"RN特别版"，但是也期望可以支持除RN之外的Mod和原版游戏。
 本编辑器对EA开源程序进行了大量重构优化，对软件开发维护者的开发体验和地图编辑器用户的使用体验都有很大的提升，我们旨在于打造一个易于维护的、功能友好的工具软件。
