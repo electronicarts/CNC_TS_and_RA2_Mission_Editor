@@ -90,6 +90,7 @@ private:
 	BOOL rscroll;
 	BOOL m_bAltCliff;
 	bool m_zooming;
+	void ShowMapContextMenu(CPoint point);
 
 	std::vector<TextToRender> m_texts_to_render;
 	std::vector<WaypointToRender> m_waypoints_to_render;

@@ -1277,7 +1277,11 @@ void CMcpServer::ProcessPendingRequests(CFinalSunDlg& dialog)
         {
             WindowSearchContext context{ dialog.GetSafeHwnd(), false };
             EnumThreadWindows(GetCurrentThreadId(), FindVisibleDialog, reinterpret_cast<LPARAM>(&context));
+            GUITHREADINFO guiThreadInfo = { sizeof(GUITHREADINFO) };
+            const bool menuActive = GetGUIThreadInfo(GetCurrentThreadId(), &guiThreadInfo) &&
+                (guiThreadInfo.flags & (GUI_INMENUMODE | GUI_POPUPMENUMODE));
             const bool editorBusy = !dialog.IsWindowEnabled() || context.foundModal || bNoDraw ||
+                menuActive ||
                 (dialog.m_view.m_isoview && dialog.m_view.m_isoview->b_IsLoading);
             const bool alreadyExecuting = m_impl->executing.exchange(true, std::memory_order_acq_rel);
 

@@ -30,6 +30,7 @@
 #include "variables.h"
 #include "functions.h"
 #include "inlines.h"
+#include "ViewZoom.h"
 #include <ShlObj.h>
 
 
@@ -317,6 +318,14 @@ BOOL CFinalSunApp::InitInstance()
 	auto defaultViewSteps = CString(Join(",", opts.viewScaleSteps | std::views::transform([](auto v) {return std::to_string(v); })).c_str());
 	auto viewScaleStepsRange = SplitParams(optini.sections["UserInterface"].values.emplace("ViewScaleSteps", defaultViewSteps).first->second) | std::views::transform([](auto v) { return static_cast<float>(std::atof(v)); });
 	opts.viewScaleSteps.assign(viewScaleStepsRange.begin(), viewScaleStepsRange.end());
+	std::erase_if(opts.viewScaleSteps, [](float scale) {
+		return !std::isfinite(scale) || scale < ViewZoom::MinimumScale || scale > ViewZoom::MaximumScale;
+	});
+	// Existing installations only have zoom-in steps in their INI. Add zoom-out steps without losing custom zoom-in values.
+	for (const float scale : { 1.0f, 1.25f, 1.5f, 2.0f, 3.0f, 4.0f })
+		opts.viewScaleSteps.push_back(scale);
+	std::sort(opts.viewScaleSteps.begin(), opts.viewScaleSteps.end(), std::greater<float>());
+	opts.viewScaleSteps.erase(std::unique(opts.viewScaleSteps.begin(), opts.viewScaleSteps.end()), opts.viewScaleSteps.end());
 	opts.viewScaleUseSteps = optini.sections["UserInterface"].values.emplace("ViewScaleUseSteps", opts.viewScaleUseSteps ? "1" : "0").first->second == "1";
 	opts.viewScaleSpeed = static_cast<float>(atof(optini.sections["UserInterface"].values.emplace("ViewScaleSpeed", std::to_string(opts.viewScaleSpeed).c_str()).first->second));
 

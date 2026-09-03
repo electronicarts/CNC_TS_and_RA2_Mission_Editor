@@ -56,6 +56,7 @@ static char THIS_FILE[] = __FILE__;
 #include <chrono>
 #include <algorithm>
 #include "TextDrawer.h"
+#include "ViewZoom.h"
 
 /* -------- */
 
@@ -928,9 +929,7 @@ void CIsoView::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
 	nPos = GetScrPos(this, SB_VERT, nSBCode, nPos);
 
-	this->SetScrollPos(SB_VERT, nPos, TRUE);
-
-	m_viewOffset.y = (nPos + Map->GetWidth() / 2 - 4) * f_y;
+	SetScroll(m_viewOffset.x, (nPos + Map->GetWidth() / 2 - 4) * f_y);
 
 	RedrawWindow(NULL, NULL, RDW_INVALIDATE | RDW_UPDATENOW);
 
@@ -946,11 +945,7 @@ void CIsoView::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
 	nPos = GetScrPos(this, SB_HORZ, nSBCode, nPos);
 
-	RECT r;
-	GetWindowRect(&r);
-	m_viewOffset.x = (nPos + Map->GetHeight() / 2 - 1) * f_x;
-
-	this->SetScrollPos(SB_HORZ, nPos, TRUE);
+	SetScroll((nPos + Map->GetHeight() / 2 - 1) * f_x, m_viewOffset.y);
 
 	RedrawWindow(NULL, NULL, RDW_INVALIDATE | RDW_UPDATENOW);
 
@@ -985,8 +980,8 @@ void CIsoView::UpdateDialog(BOOL bRepos)
 void CIsoView::UpdateScrollRanges()
 {
 	auto r = GetScaledDisplayRect();
-	SetScrollRange(SB_HORZ, 0, Map->GetWidth() - r.right / f_x + 4, TRUE);
-	SetScrollRange(SB_VERT, 0, Map->GetHeight() - r.bottom / f_y + 6, TRUE);
+	SetScrollRange(SB_HORZ, 0, std::max(0L, Map->GetWidth() - (r.right - r.left) / f_x + 4), TRUE);
+	SetScrollRange(SB_VERT, 0, std::max(0L, Map->GetHeight() - (r.bottom - r.top) / f_y + 6), TRUE);
 }
 
 BOOL CIsoView::PreCreateWindow(CREATESTRUCT& cs)
@@ -2033,23 +2028,21 @@ void CIsoView::OnRButtonUp(UINT nFlags, CPoint point)
 {
 	if (rscroll)
 	{
-		if (b_IsLoading) return;
-
 		ReleaseCapture();
 		KillTimer(11);
+		rscroll = FALSE;
 		ShowCursor(TRUE);
 		CMyViewFrame& dlg = *(CMyViewFrame*)owner;
 		dlg.m_minimap.RedrawWindow(NULL, NULL, RDW_INVALIDATE | RDW_UPDATENOW);
-
+		return; // Releasing a pan must not open a menu or cancel the tool.
 	}
 
+	if (b_IsLoading || Map->GetIsoSize() == 0) return;
 
 	if (nFlags == 0 && point.x == 0 && point.y == 0)
 	{
 		m_drag = FALSE; return;
 	}
-
-	CIniFile& ini = Map->GetIniFile();
 
 	RedrawWindow(NULL, NULL, RDW_INVALIDATE | RDW_UPDATENOW);
 
@@ -2081,14 +2074,187 @@ void CIsoView::OnRButtonUp(UINT nFlags, CPoint point)
 		return;
 	}
 
-	rscroll = FALSE;
+	ShowMapContextMenu(point);
+}
 
-	return;
+void CIsoView::ShowMapContextMenu(CPoint point)
+{
+	const MapCoords cell = GetMapCoordinatesFromClientCoordinates(point);
+	if (!Map->isInside(cell)) return;
+	const int width = Map->GetWidth(), height = Map->GetHeight();
+	if (cell.x < 1 || cell.y < 1 || cell.x + cell.y < width + 1
+		|| cell.x + cell.y > width + height * 2
+		|| (cell.y + 1 > width && cell.x - 1 < cell.y - width)
+		|| (cell.x + 1 > width && cell.y + width - 1 < cell.x)) return;
+	const int pos = cell.x + cell.y * Map->GetIsoSize();
 
+	// Keep each occupant separate, including infantry subpositions and buildings
+	// hit through any cell of their foundation. Never erase a whole stack.
+	struct ContextObject
+	{
+		int kind; // The same type numbers used by ACTIONMODE_PLACE.
+		int index;
+		CString type;
+		CString label;
+		CString house;
+	};
+	std::vector<ContextObject> objects;
+	auto addObject = [&](int kind, int index, const char* category)
+	{
+		if (index < 0) return;
+		CString type;
+		STDOBJECTDATA data;
+		switch (kind)
+		{
+		case 1: Map->GetStdInfantryData(index, &data); type = data.type; break;
+		case 2: Map->GetStdStructureData(index, &data); type = data.type; break;
+		case 3: Map->GetStdAircraftData(index, &data); type = data.type; break;
+		case 4: Map->GetStdUnitData(index, &data); type = data.type; break;
+		case 5: Map->GetTerrainData(index, &type); break;
+		case 6: type.Format("%d", index); break;
+#ifdef SMUDGE_SUPP
+		case 8:
+		{
+			SMUDGE smudge;
+			Map->GetSmudgeData(index, &smudge);
+			type = smudge.type;
+			break;
+		}
+#endif
+		}
+		CString label = TranslateStringACP(category) + ": " + type;
+		if (kind == 1)
+		{
+			CString suffix;
+			suffix.Format(" (#%d)", index);
+			label += suffix;
+		}
+		label.Replace("&", "&&");
+		objects.push_back({ kind, index, type, label, data.house });
+	};
+	addObject(2, Map->GetStructureAt(pos), "Building");
+	addObject(4, Map->GetUnitAt(pos), "Vehicle");
+	addObject(3, Map->GetAirAt(pos), "Aircraft");
+	for (int subpos = 0; subpos < SUBPOS_COUNT; ++subpos)
+		addObject(1, Map->GetInfantryAt(pos, subpos), "Infantry");
+	addObject(5, Map->GetTerrainAt(pos), "Terrain object");
+	if (Map->GetOverlayAt(pos) != 0xFF)
+		addObject(6, Map->GetOverlayAt(pos), "Overlay");
+#ifdef SMUDGE_SUPP
+	addObject(8, Map->GetFielddataAt(pos)->smudge, "Smudge");
+#endif
 
+	CMenu menu;
+	if (!menu.CreatePopupMenu()) return;
+	CString caption;
+	caption.Format(TranslateStringACP("Cell: %d, %d"), cell.x, cell.y);
+	menu.AppendMenu(MF_STRING | MF_GRAYED, 0, caption);
+	menu.AppendMenu(MF_SEPARATOR);
+	constexpr UINT raiseGround = 1, lowerGround = 2, objectCommands = 100;
+	constexpr UINT properties = 0, placeSame = 1, deleteObject = 2;
+	for (size_t i = 0; i < objects.size(); ++i)
+	{
+		const auto& object = objects[i];
+		CMenu submenu;
+		CMenu* actions = &menu;
+		if (objects.size() > 1)
+		{
+			if (!submenu.CreatePopupMenu()) return;
+			actions = &submenu;
+		}
+		else
+			menu.AppendMenu(MF_STRING | MF_GRAYED, 0, object.label);
 
+		const UINT base = objectCommands + static_cast<UINT>(i) * 3;
+		if (object.kind >= 1 && object.kind <= 4)
+			actions->AppendMenu(MF_STRING, base + properties, TranslateStringACP("Object properties..."));
+		actions->AppendMenu(MF_STRING, base + placeSame, TranslateStringACP("Place same object"));
+		actions->AppendMenu(MF_SEPARATOR);
+		actions->AppendMenu(MF_STRING, base + deleteObject, TranslateStringACP("Delete object"));
+		if (objects.size() > 1)
+			menu.AppendMenu(MF_POPUP, reinterpret_cast<UINT_PTR>(submenu.Detach()), object.label);
+	}
+	if (objects.empty())
+	{
+		const int height = Map->GetHeightAt(pos);
+		caption.Format(TranslateStringACP("Ground height: %d"), height);
+		menu.AppendMenu(MF_STRING | MF_GRAYED, 0, caption);
+		menu.AppendMenu(MF_STRING | (height < MAXHEIGHT ? MF_ENABLED : MF_GRAYED), raiseGround,
+			TranslateStringACP("Raise ground by one level"));
+		menu.AppendMenu(MF_STRING | (height > 0 ? MF_ENABLED : MF_GRAYED), lowerGround,
+			TranslateStringACP("Lower ground by one level"));
+	}
 
-	CView::OnRButtonUp(nFlags, point);
+	CPoint screenPoint = point;
+	ClientToScreen(&screenPoint);
+	const UINT command = menu.TrackPopupMenu(TPM_RETURNCMD | TPM_NONOTIFY | TPM_RIGHTBUTTON,
+		screenPoint.x, screenPoint.y, this);
+	if (!command) return;
+
+	if (command == raiseGround || command == lowerGround)
+	{
+		// Reuse the editor's slope generation and terrain undo/redo, but apply a
+		// single-cell brush irrespective of the previously selected brush size.
+		const int brushX = m_BrushSize_x, brushY = m_BrushSize_y;
+		m_BrushSize_x = m_BrushSize_y = 1;
+		AD.reset();
+		AD.mode = command == raiseGround ? ACTIONMODE_HEIGHTEN : ACTIONMODE_LOWER;
+		OnLButtonDown(0, point);
+		AD.reset();
+		m_BrushSize_x = brushX;
+		m_BrushSize_y = brushY;
+	}
+	else if (command >= objectCommands)
+	{
+		const size_t index = (command - objectCommands) / 3;
+		if (index >= objects.size()) return;
+		const auto& object = objects[index];
+		switch ((command - objectCommands) % 3)
+		{
+		case properties:
+			HandleProperties(object.index, object.kind == 4 ? 3 : object.kind - 1);
+			break;
+		case placeSame:
+			AD.reset();
+			AD.mode = ACTIONMODE_PLACE;
+			AD.type = object.kind;
+			AD.data_s = object.type;
+			if (!object.house.IsEmpty()) currentOwner = object.house;
+			if (object.kind == 6)
+			{
+				AD.data = 33;
+				AD.data2 = object.index;
+				AD.data3 = Map->GetOverlayDataAt(pos);
+			}
+			break;
+		case deleteObject:
+			switch (object.kind)
+			{
+			case 1: Map->DeleteInfantry(object.index); break;
+			case 2: Map->DeleteStructure(object.index); break;
+			case 3: Map->DeleteAircraft(object.index); break;
+			case 4: Map->DeleteUnit(object.index); break;
+			case 5: Map->DeleteTerrain(object.index); break;
+			case 6:
+				Map->TakeSnapshot();
+				Map->SetOverlayAt(pos, 0xFF);
+				Map->SetOverlayDataAt(pos, 0);
+				for (int dy = -1; dy <= 1; ++dy)
+					for (int dx = -1; dx <= 1; ++dx)
+						if (Map->isInside(MapCoords(cell.x + dx, cell.y + dy)))
+							HandleTrail(cell.x + dx, cell.y + dy);
+				Map->TakeSnapshot();
+				Map->Undo();
+				break;
+#ifdef SMUDGE_SUPP
+			case 8: Map->DeleteSmudge(object.index); break;
+#endif
+			}
+			break;
+		}
+	}
+	RedrawWindow(NULL, NULL, RDW_INVALIDATE | RDW_UPDATENOW);
+	((CMyViewFrame*)owner)->m_minimap.RedrawWindow(NULL, NULL, RDW_INVALIDATE | RDW_UPDATENOW);
 }
 
 // from old (popup menu) interface, taken over and used by OnLButtonDblClick
@@ -3485,6 +3651,7 @@ void CIsoView::OnSize(UINT nType, int cx, int cy)
 	UpdateScrollRanges();
 
 	GetWindowRect(&m_myRect);
+	SetScroll(m_viewOffset.x, m_viewOffset.y);
 }
 
 COLORREF CIsoView::GetColor(const char* house, const char* vcolor)
@@ -5627,6 +5794,20 @@ void CIsoView::DrawMap()
 
 	auto startTime = std::chrono::steady_clock::now();
 
+	// A resized/moved window can require a larger scene even without another
+	// wheel event. Never render beyond the scene and saved-scene surfaces.
+	RECT display;
+	GetWindowRect(&display);
+	if (!ViewZoom::EnsureSceneBuffers(dd, lpds, lpdsBack, lpdsTemp, display, m_viewScale.x))
+	{
+		if (!ViewZoom::EnsureSceneBuffers(dd, lpds, lpdsBack, lpdsTemp, display, 1.0f)) return;
+		m_viewScale.set(1.0f, 1.0f);
+		m_viewScaleControl = 1.0f;
+		UpdateScrollRanges();
+		SetScroll(m_viewOffset.x, m_viewOffset.y);
+		updateFontScaled();
+	}
+
 	// draw a white background
 	DDBLTFX fx;
 	memset(&fx, 0, sizeof(DDBLTFX));
@@ -6674,20 +6855,19 @@ void CIsoView::OnRButtonDown(UINT nFlags, CPoint point)
 
 void CIsoView::SetScroll(int xscroll, int yscroll)
 {
-	RECT r;
-	GetWindowRect(&r);
+	const RECT r = GetScaledDisplayRect();
 
 	m_viewOffset = ProjectedVec(xscroll, yscroll);
 
 	
-	if (m_viewOffset.x < (Map->GetHeight() / 2 - 14 - r.left / f_x) * f_x)
-		m_viewOffset.x = (Map->GetHeight() / 2 - 14 - r.left / f_x) * f_x;
-	if (m_viewOffset.x + r.right * m_viewScale.x > (Map->GetHeight() / 2 + Map->GetWidth() + 14) * f_x)
-		m_viewOffset.x = (Map->GetHeight() / 2 + Map->GetWidth() + 14) * f_x - r.right * m_viewScale.x;
-	if (m_viewOffset.y < (Map->GetWidth() / 2 - 14 - r.top / f_y) * f_y)
-		m_viewOffset.y = (Map->GetWidth() / 2 - 14 - r.top / f_y) * f_y;
-	if (m_viewOffset.y + r.bottom * m_viewScale.y > (Map->GetWidth() / 2 + Map->GetHeight() + 4) * f_y)
-		m_viewOffset.y = (Map->GetWidth() / 2 + Map->GetHeight() + 4) * f_y - r.bottom * m_viewScale.y;
+	const int minX = (Map->GetHeight() / 2 - 14) * f_x - r.left;
+	const int maxX = (Map->GetHeight() / 2 + Map->GetWidth() + 14) * f_x - r.right;
+	const int minY = (Map->GetWidth() / 2 - 14) * f_y - r.top;
+	const int maxY = (Map->GetWidth() / 2 + Map->GetHeight() + 4) * f_y - r.bottom;
+	// At overview scales the viewport can exceed the map bounds. Center that
+	// axis instead of alternately clamping to incompatible minimum/maximums.
+	m_viewOffset.x = minX > maxX ? (minX + maxX) / 2 : std::clamp(xscroll, minX, maxX);
+	m_viewOffset.y = minY > maxY ? (minY + maxY) / 2 : std::clamp(yscroll, minY, maxY);
 
 	SetScrollPos(SB_VERT, (m_viewOffset.y / f_y - Map->GetWidth() / 2 + 4), TRUE);
 	SetScrollPos(SB_HORZ, (m_viewOffset.x / f_x - Map->GetHeight() / 2 + 1), TRUE);
@@ -6753,6 +6933,7 @@ void CIsoView::FocusWaypoint(int index)
 
 BOOL CIsoView::OnMouseWheel(UINT nFlags, short zDelta, CPoint ptScreen)
 {
+	if (b_IsLoading || !Map->GetIsoSize() || zDelta == 0) return TRUE;
 	CPoint pt = ptScreen;
 	ScreenToClient(&pt);  // Attention: MouseWheel event has screen coordinates in contrast to e.g. MouseMove
 
@@ -6765,36 +6946,49 @@ BOOL CIsoView::OnMouseWheel(UINT nFlags, short zDelta, CPoint ptScreen)
 	CMyViewFrame& dlg = *(CMyViewFrame*)owner;
 	dlg.m_minimap.RedrawWindow(NULL, NULL, RDW_INVALIDATE | RDW_UPDATENOW);
 	
-	return CView::OnMouseWheel(nFlags, zDelta, pt);
+	return TRUE;
 }
 
 void CIsoView::Zoom(CPoint& pt, float f)
 {
+	if (b_IsLoading || !Map->GetIsoSize() || f == 0.0f) return;
+	RECT display;
+	GetWindowRect(&display);
+	const float maximumScale = ViewZoom::GetMaximumScale(lpds, display);
 	auto oldScaledMPos = GetProjectedCoordinatesFromClientCoordinates(pt);
 
 	auto oldScale = m_viewScale;
 
 	auto oldViewScaleControl = m_viewScaleControl;
 	m_viewScaleControl *= (1.0f - f * theApp.m_Options.viewScaleSpeed);
-	if (m_viewScaleControl > 1.0f)
-		m_viewScaleControl = 1.0f;
-	if (m_viewScaleControl < 0.1f)
-		m_viewScaleControl = 0.1f;
+	m_viewScaleControl = std::clamp(m_viewScaleControl, ViewZoom::MinimumScale, maximumScale);
+	float nextScale = m_viewScaleControl;
 		
-	if (!theApp.m_Options.viewScaleUseSteps)
-		m_viewScale.set(m_viewScaleControl, m_viewScaleControl);
-	else
+	if (theApp.m_Options.viewScaleUseSteps)
 	{
-		// find previous step
-		auto prevStepIt = std::find_if(theApp.m_Options.viewScaleSteps.rbegin(), theApp.m_Options.viewScaleSteps.rend(), [oldScale](auto f) {return f >= oldScale.x;});
-		auto stepIt = std::find_if(theApp.m_Options.viewScaleSteps.rbegin(), theApp.m_Options.viewScaleSteps.rend(), [this](auto f) {return f >= m_viewScaleControl;});
-		if (stepIt > prevStepIt)
-			stepIt = prevStepIt + 1;
-		if (stepIt < prevStepIt)
-			stepIt = prevStepIt - 1;
-		auto nextScale = stepIt == theApp.m_Options.viewScaleSteps.rend() ? 1.0f : *stepIt;
-		m_viewScale.set(nextScale, nextScale);
+		// Select at most one adjacent step without moving an iterator past an
+		// endpoint. Existing settings are normalized to descending finite steps.
+		const auto& steps = theApp.m_Options.viewScaleSteps;
+		if (nextScale > oldScale.x)
+		{
+			const auto step = std::find_if(steps.rbegin(), steps.rend(),
+				[oldScale](float value) { return value > oldScale.x + 0.0001f; });
+			nextScale = step == steps.rend() ? maximumScale : std::min(*step, maximumScale);
+		}
+		else if (nextScale < oldScale.x)
+		{
+			const auto step = std::find_if(steps.begin(), steps.end(),
+				[oldScale](float value) { return value < oldScale.x - 0.0001f; });
+			nextScale = step == steps.end() ? ViewZoom::MinimumScale : *step;
+		}
+		m_viewScaleControl = nextScale;
 	}
+	if (!ViewZoom::EnsureSceneBuffers(dd, lpds, lpdsBack, lpdsTemp, display, nextScale))
+	{
+		m_viewScaleControl = oldViewScaleControl;
+		return;
+	}
+	m_viewScale.set(nextScale, nextScale);
 	
 	auto newScaledMPos = GetProjectedCoordinatesFromClientCoordinates(pt);
 

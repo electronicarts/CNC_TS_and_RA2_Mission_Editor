@@ -451,6 +451,7 @@
     <ClInclude Include="variables.h" />
     <ClInclude Include="Vec2.h" />
     <ClInclude Include="ViewObjects.h" />
+    <ClInclude Include="ViewZoom.h" />
     <ClInclude Include="WaypointID.h" />
     <ClInclude Include="MapCode.h" />
   </ItemGroup>
