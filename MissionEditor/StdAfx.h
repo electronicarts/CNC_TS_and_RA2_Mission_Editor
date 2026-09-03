@@ -31,6 +31,9 @@
 #define VC_EXTRALEAN	
 #define NOMINMAX
 
+// Winsock2 must precede the MFC headers, which otherwise include winsock.h.
+#include <winsock2.h>
+
 #pragma warning(disable: 4503)
 #pragma warning(disable: 4786)
 #pragma warning(disable: 4800)

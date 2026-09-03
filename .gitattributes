@@ -1,0 +1,6 @@
+# INI status labels intentionally retain a trailing separator space.
+MissionEditor/data/FinalAlert2/Translations/*.ini whitespace=-blank-at-eol
+
+# These existing Visual Studio project files use CRLF line endings.
+*.vcxproj whitespace=cr-at-eol
+*.vcxproj.filters whitespace=cr-at-eol

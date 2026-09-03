@@ -27,6 +27,7 @@
 #include "FinalSun.h"
 #include "FinalSunDlg.h"
 #include "tsoptions.h"
+#include "McpSettingsDlg.h"
 #include "info.h"
 #include "loading.h"
 #include "MapOpenDialog.h"
@@ -68,6 +69,7 @@ static char THIS_FILE[] = __FILE__;
 #include <sys/stat.h>
 #include <io.h>
 #include <stdio.h>
+#include <exception>
 
 extern ACTIONDATA AD;
 extern BOOL bNoDraw;
@@ -106,6 +108,11 @@ CFinalSunDlg::CFinalSunDlg(CWnd* pParent /*=NULL*/)
 
 }
 
+CFinalSunDlg::~CFinalSunDlg()
+{
+	m_mcpServer.Stop();
+}
+
 void CFinalSunDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -115,11 +122,14 @@ void CFinalSunDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CFinalSunDlg, CDialog)
 	//{{AFX_MSG_MAP(CFinalSunDlg)
+	ON_WM_DESTROY()
+	ON_MESSAGE(WM_FINALALERT_MCP_DISPATCH, OnMcpDispatch)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_COMMAND(ID_FILE_QUIT, OnFileQuit)
 	ON_WM_SYSCOMMAND()
 	ON_COMMAND(ID_OPTIONS_TIBERIANSUNOPTIONS, OnOptionsTiberiansunoptions)
+	ON_COMMAND(ID_OPTIONS_MCPSETTINGS, OnOptionsMcpSettings)
 	ON_COMMAND(ID_FILE_OPENMAP, OnFileOpenmap)
 	ON_COMMAND(ID_FILE_SAVEAS, OnFileSaveas)
 	ON_COMMAND(ID_OPTIONS_EXPORTRULESINI, OnOptionsExportrulesini)
@@ -417,8 +427,36 @@ BOOL CFinalSunDlg::OnInitDialog()
 	}
 #endif
 	
+	try
+	{
+		if (m_mcpServer.Start(GetSafeHwnd()))
+			errstream << "FinalAlert MCP server started" << endl;
+		else
+			errstream << "FinalAlert MCP server is disabled or could not start" << endl;
+	}
+	catch (const std::exception& exception)
+	{
+		errstream << "FinalAlert MCP server failed to start: " << exception.what() << endl;
+	}
+	catch (...)
+	{
+		errstream << "FinalAlert MCP server failed to start with an unknown error" << endl;
+	}
+	errstream.flush();
 
 	return TRUE;  
+}
+
+void CFinalSunDlg::OnDestroy()
+{
+	m_mcpServer.Stop();
+	CDialog::OnDestroy();
+}
+
+LRESULT CFinalSunDlg::OnMcpDispatch(WPARAM, LPARAM)
+{
+	m_mcpServer.ProcessPendingRequests(*this);
+	return 0;
 }
 
 void CFinalSunDlg::OnPaint() 
@@ -489,6 +527,12 @@ void CFinalSunDlg::OnOptionsTiberiansunoptions()
 	
 	ShowOptionsDialog();
 	
+}
+
+void CFinalSunDlg::OnOptionsMcpSettings()
+{
+	CMcpSettingsDlg dialog(m_mcpServer.IsRunning(), this);
+	dialog.DoModal();
 }
 
 void CFinalSunDlg::OnFileOpenmap() 
@@ -2058,6 +2102,8 @@ void CFinalSunDlg::OnFileNew()
 void CFinalSunDlg::UpdateStrings()
 {
 	last_succeeded_operation=20;
+	if (Map->GetIsoSize() == 0)
+		SetWindowText(GetLanguageStringACP("MainDialogCaption") + " (" + GetLanguageStringACP("NoMapLoaded") + ")");
 
 	CString str;
 	
@@ -2073,32 +2119,9 @@ void CFinalSunDlg::UpdateStrings()
 	// first, we load the original menu (we can´t translate from for example german!)
 	my_menu->LoadMenu(IDR_MAIN);
 
-	int i,e;
-	for(i=0;i<my_menu->GetMenuItemCount();i++)
-	{
-		MENUITEMINFO mii;
-		ZeroMemory(&mii, sizeof(MENUITEMINFO));
-		mii.cbSize=sizeof(MENUITEMINFO);
-		mii.fMask=MIIM_ID | MIIM_STATE | MIIM_TYPE;
+	int i;
+	TranslateMenu(my_menu);
 
-		my_menu->GetMenuItemInfo(i, &mii, TRUE);
-		my_menu->GetMenuString(i, str, MF_BYPOSITION);
-		my_menu->ModifyMenu(i,mii.fState | mii.fType | MF_BYPOSITION | MF_STRING, mii.wID, TranslateStringACP((LPCTSTR)str));
-		for(e=0;e<my_menu->GetSubMenu(i)->GetMenuItemCount();e++)
-		{
-			int id=my_menu->GetSubMenu(i)->GetMenuItemID(e);
-			
-			ZeroMemory(&mii, sizeof(MENUITEMINFO));
-			mii.cbSize=sizeof(MENUITEMINFO);
-			mii.fMask=MIIM_ID | MIIM_STATE | MIIM_TYPE;
-			my_menu->GetSubMenu(i)->GetMenuItemInfo(e, &mii, TRUE);
-			my_menu->GetSubMenu(i)->GetMenuString(e, str, MF_BYPOSITION);
-			my_menu->GetSubMenu(i)->ModifyMenu(e,mii.fState | mii.fType | MF_BYPOSITION | MF_STRING, mii.wID, TranslateStringACP((LPCTSTR)str));
-			
-		}
-	}
-
-	
 	if(theApp.m_Options.bEasy) my_menu->CheckMenuItem(ID_OPTIONS_SIMPLEVIEW, MF_BYCOMMAND | MF_CHECKED);
 	if(theApp.m_Options.bDisableAutoShore) my_menu->CheckMenuItem(ID_OPTIONS_DISABLEAUTOSHORE, MF_BYCOMMAND | MF_CHECKED);
 	if(theApp.m_Options.bDisableAutoLat) my_menu->CheckMenuItem(ID_OPTIONS_DISABLEAUTOLAT, MF_BYCOMMAND | MF_CHECKED);
@@ -2221,6 +2244,8 @@ void CFinalSunDlg::UnloadAll()
 	int iQuit=MessageBox(GetLanguageStringACP("MainDialogExitQuestion"), GetLanguageStringACP("MainDialogExitQuestionCap"), MB_ICONQUESTION | MB_YESNO | MB_DEFBUTTON2);
 	if(iQuit==IDNO) return;
 	else{
+		m_mcpServer.Stop();
+
 		try
 		{
 			
@@ -2704,8 +2729,9 @@ BOOL CFinalSunDlg::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 			s.LoadString(nID);
 			s=TranslateStringACP(s);
 			//pTTT->lpszText = s;
-			if(s.GetLength()>80) s.SetAt(80, 0);
-			strcpy(pTTT->szText, s);
+			static CString tooltipText;
+			tooltipText = s;
+			pTTT->lpszText = const_cast<LPSTR>(tooltipText.GetString());
 			pTTT->hinst = NULL;
 			return(TRUE);
 		}

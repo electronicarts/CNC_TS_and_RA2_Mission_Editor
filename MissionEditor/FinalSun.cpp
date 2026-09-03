@@ -187,6 +187,11 @@ BOOL CFinalSunApp::InitInstance()
 	languagefile += "\\FALanguage.ini";
 #endif
 	language.LoadFile(languagefile);
+#ifdef RA2_MODE
+	for (const char* name : { "Russian", "Ukrainian", "Spanish" })
+		language.InsertFile(std::string(AppPath) + "\\Translations\\" + name + ".ini", nullptr);
+#endif
+	InstallDialogLocalization();
 
 	if (language.sections.size() == 0)
 	{
@@ -284,6 +289,7 @@ BOOL CFinalSunApp::InitInstance()
 			opts.bSearchLikeTS = TRUE;
 		else opts.bSearchLikeTS = FALSE;
 	}
+	opts.GameStringEncoding = optini.sections[app].values.emplace("GameStringEncoding", "auto").first->second;
 	opts.bPreferLocalTheaterFiles = optini.sections[app].values.emplace("PreferLocalTheaterFiles", opts.bPreferLocalTheaterFiles ? "1" : "0").first->second == "1";
 
 	opts.bDoNotLoadAircraftGraphics = optini.sections["Graphics"].values["NoAircraftGraphics"] == "1";
@@ -373,6 +379,7 @@ BOOL CFinalSunApp::InitInstance()
 		dlg.DoModal();
 	}
 
+	RemoveDialogLocalization();
 	// Map and dialog closed, do further work if required	
 
 	return FALSE;

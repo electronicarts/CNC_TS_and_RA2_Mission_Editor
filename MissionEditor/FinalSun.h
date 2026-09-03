@@ -40,6 +40,7 @@
 struct OPTIONS{
 	CString TSExe;
 	CString LanguageName;
+	CString GameStringEncoding = "auto";
 	CString prev_maps[4];
 	bool bPreferLocalTheaterFiles = true;
 	BOOL bFlat;

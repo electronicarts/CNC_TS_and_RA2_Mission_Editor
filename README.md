@@ -2,6 +2,26 @@
 
 This repository contains the source code for the FinalSun/FinalAlert (YR) Mission Editor.
 
+## Fork additions
+
+- An in-process, loopback-only MCP server exposes 24 tools for inspecting,
+  creating, editing, validating, previewing and saving RA2/YR maps. Coordinated
+  edits and semantic-image imports use operation IDs for retry protection.
+- **Options > MCP settings** configures startup, port, endpoint, authentication,
+  allowlists and request-size limits. Settings are saved atomically and take
+  effect after restarting the editor.
+- Russian, Ukrainian and Spanish translations cover menus, dialogs and editor
+  messages. Game-string decoding repairs legacy Cyrillic CSF text and supports
+  an explicit encoding override.
+- Regression checks cover translation completeness, CSF decoding and MCP
+  configuration persistence. `MissionEditor/data/shared/Test-FinalAlertMcp.ps1`
+  checks the MCP protocol against a running editor.
+
+Build this fork with `FinalAlertRelease YR|Win32` and the v143 x86 toolchain.
+The output under `dist/FinalAlert2YR/` includes the executable and runtime data;
+keep the full package together. MCP connection details and localization notes
+are included in the packaged `README-MCP-RU.md` and `README-LOCALIZATION-RU.md`.
+
 The official version for both applications has been increased to v2.0 in order to illustrate they now run properly on modern operating systems. We also used this opporunity to update the application and fix some known issues.
 
 # Fixes and Changes

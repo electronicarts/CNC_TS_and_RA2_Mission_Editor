@@ -56,7 +56,7 @@ std::wstring utf8ToUtf16(const std::string& utf8)
 
 	// unterminatedCountWChars will be the count of WChars NOT including the terminating zero (due to passing in utf8.size() instead of -1)
 	auto utf8Count = utf8.size();
-	auto unterminatedCountWChars = MultiByteToWideChar(CP_UTF8, MB_PRECOMPOSED | MB_ERR_INVALID_CHARS, utf8.data(), utf8Count, nullptr, 0);
+	auto unterminatedCountWChars = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, utf8.data(), utf8Count, nullptr, 0);
 	if (unterminatedCountWChars == 0)
 	{
 		throw std::runtime_error("UTF8 -> UTF16 conversion failed");
@@ -64,7 +64,7 @@ std::wstring utf8ToUtf16(const std::string& utf8)
 
 	std::wstring utf16;
 	utf16.resize(unterminatedCountWChars);
-	if (MultiByteToWideChar(CP_UTF8, MB_PRECOMPOSED | MB_ERR_INVALID_CHARS, utf8.data(), utf8Count, utf16.data(), unterminatedCountWChars) == 0)
+	if (MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, utf8.data(), utf8Count, utf16.data(), unterminatedCountWChars) == 0)
 	{
 		throw std::runtime_error("UTF8 -> UTF16 conversion failed");
 	}
@@ -80,7 +80,7 @@ std::wstring utf8ToUtf16(const char* utf8)
 		return L"";
 
 	// unterminatedCountWChars will be the count of WChars NOT including the terminating zero (due to passing in utf8.size() instead of -1)
-	auto unterminatedCountWChars = MultiByteToWideChar(CP_UTF8, MB_PRECOMPOSED | MB_ERR_INVALID_CHARS, utf8, utf8Count, nullptr, 0);
+	auto unterminatedCountWChars = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, utf8, utf8Count, nullptr, 0);
 	if (unterminatedCountWChars == 0)
 	{
 		throw std::runtime_error("UTF8 -> UTF16 conversion failed");
@@ -88,7 +88,7 @@ std::wstring utf8ToUtf16(const char* utf8)
 
 	std::wstring utf16;
 	utf16.resize(unterminatedCountWChars);
-	if (MultiByteToWideChar(CP_UTF8, MB_PRECOMPOSED | MB_ERR_INVALID_CHARS, utf8, utf8Count, utf16.data(), unterminatedCountWChars) == 0)
+	if (MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, utf8, utf8Count, utf16.data(), unterminatedCountWChars) == 0)
 	{
 		throw std::runtime_error("UTF8 -> UTF16 conversion failed");
 	}
@@ -367,7 +367,11 @@ void ShowOptionsDialog()
 	CString oldLang=theApp.m_Options.LanguageName;
 	theApp.m_Options.LanguageName=opt.m_LanguageName;
 	if(oldLang!=theApp.m_Options.LanguageName && theApp.m_pMainWnd!=NULL && theApp.m_pMainWnd->m_hWnd!=NULL)
+	{
 		((CFinalSunDlg*)theApp.m_pMainWnd)->UpdateStrings();
+		RefreshDialogLocalization();
+		((CFinalSunDlg*)theApp.m_pMainWnd)->SetReady();
+	}
 
 	optini.SaveFile(iniFile);
 }
@@ -413,6 +417,30 @@ CString TranslateStringVariables(int n, const char* originaltext, const char* in
 	return orig;
 }
 
+namespace
+{
+CString LanguageValue(CString value)
+{
+	value.Replace("\\n", "\n");
+	value.Replace("\\r", "\r");
+	value.Replace("\\t", "\t");
+	return ToACP(value);
+}
+
+CString LanguageKey(CString key)
+{
+	key.Trim();
+	key.Replace("\n", "\\n");
+	key.Replace("\r", "\\r");
+	key.Replace("\t", "\\t");
+	key.Replace("=", "\\x3d");
+	key.Replace("[", "\\x5b");
+	key.Replace("]", "\\x5d");
+	key.Replace(";", "\\x3b");
+	return key;
+}
+}
+
 // retrieve the string name in the correct language (name is an ID).
 CString GetLanguageStringACP(CString name)
 {
@@ -423,11 +451,11 @@ CString GetLanguageStringACP(CString name)
 		if(language.sections["English-StringsRA2"].FindName(name)>=0)
 		{
 			CString s=language.sections["English-StringsRA2"].values[name];
-			return ToACP(s);
+			return LanguageValue(s);
 		}
 	}
 	else
-		return ToACP(language.sections[sec2].values[name]);
+		return LanguageValue(language.sections[sec2].values[name]);
 #endif
 
 
@@ -443,7 +471,7 @@ CString GetLanguageStringACP(CString name)
 		s=TranslateStringVariables(9, s, "FinalAlert 2");
 #endif
 #endif
-		return ToACP(s);
+		return LanguageValue(s);
 	}
 
 	CString s;
@@ -461,7 +489,7 @@ CString GetLanguageStringACP(CString name)
 
 	
 
-	return ToACP(s);
+	return LanguageValue(s);
 }
 
 CString TranslateStringACP(WCHAR* u16EnglishString)
@@ -478,31 +506,33 @@ CString TranslateStringACP(CString u8EnglishString)
 		return u8EnglishString;
 	}
 
+	const CString key = LanguageKey(u8EnglishString);
+
 #ifdef RA2_MODE
 	CString sec2=theApp.m_Options.LanguageName+"-TranslationsRA2";
-	if(language.sections[sec2].values.end()==language.sections[sec2].values.find(u8EnglishString))
+	if(language.sections[sec2].values.end()==language.sections[sec2].values.find(key))
 	{
-		if(language.sections["English-TranslationsRA2"].FindName(u8EnglishString)>=0)
+		if(language.sections["English-TranslationsRA2"].FindName(key)>=0)
 		{
-			CString s=language.sections["English-TranslationsRA2"].values[u8EnglishString];
-			return ToACP(s);
+			CString s=language.sections["English-TranslationsRA2"].values[key];
+			return LanguageValue(s);
 		}
 	}
 	else
-		return ToACP(language.sections[sec2].values[u8EnglishString]);
+		return LanguageValue(language.sections[sec2].values[key]);
 #endif
 	
 	
 	CString sec=theApp.m_Options.LanguageName+"-Translations";
 	
 	// check if the string can be translated
-	if(language.sections[sec].values.end()==language.sections[sec].values.find(u8EnglishString))
+	if(language.sections[sec].values.end()==language.sections[sec].values.find(key))
 	{
 		CString seceng;
 		seceng="English-Translations";
-		if(language.sections[seceng].FindName(u8EnglishString)>=0)
+		if(language.sections[seceng].FindName(key)>=0)
 		{
-			CString s=language.sections[seceng].values[u8EnglishString];
+			CString s=language.sections[seceng].values[key];
 #ifndef RA2_MODE
 			s=TranslateStringVariables(9, s, "FinalSun");
 #else
@@ -512,7 +542,7 @@ CString TranslateStringACP(CString u8EnglishString)
 			s=TranslateStringVariables(9, s, "FinalAlert 2");
 #endif
 #endif
-			return ToACP(s);
+			return LanguageValue(s);
 		}
 #ifndef RA2_MODE
 		return ToACP(TranslateStringVariables(9,u8EnglishString,"FinalSun"));
@@ -525,7 +555,7 @@ CString TranslateStringACP(CString u8EnglishString)
 #endif
 	}
 
-	CString s=language.sections[sec].values[u8EnglishString];
+	CString s=language.sections[sec].values[key];
 #ifndef RA2_MODE
 	s=TranslateStringVariables(9,s,"FinalSun");
 #else
@@ -536,9 +566,96 @@ CString TranslateStringACP(CString u8EnglishString)
 #endif
 #endif
 
-	return ToACP(s);
+	return LanguageValue(s);
 }
 
+
+
+namespace
+{
+HHOOK localizationHook = nullptr;
+struct CaptionTranslation { std::wstring source; std::wstring displayed; };
+std::map<HWND, CaptionTranslation> localizedCaptions;
+
+BOOL CALLBACK TranslateCaption(HWND window, LPARAM)
+{
+    wchar_t className[64] = {};
+    GetClassNameW(window, className, 64);
+    if (wcscmp(className, L"Static") && wcscmp(className, L"Button") && wcscmp(className, L"#32770"))
+        return TRUE; // Never translate editable map values, object IDs or combo contents.
+    const int length = GetWindowTextLengthW(window);
+    if (!length) return TRUE;
+    std::wstring text(length + 1, L'\0');
+    text.resize(GetWindowTextW(window, text.data(), length + 1));
+    auto& caption = localizedCaptions[window];
+    if (text != caption.displayed) caption.source = text;
+    const CString translated = TranslateStringACP(utf16ToUtf8(caption.source).c_str());
+    const int count = MultiByteToWideChar(CP_ACP, 0, translated, -1, nullptr, 0);
+    if (!count) return TRUE;
+    std::wstring wide(count, L'\0');
+    MultiByteToWideChar(CP_ACP, 0, translated, -1, wide.data(), count);
+    wide.resize(count - 1);
+    caption.displayed = wide;
+    if (text != wide) SetWindowTextW(window, wide.c_str());
+    return TRUE;
+}
+
+BOOL CALLBACK TranslateDialog(HWND window, LPARAM)
+{
+    TranslateCaption(window, 0);
+    EnumChildWindows(window, TranslateCaption, 0);
+    return TRUE;
+}
+
+LRESULT CALLBACK LocalizationHook(int code, WPARAM wParam, LPARAM lParam)
+{
+    if (code >= 0)
+    {
+        const auto* message = reinterpret_cast<const CWPRETSTRUCT*>(lParam);
+        if (message->message == WM_INITDIALOG)
+            TranslateDialog(message->hwnd, 0);
+        else if (message->message == WM_NCDESTROY)
+            localizedCaptions.erase(message->hwnd);
+    }
+    return CallNextHookEx(localizationHook, code, wParam, lParam);
+}
+}
+
+void InstallDialogLocalization()
+{
+    localizationHook = SetWindowsHookExW(WH_CALLWNDPROCRET, LocalizationHook, nullptr, GetCurrentThreadId());
+}
+
+void RemoveDialogLocalization()
+{
+    if (localizationHook) UnhookWindowsHookEx(localizationHook);
+    localizationHook = nullptr;
+    localizedCaptions.clear();
+}
+
+void RefreshDialogLocalization()
+{
+    EnumThreadWindows(GetCurrentThreadId(), TranslateDialog, 0);
+}
+
+void TranslateMenu(CMenu* menu)
+{
+    for (int i = 0; i < menu->GetMenuItemCount(); ++i)
+    {
+        CMenu* submenu = menu->GetSubMenu(i);
+        if (submenu) TranslateMenu(submenu);
+        CString source;
+        menu->GetMenuString(i, source, MF_BYPOSITION);
+        if (source.IsEmpty()) continue; // Separator, preserve its type and state.
+        CString translated = TranslateStringACP(source);
+        MENUITEMINFO info = {};
+        info.cbSize = sizeof(info);
+        info.fMask = MIIM_STRING;
+        info.dwTypeData = translated.GetBuffer();
+        menu->SetMenuItemInfo(i, &info, TRUE);
+        translated.ReleaseBuffer();
+    }
+}
 
 
 void TruncSpace(string& str)

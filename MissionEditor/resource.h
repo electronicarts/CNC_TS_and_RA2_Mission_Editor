@@ -97,6 +97,7 @@
 #define IDD_USERSCRIPTS                 288
 #define IDD_COMBO_UINPUT                289
 #define IDC_EDITOR_ARROW                299
+#define IDD_MCP_SETTINGS                300
 #define IDC_BULB                        1000
 #define IDC_STARTUP                     1001
 #define IDC_NEXTTIP                     1002
@@ -594,6 +595,18 @@
 #define ID_HELP_SHOWLOGS40140           40140
 #define ID_OPTIONS_SMOOTHZOOM           40141
 #define ID_OPTIONS_USEDEFAULTMOUSECURSOR 40142
+#define ID_OPTIONS_MCPSETTINGS           40144
+
+#define IDC_MCP_ENABLED                 1464
+#define IDC_MCP_PORT                    1465
+#define IDC_MCP_ENDPOINT                1466
+#define IDC_MCP_BIND_ADDRESS            1467
+#define IDC_MCP_URL                     1468
+#define IDC_MCP_AUTH_TOKEN              1469
+#define IDC_MCP_ALLOWED_HOSTS           1470
+#define IDC_MCP_ALLOWED_ORIGINS         1471
+#define IDC_MCP_MAX_REQUEST_BYTES       1472
+#define IDC_MCP_STATUS                  1473
 
 #define IDS_LINEARVERSION               57604
 #define IDC_TOOLTIPCENTER               65535
@@ -602,9 +615,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        300
-#define _APS_NEXT_COMMAND_VALUE         40144
-#define _APS_NEXT_CONTROL_VALUE         1464
+#define _APS_NEXT_RESOURCE_VALUE        301
+#define _APS_NEXT_COMMAND_VALUE         40145
+#define _APS_NEXT_CONTROL_VALUE         1474
 #define _APS_NEXT_SYMED_VALUE           111
 #endif
 #endif

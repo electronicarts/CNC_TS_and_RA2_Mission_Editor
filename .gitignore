@@ -63,6 +63,10 @@ desktop.ini
 *.bak
 *.idb
 
+# Python test caches
+__pycache__/
+*.py[cod]
+
 # FinalSun/FinalAlert specific
 dist/
 intermediate/
