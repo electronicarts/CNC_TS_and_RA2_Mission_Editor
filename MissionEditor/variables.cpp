@@ -129,13 +129,44 @@ int overlay_count=9;
 const std::string editor_name = "FinalAlert 2";
 #endif
 
+static std::wstring EnsureTrailingBackslash(std::wstring path)
+{
+    const auto isSeparator = [](wchar_t character) { return character == L'\\' || character == L'/'; };
+    while (path.size() > 1 && isSeparator(path.back()) && isSeparator(path[path.size() - 2]))
+        path.pop_back();
+
+    if (!path.empty())
+    {
+        if (isSeparator(path.back()))
+            path.back() = L'\\';
+        else
+            path.push_back(L'\\');
+    }
+    return path;
+}
+
 static const std::string GetAppDataPath()
 {
     _setmbcp(CP_UTF8);
     setlocale(LC_ALL, "C");
     if (!setlocale(LC_CTYPE, ".65001"))
         setlocale(LC_CTYPE, "");
+
     CoInitializeEx(NULL, COINIT_MULTITHREADED);
+
+    const DWORD overrideSize = GetEnvironmentVariableW(L"FINALALERT2_APPDATA", nullptr, 0);
+    if (overrideSize > 1)
+    {
+        std::wstring overridePath(overrideSize, L'\0');
+        const DWORD overrideLength = GetEnvironmentVariableW(
+            L"FINALALERT2_APPDATA", overridePath.data(), overrideSize);
+        if (overrideLength > 0 && overrideLength < overrideSize)
+        {
+            overridePath.resize(overrideLength);
+            return utf16ToUtf8(EnsureTrailingBackslash(overridePath));
+        }
+    }
+
     CComPtr<IKnownFolderManager> manager;
     CComPtr<IKnownFolder> local_app_data;
     CComHeapPtr<WCHAR> local_app_data_folder;
@@ -150,7 +181,7 @@ static const std::string GetAppDataPath()
             int a = 0;
             std::string AppFolder = utf16ToUtf8(std::wstring(local_app_data_folder));
             //return CString(CW2A(CStringW(local_app_data_folder), CP_ACP)) + "\\" + editor_name + "\\";
-            return AppFolder + "\\" + editor_name + "\\";
+            return utf16ToUtf8(EnsureTrailingBackslash(utf8ToUtf16(AppFolder + "\\" + editor_name)));
         }
     }
 
@@ -161,7 +192,7 @@ static const std::string GetAppDataPath()
     std::size_t end = appPath.rfind(L'\\');
     if (end != std::wstring::npos)
         appPath.resize(end + 1);
-    return utf16ToUtf8(appPath);
+    return utf16ToUtf8(EnsureTrailingBackslash(appPath));
 }
 
 /* Application specific global variables */

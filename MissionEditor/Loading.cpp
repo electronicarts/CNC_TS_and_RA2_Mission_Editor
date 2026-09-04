@@ -22,6 +22,7 @@
 //
 
 #include "stdafx.h"
+#include "CsfText.h"
 #include "FinalSun.h"
 #include "Loading.h"
 #include <fcntl.h>
@@ -6241,6 +6242,9 @@ extern map<CString, XCString> AllStrings;
 void CLoading::LoadStrings()
 {
 	last_succeeded_operation=9;
+	// A failed reload must fall back to rules names, not keep a previous game's CSF.
+	AllStrings.clear();
+	CCStrings.clear();
 
 #ifdef RA2_MODE
 
@@ -6299,121 +6303,43 @@ void CLoading::LoadStrings()
 			
 			if (!lpData)
 			{
-				MessageBox("String file not found, using rules.ini names","Error");
+				MessageBox(GetLanguageStringACP("Err_StringFile"), TranslateStringACP("Error"));
 				return;
 			}
 		}
 		else
 		{
-			MessageBox("String file not found, using rules.ini names","Error");
+			MessageBox(GetLanguageStringACP("Err_StringFile"), TranslateStringACP("Error"));
 			return;
 		}
 		
 	}
 
-	BYTE* orig=static_cast<BYTE*>(lpData);
-
-	if(!(lpData=Search(&lpData, (BYTE*)" FSC"))) return;
-
-	RA2STRFILEHEAD head;
-	memcpy(&head, lpData, RA2STRFILEHEADSIZE);
-	
-
-	lpData+=RA2STRFILEHEADSIZE;
-	
-	map<CString, XCString, SortDummy2> strings;
-
-	int i;
-	//try{
-	for(i=0;i<head.dwCount1;i++)
+	std::unique_ptr<BYTE[]> stringData(lpData);
+	std::vector<CsfText::Entry> entries;
+	try
 	{
-		ASSERT(orig+dwSize>lpData);
-
-		if(!(lpData=lpData+4))//Search(&lpData, (BYTE*)" LBL"))) 
-		{
-			
-			return;
-		}
-
-		RA2STRINGENTRY entry;		
-		memcpy(&entry.dwFlag, lpData, 4);
-		lpData+=4;
-		
-		DWORD dwCharCount;
-		memcpy(&dwCharCount, lpData, 4);
-		lpData+=4;
-
-		BYTE* lpID=new(BYTE[dwCharCount+1]);
-		memcpy(lpID, lpData, dwCharCount);
-		lpData+=dwCharCount;
-		lpID[dwCharCount]=0;
-		entry.id=(CHAR*)new(BYTE[dwCharCount+1]);
-		strcpy(entry.id, (LPCSTR)lpID);
-		entry.id[dwCharCount]=0;
-		entry.id_size=dwCharCount;
-		// enable this to show the string ID
-		delete[](lpID);
-
-		
-		BOOL b2Strings=FALSE;
-
-		if(lpData[0]=='W')
-			 b2Strings=TRUE;
-		
-		if(!(lpData=lpData+4))//Search(&lpData, (BYTE*)" RTS")))
-		{			
-			return;
-		}
-
-		memcpy(&dwCharCount, lpData, 4);
-		lpData+=4;
-
-		WCHAR* lpwID=new(WCHAR[dwCharCount+1]);
-		int e;
-		for(e=0;e<dwCharCount;e++)
-		{
-			WCHAR w;
-			memcpy(&w, lpData, 2);
-			lpData+=2;
-			lpwID[e]=~w;
-		}
-		lpwID[dwCharCount]=0;
-		entry.value=lpwID;
-		entry.value_size=dwCharCount;
-
-		if(b2Strings)
-		{
-			
-			memcpy(&dwCharCount, lpData, 4);
-			lpData+=4;
-			
-			
-
-			CHAR* lpwID2=new(CHAR[dwCharCount+1]);
-			int e;
-			for(e=0;e<dwCharCount;e++)
-			{
-				WCHAR w;
-				memcpy(&w, lpData, 1);
-				lpData+=1;
-				lpwID2[e]=w;
-			}
-			lpwID2[dwCharCount]=0;
-			entry.value_asc=lpwID2;
-			entry.value_asc_size=dwCharCount;
-		}
-
-		/*BYTE* bByte=new(BYTE[entry.value_size+1]);
-		wcstombs((LPSTR)bByte, entry.value, entry.value_size+1);
-		bByte[entry.value_size]=0;*/
-		strings[entry.id].SetString(entry.value, entry.value_size);
-		AllStrings[entry.id].SetString(entry.value, entry.value_size);
-
-
-		//delete[] bByte;
+		entries = CsfText::Read(lpData, dwSize);
 	}
-
-	
+	catch (const std::exception& error)
+	{
+		errstream << "LoadStrings(): " << error.what() << std::endl;
+		MessageBox(GetLanguageStringACP("Err_StringFile"), TranslateStringACP("Error"));
+		return;
+	}
+	const CString encoding = theApp.m_Options.GameStringEncoding;
+	const bool legacyRussian = encoding == "windows-1251" ||
+		(encoding != "unicode" && CsfText::IsLegacyRussian(entries));
+	errstream << "LoadStrings(): " << file << ", " << entries.size()
+		<< " strings, encoding=" << (legacyRussian ? "windows-1251 (legacy CSF)" : "Unicode") << std::endl;
+	map<CString, XCString, SortDummy2> strings;
+	for (const auto& entry : entries)
+	{
+		const auto text = legacyRussian ? CsfText::DecodeLegacyRussian(entry.text) : entry.text;
+		strings[entry.label.c_str()].SetString(text.c_str(), static_cast<int>(text.size()));
+		AllStrings[entry.label.c_str()].SetString(text.c_str(), static_cast<int>(text.size()));
+	}
+	int i;
 
 	for(i=0;i<rules.sections.size();i++)
 	{

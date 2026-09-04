@@ -314,50 +314,32 @@ struct XCString
 		len=0;
 		wString=NULL;
 	}
-	void SetString(const CHAR* cString)
+	void SetString(const CHAR* value)
 	{
-		len=strlen(cString);
-
-		this->cString=cString;
-		
-		if(wString) delete[] wString;
-		
-		bUsedDefault=FALSE;
-		wString=new(WCHAR[len+1]);
-		memset(wString, 0, (len+1)*2);
-		
-		//MultiByteToWideChar(CP_ACP, WC_COMPOSITECHECK, cString, len, wString, len+1);
-		mbstowcs(wString, cString, len);		
-
+		const int count = MultiByteToWideChar(CP_ACP, 0, value, -1, nullptr, 0);
+		std::vector<WCHAR> wide(count > 0 ? count : 1, 0);
+		if (count > 0) MultiByteToWideChar(CP_ACP, 0, value, -1, wide.data(), count);
+		SetString(wide.data(), count > 0 ? count - 1 : 0);
 	}
-	void SetString(const WCHAR* wString, int len)
+	void SetString(const WCHAR* value, int length)
 	{
-		this->len=len;
-
-		if(this->wString) delete[] this->wString;
-		
-		bUsedDefault=FALSE;
-
-		this->wString=new(WCHAR[len+1]);	
-		memset(this->wString, 0, (len+1)*2);
-		memcpy(this->wString, wString, len*2);
-
-		auto bufferSize = WideCharToMultiByte(CP_ACP, WC_COMPOSITECHECK, this->wString, len + 1, nullptr, 0, NULL, &bUsedDefault);
-		if (bufferSize == 0)
-		{
-			cString = "";
-			return; // failed
-		}
-
-		std::vector<BYTE> bByte(bufferSize + 4, 0);
-		if (WideCharToMultiByte(CP_ACP, WC_COMPOSITECHECK, this->wString, len + 1, (LPSTR)bByte.data(), bufferSize, NULL, &bUsedDefault) == 0)
-		{
-			cString = "";
-			return; // failed
-		}
-		cString = bByte.data();
-
+		// Allocate before deleting: callers may pass this object's current buffer.
+		auto wide = std::make_unique<WCHAR[]>(length + 1);
+		memcpy(wide.get(), value, length * sizeof(WCHAR));
+		wide[length] = 0;
+		delete[] wString;
+		wString = wide.release();
+		len = length;
+		bUsedDefault = FALSE;
+		const bool utf8 = GetACP() == CP_UTF8;
+		const DWORD flags = utf8 ? 0 : WC_NO_BEST_FIT_CHARS;
+		BOOL* usedDefault = utf8 ? nullptr : &bUsedDefault;
+		const int count = WideCharToMultiByte(CP_ACP, flags, wString, len + 1, nullptr, 0, nullptr, usedDefault);
+		std::vector<char> bytes(count > 0 ? count : 1, 0);
+		if (count > 0) WideCharToMultiByte(CP_ACP, flags, wString, len + 1, bytes.data(), count, nullptr, usedDefault);
+		cString = bytes.data();
 	}
+
 	CString cString;
 	WCHAR* wString;
 	BOOL bUsedDefault;

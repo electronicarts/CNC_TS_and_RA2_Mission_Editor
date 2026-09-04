@@ -40,6 +40,10 @@ CString TranslateHouse(CString original, BOOL bToUI=FALSE);
 
 // show options dialog
 void ShowOptionsDialog();
+void InstallDialogLocalization();
+void RemoveDialogLocalization();
+void RefreshDialogLocalization();
+void TranslateMenu(CMenu* menu);
 
 // repairs a trigger (sets flags correctly)
 void RepairTrigger(CString& triggerdata);

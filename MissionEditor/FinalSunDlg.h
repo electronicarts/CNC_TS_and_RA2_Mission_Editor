@@ -46,6 +46,7 @@
 #include "TileSetBrowserFrame.h"	// Hinzugefügt von der Klassenansicht
 #include "ToolSettingsBar.h"
 #include "TriggerEditorDlg.h"
+#include "McpServer.h"
 
 #if _MSC_VER > 1000
 #pragma once
@@ -98,6 +99,7 @@ public:
 	CMapD m_map;	
 	CIniFile m_PKTHeader;
 	CFinalSunDlg(CWnd* pParent = NULL);	// Standard-Konstruktor
+	virtual ~CFinalSunDlg();
 
 // Dialogfelddaten
 	//{{AFX_DATA(CFinalSunDlg)
@@ -122,6 +124,8 @@ protected:
 	// Generierte Message-Map-Funktionen
 	//{{AFX_MSG(CFinalSunDlg)
 	virtual BOOL OnInitDialog();
+	afx_msg void OnDestroy();
+	afx_msg LRESULT OnMcpDispatch(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnFileQuit();
@@ -129,6 +133,7 @@ protected:
 	virtual void OnOK();
 	virtual void OnCancel();
 	afx_msg void OnOptionsTiberiansunoptions();
+	afx_msg void OnOptionsMcpSettings();
 	afx_msg void OnFileOpenmap();
 	afx_msg void OnFileSaveas();
 	afx_msg void OnOptionsExportrulesini();
@@ -236,6 +241,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	void UnloadAll();
+	CMcpServer m_mcpServer;
 	
 	HCURSOR m_hGameCursor;
 	

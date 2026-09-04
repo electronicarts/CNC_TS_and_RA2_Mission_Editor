@@ -84,13 +84,14 @@ void CTSOptions::OnChoose()
 
 	this->GetDlgItem(IDC_EDIT1)->SetWindowText((LPCTSTR)fd.GetPathName());
 
-	delete fd;
 }
 
 void CTSOptions::OnOK() 
 {
 	this->GetDlgItem(IDC_EDIT1)->GetWindowText(m_TSEXE);
-	int n=m_Language.GetItemData(m_Language.GetCurSel()); 
+	const int selection = m_Language.GetCurSel();
+	if (selection == CB_ERR) return;
+	int n = static_cast<int>(m_Language.GetItemData(selection));
 	
 	m_LanguageName=*language.sections["Languages"].GetValue(n);
 
@@ -110,19 +111,23 @@ BOOL CTSOptions::OnInitDialog()
 
 	UpdateData(FALSE);
 
-	int i;
-	for(i=0;i<language.sections["Languages"].values.size();i++)
+	for (int i = 0; i < language.sections["Languages"].values.size(); ++i)
 	{
-		CString lang=*language.sections["Languages"].GetValue(i);
-		lang=language.sections[lang+"Header"].values["Name"];
-
-		
-
-		m_Language.SetItemData(m_Language.AddString(lang),i);
-		if (lang=="English")
-			m_Language.SetCurSel(i);
+		const CString id = *language.sections["Languages"].GetValue(i);
+		const CString name = language.sections[id + "Header"].values["Name"];
+		// Use Unicode so every language name is readable regardless of current language.
+		const int item = static_cast<int>(::SendMessageW(m_Language.m_hWnd, CB_ADDSTRING, 0,
+			reinterpret_cast<LPARAM>(utf8ToUtf16(name.GetString()).c_str())));
+		if (item >= 0) m_Language.SetItemData(item, i);
 	}
+	// CBS_SORT changes indices while adding strings: select only after insertion.
+	for (int item = 0; item < m_Language.GetCount(); ++item)
+	{
+		const int index = static_cast<int>(m_Language.GetItemData(item));
+		if (*language.sections["Languages"].GetValue(index) == theApp.m_Options.LanguageName)
+			m_Language.SetCurSel(item);
+	}
+	if (m_Language.GetCurSel() == CB_ERR) m_Language.SetCurSel(0);
 
-	
 	return TRUE;  
 }

@@ -1,4 +1,4 @@
-// Microsoft Visual C++ generated resource script.
+﻿// Microsoft Visual C++ generated resource script.
 //
 #pragma code_page(65001)
 
@@ -346,30 +346,60 @@ END
 
 #if defined(APSTUDIO_INVOKED) || defined(RA2_MODE)
 #if defined(APSTUDIO_INVOKED)
-IDD_TSOPTIONS$(RA2_MODE) DIALOGEX 0, 0, 197, 183
+IDD_TSOPTIONS$(RA2_MODE) DIALOGEX 0, 0, 280, 183
 #else
-IDD_TSOPTIONS DIALOGEX 0, 0, 197, 183
+IDD_TSOPTIONS DIALOGEX 0, 0, 280, 183
 #endif
 STYLE DS_SETFONT | DS_MODALFRAME | DS_NOFAILCREATE | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 CAPTION "Options"
 FONT 8, "Tahoma", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,140,159,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,85,159,50,14
-    LTEXT           "Red Alert 2 EXE (make sure its in the correct path)",IDC_STATIC,5,5,130,20
-    EDITTEXT        IDC_EDIT1,5,25,130,15,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse",IDC_CHOOSE,140,25,50,15
+    DEFPUSHBUTTON   "OK",IDOK,223,159,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,168,159,50,14
+    LTEXT           "Red Alert 2 EXE (make sure its in the correct path)",IDC_STATIC,5,5,268,20
+    EDITTEXT        IDC_EDIT1,5,25,212,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse",IDC_CHOOSE,223,25,50,15
     LTEXT           "Language / Sprache:",IDC_STATIC,7,51,128,11
-    COMBOBOX        IDC_LANGUAGE,7,63,183,94,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "Support settings",IDC_STATIC,7,81,183,71
+    COMBOBOX        IDC_LANGUAGE,7,63,266,94,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Support settings",IDC_STATIC,7,81,266,71
     CONTROL         "Support mission disks and mods (recommended)",IDC_RULESLIKETS,
-                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,14,92,170,16
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,14,92,253,16
     CONTROL         "Only support original Red Alert 2",IDC_ONLYORIGINAL,
-                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,14,108,168,16
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,14,108,251,16
     CONTROL         "Prefer FinalAlert 2 theater INI files",IDC_PREFER_LOCAL_THEATER_FILES,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,131,164,12
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,131,247,12
 END
 #endif
+
+IDD_MCP_SETTINGS DIALOGEX 0, 0, 448, 335
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "MCP settings"
+FONT 9, "Tahoma", 0, 0, 0x1
+BEGIN
+    CONTROL         "Enable MCP server on editor startup",IDC_MCP_ENABLED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,12,424,12
+    LTEXT           "MCP server is stopped.",IDC_MCP_STATUS,12,32,424,12
+    LTEXT           "Listen address (local only):",IDC_STATIC,12,57,148,12
+    EDITTEXT        IDC_MCP_BIND_ADDRESS,164,54,272,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Port:",IDC_STATIC,12,80,148,12
+    EDITTEXT        IDC_MCP_PORT,164,77,272,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Endpoint path:",IDC_STATIC,12,103,148,12
+    EDITTEXT        IDC_MCP_ENDPOINT,164,100,272,14,ES_AUTOHSCROLL
+    LTEXT           "MCP URL after restart:",IDC_STATIC,12,126,148,12
+    EDITTEXT        IDC_MCP_URL,164,123,272,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Authentication token:",IDC_STATIC,12,149,148,12
+    EDITTEXT        IDC_MCP_AUTH_TOKEN,164,146,272,14,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "Leave the token empty to allow local access without authentication.",IDC_STATIC,164,165,272,22
+    LTEXT           "Allowed hosts:",IDC_STATIC,12,192,148,12
+    EDITTEXT        IDC_MCP_ALLOWED_HOSTS,164,189,272,14,ES_AUTOHSCROLL
+    LTEXT           "Allowed origins:",IDC_STATIC,12,215,148,12
+    EDITTEXT        IDC_MCP_ALLOWED_ORIGINS,164,212,272,14,ES_AUTOHSCROLL
+    LTEXT           "Separate multiple hosts or origins with commas.",IDC_STATIC,12,237,424,12
+    LTEXT           "Maximum request size (bytes):",IDC_STATIC,12,262,148,12
+    EDITTEXT        IDC_MCP_MAX_REQUEST_BYTES,164,259,272,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Changes take effect after restarting the editor. Update your MCP client if the connection settings change.",IDC_STATIC,12,282,424,22
+    DEFPUSHBUTTON   "OK",IDOK,284,307,72,16
+    PUSHBUTTON      "Cancel",IDCANCEL,364,307,72,16
+END
 
 IDD_ALL DIALOG 0, 0, 303, 204
 STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
@@ -3233,6 +3263,7 @@ BEGIN
     POPUP "Options"
     BEGIN
         MENUITEM "Settings",                    ID_OPTIONS_TIBERIANSUNOPTIONS
+        MENUITEM "MCP settings...",             ID_OPTIONS_MCPSETTINGS
         MENUITEM "Show minimap",                ID_OPTIONS_SHOWMINIMAP
         MENUITEM "Easy mode",                   ID_OPTIONS_SIMPLEVIEW
         MENUITEM "Sounds",                      ID_OPTIONS_SOUNDS
@@ -3340,6 +3371,7 @@ BEGIN
     POPUP "Options"
     BEGIN
         MENUITEM "Settings",                    ID_OPTIONS_TIBERIANSUNOPTIONS
+        MENUITEM "MCP settings...",             ID_OPTIONS_MCPSETTINGS
         MENUITEM "Show minimap",                ID_OPTIONS_SHOWMINIMAP
         MENUITEM "Easy mode",                   ID_OPTIONS_SIMPLEVIEW
         MENUITEM "Sounds",                      ID_OPTIONS_SOUNDS

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="FinalSunDebug|Win32">
@@ -180,7 +180,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug YR|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib;$(XccVcpkgDirTriplet)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -189,7 +189,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tests FinalAlertDebug YR|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib;$(XccVcpkgDirTriplet)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -198,7 +198,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertDebug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>RA2_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib;$(XccVcpkgDirTriplet)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>RA2_MODE;RA2_MODE_ICON;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -207,7 +207,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>RA2_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib;$(XccVcpkgDirTriplet)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>RA2_MODE;RA2_MODE_ICON;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -216,7 +216,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalAlertRelease YR|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib;$(XccVcpkgDirTriplet)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>RA2_MODE;YR_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -225,7 +225,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalSunDebug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>TS_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib;$(XccVcpkgDirTriplet)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>TS_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -234,7 +234,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='FinalSunRelease|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>TS_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib;$(XccVcpkgDirTriplet)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>TS_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -242,7 +242,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\MissionEditorPackLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\MissionEditorPackLib;$(XccVcpkgDirTriplet)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -278,6 +278,9 @@
     <ClCompile Include="Loading.cpp" />
     <ClCompile Include="MapD.cpp" />
     <ClCompile Include="MapData.cpp" />
+    <ClCompile Include="McpMapTools.cpp" />
+    <ClCompile Include="McpServer.cpp" />
+    <ClCompile Include="McpSettingsDlg.cpp" />
     <ClCompile Include="MapLoadingDlg.cpp" />
     <ClCompile Include="MapModifier.cpp" />
     <ClCompile Include="MapOpenDialog.cpp" />
@@ -353,6 +356,7 @@
     <ResourceCompile Include="MissionEditor.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CsfText.h" />
     <ClInclude Include="Aircraft.h" />
     <ClInclude Include="AITriggerAddDlg.h" />
     <ClInclude Include="AITriggerTypes.h" />
@@ -388,6 +392,10 @@
     <ClInclude Include="macros.h" />
     <ClInclude Include="MapD.h" />
     <ClInclude Include="MapData.h" />
+    <ClInclude Include="McpMapTools.h" />
+    <ClInclude Include="McpServer.h" />
+    <ClInclude Include="McpSettingsDlg.h" />
+    <ClInclude Include="McpConfigFile.h" />
     <ClInclude Include="MapLoadingDlg.h" />
     <ClInclude Include="MapModifier.h" />
     <ClInclude Include="MapOpenDialog.h" />
@@ -443,6 +451,7 @@
     <ClInclude Include="variables.h" />
     <ClInclude Include="Vec2.h" />
     <ClInclude Include="ViewObjects.h" />
+    <ClInclude Include="ViewZoom.h" />
     <ClInclude Include="WaypointID.h" />
     <ClInclude Include="MapCode.h" />
   </ItemGroup>
